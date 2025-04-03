@@ -1,5 +1,4 @@
 import React from 'react'
-import { FaChessBoard } from 'react-icons/fa'
 import GamePlayer from '../components/gameplay_screen/game_player'
 
 import ChessBoard from '../../public/assets/chess_board.png'

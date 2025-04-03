@@ -1,6 +1,4 @@
 import React from 'react';
-import Nav from './components/Nav';
-import Sidebar from './components/Sidebar';
 import Carousel from './components/landing_page/landing_page_swiper';
 import { CustomTabs } from './components/landing_page/tabs';
 import TournamentCard from './components/landing_page/tournament_card';

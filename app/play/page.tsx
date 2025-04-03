@@ -1,9 +1,7 @@
 'use client'
 import React from 'react'
 import GameBoard from './game_board'
-import { ContentCreatorCard } from '../components/landing_page/content_card'
 import { CustomTabs } from '../components/tab_component'
-import { Dropdown } from "flowbite-react";
 import { SelectDropdown } from '../components/gameplay_screen/sidedropdown'
 import GameButton from '../components/custom_button'
 

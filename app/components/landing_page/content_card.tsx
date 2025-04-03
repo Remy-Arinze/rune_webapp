@@ -18,9 +18,9 @@ export function ContentCreatorCard() {
       <div className="mb-4">
         <h3 className="font-semibold text-gray-800 mb-2">What does your private space look like?</h3>
         <p className="text-gray-700 text-sm leading-relaxed">
-          Do you like to meet a clean and organized house when you return from work, or will you rather work after work? Short men jump, but not as high as you; Don't think they do not.
+          Do you like to meet a clean and organized house when you return from work, or will you rather work after work? Short men jump, but not as high as you; Dont think they do not.
           <br /><br />
-          You think you know all, try ignorance. It kills faster than the knowledge of death itself. Just joking! I'm a King, so don't be scared, I'll make things come to...
+          You think you know all, try ignorance. It kills faster than the knowledge of death itself. Just joking! Im a King, so dont be scared, Ill make things come to...
         </p>
       </div>
 

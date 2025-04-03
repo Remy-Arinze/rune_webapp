@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 import { RiHome5Fill, RiHome5Line, RiMenu2Fill } from "react-icons/ri";
-import { CiGlobe, CiLogout } from "react-icons/ci";
-import { FaGlobe, FaRegUserCircle, FaUserCircle, FaTv } from "react-icons/fa";
+import { CiGlobe } from "react-icons/ci";
+import { FaGlobe} from "react-icons/fa";
 
 interface ItemProps {
 	title: string;
