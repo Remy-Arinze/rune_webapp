@@ -19,10 +19,10 @@ function SidebarItem({ title, path, disabledIcon, filledIcon }: ItemProps) {
   const isActive = pathname === path;
   const linkClass = isActive
     ? "text-black font-bold py-2 bg-[var(--primary)]"
-    : "text-gray-400 font-semibold py-2 hover:bg-gray-100 rounded-lg";
+    : "text-gray-400 font-semibold py-2 hover:bg-[var(--background)] rounded-lg";
 
   return (
-    <li className="mb-1">
+    <li className="mb-3">
       <Link href={path}>
         <div
           className={`${linkClass} rounded-lg flex gap-x-4 items-center text-[13px] pl-2 transition-all duration-200 active:translate-y-[2px]`}
@@ -82,25 +82,25 @@ export default function Sidebar() {
 						/>
 						<SidebarItem
 							title="Play"
-							path="/game"
+							path="/play"
 							filledIcon={<CiGlobe size={18} />}
 							disabledIcon={<FaGlobe size={18} />}
 						/>
-						<SidebarItem
+						{/* <SidebarItem
 							title="Learn"
-							path="/game"
+							path="/learn"
 							filledIcon={<CiGlobe size={18} />}
 							disabledIcon={<FaGlobe size={18} />}
-						/>
+						/> */}
 						<SidebarItem
 							title="Tournament"
-							path="/game"
+							path="/tournament"
 							filledIcon={<CiGlobe size={18} />}
 							disabledIcon={<FaGlobe size={18} />}
 						/>
 						<SidebarItem
 							title="Marketplace"
-							path="/game"
+							path="/marketplace"
 							filledIcon={<CiGlobe size={18} />}
 							disabledIcon={<FaGlobe size={18} />}
 						/>

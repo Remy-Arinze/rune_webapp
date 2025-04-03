@@ -7,7 +7,7 @@ import TournamentCard from './components/landing_page/tournament_card';
 
 export default function Home() {
   return (
-    <div className='ml-10 w-[70vw] overflow-y-auto no-scrollbar scroll-mask'>
+    <div className=' overflow-y-auto no-scrollbar scroll-mask'>
           <Carousel />
           
           <div className='flex mt-10'>

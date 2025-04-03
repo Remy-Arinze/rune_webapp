@@ -31,7 +31,10 @@ export default function RootLayout({
                 </div>
         
                 {/* Main  */}
-                 {children}
+                <div className="ml-10 w-[70vw]">
+     {children}
+                </div>
+            
               </section>
             </main>
        

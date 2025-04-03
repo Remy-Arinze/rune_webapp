@@ -2,10 +2,10 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #E3F77A;
+  --primary: #e3f77a;
   --background: #000601;
-  --dark: #080808;
-  --lightPrimary: #F0FAB9;
+  --dark: rgb(21, 21, 21);
+  --lightPrimary: #f0fab9;
   --white: #f9f9f9;
   --danger: #ff0000;
   --success: #00ff00;
@@ -28,33 +28,29 @@ body {
   scrollbar-width: none;
 }
 .scroll-mask {
-  mask-image: linear-gradient(to bottom,
-      transparent 0%,
-      black 20px,
-      black calc(100% - 20px),
-      transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 20px, black calc(100% - 20px), transparent 100%);
 }
- .swiper-pagination {
-   position: absolute;
-   bottom: 10 !important;
-   /* Force to bottom */
-   display: flex;
-   justify-content: center;
-   gap: 8px;
-   padding-top: 20px;
- }
+.swiper-pagination {
+  position: absolute;
+  bottom: 10 !important;
+  /* Force to bottom */
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 20px;
+}
 
- .swiper-pagination-bullet {
-   width: 12px;
-   height: 12px;
-   background: #D1D5DB;
-   opacity: 1;
-   transition: all 0.3s ease;
- }
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #d1d5db;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
 
- .swiper-pagination-bullet-active {
-   width: 30px;
-   background: #E3F77A;
-   /* Your primary color */
-   border-radius: 4px;
- }
+.swiper-pagination-bullet-active {
+  width: 30px;
+  background: #e3f77a;
+  /* Your primary color */
+  border-radius: 4px;
+}
