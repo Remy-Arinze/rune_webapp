@@ -2,7 +2,6 @@
 import React from 'react'
 import GameBoard from './game_board'
 import { CustomTabs } from '../components/tab_component'
-import { Dropdown } from "flowbite-react";
 import { SelectDropdown } from '../components/dropdown'
 import GameButton from '../components/custom_button'
 

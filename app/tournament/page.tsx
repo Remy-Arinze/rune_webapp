@@ -40,11 +40,12 @@ export default function Tournament() {
             <div></div>
           </CustomTabs>
         </div>
-        <Button children={
-          <div className='flex items-center space-x-1'>
+        <Button className='bg-[var(--primary)] px-20' >
+            <div className='flex items-center space-x-1'>
             <FaPlus color='black'/>
             <p className='text-black'>Create</p>
-          </div> } className='bg-[var(--primary)] px-20' />
+          </div>
+        </Button>
       </div>
     </div>
   )
