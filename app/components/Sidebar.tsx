@@ -27,7 +27,7 @@ function SidebarItem({ title, path, disabledIcon, filledIcon }: ItemProps) {
         <div
           className={`${linkClass} rounded-lg flex gap-x-4 items-center text-[13px] pl-2 transition-all duration-200 active:translate-y-[2px]`}
           style={isActive ? { 
-            boxShadow: '0 3px 0 #B8D35D',
+            boxShadow: '0 3px 0 #65d4d0f8',
             transform: 'translateZ(0)' // Force GPU acceleration
           } : {}}
         >

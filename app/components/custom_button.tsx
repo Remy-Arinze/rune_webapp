@@ -12,8 +12,8 @@ interface GameButtonProps {
 const GameButton: React.FC<GameButtonProps> = ({
   children,
   size = 'md',
-  backgroundColor = '#E3F77A',
-  shadowColor = '#B8D35D',
+  backgroundColor = 'var(--primary)',
+  shadowColor = '#65d4d0f8',
   className = '',
   onClick,
 }) => {

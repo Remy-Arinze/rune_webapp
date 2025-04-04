@@ -58,7 +58,7 @@ export function CustomTabs({
               value={tab.value}
               disabled={tab.disabled}
               style={activeTab === tab.value ? { 
-                boxShadow: '0 3px 0 #B8D35D',
+                boxShadow: '0 3px 0 #65d4d0f8',
                 transform: 'translateZ(0)' // Force GPU acceleration
               } : {}}
               className={`
