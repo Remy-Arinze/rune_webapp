@@ -18,7 +18,9 @@ export default function Marketplace() {
         <Image src={Hero} alt="logo" className='w-full' />
         </div>
 
-        <div className='flex items-center justify-between mt-10'>
+
+<p className='mt-5 mb-2'>Collection</p>
+        <div className='flex items-center justify-between '>
            <NFTCOMPONENT image={One} name={"Rooks Rarity"} description={`Dragonz Land is a Trading Card Play-2-
 Earn Game where each card is a unique…`} units={'100,000'} price={'234'} volume={'1000'} />
            <NFTCOMPONENT image={Two} name={"Queens Crown"} description={`Dragonz Land is a Trading Card Play-2-
