@@ -1,8 +1,9 @@
+"use client"
 import React from 'react'
-import GamePlayer from '../components/gameplay_screen/game_player'
 
-import ChessBoard from '../../public/assets/chess_board.png'
+import ChessBoard from '../../public/assets/chess_board_copy.png'
 import Image from 'next/image'
+import GamePlayer from '../components/gameplay_screen/game_player'
 
 export default function GameBoard() {
   return (

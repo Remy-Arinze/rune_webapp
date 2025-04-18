@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-
 import "./globals.css";
 import Nav from "./components/Nav";
 import Sidebar from "./components/Sidebar";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "Play Rune",
@@ -16,28 +16,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={` antialiased`}
-      >
-          <main className='min-h-screen'>
-              {/* Navigation (fixed) */}
-              <Nav />
-              
-              {/* Content Container */}
-              <section className='flex w-[90%] mx-auto pt-5'>
-                {/* Fixed Sidebar */}
-                <div className='sticky top-[80px] h-[calc(100vh-80px)]'>
-                  <Sidebar />
-                </div>
-        
-                {/* Main  */}
-                <div className="ml-10 w-[70vw]">
-     {children}
-                </div>
-            
-              </section>
-            </main>
-       
+      <body className={`antialiased`}>
+        <main className='min-h-screen'>
+          {/* Navigation (fixed) */}
+          <Nav />
+          
+          {/* Content Container */}
+          <Providers>
+            <section className='flex w-[90%] mx-auto pt-5'>
+              {/* Fixed Sidebar */}
+              <div className='sticky top-[80px] h-[calc(100vh-80px)]'>
+                <Sidebar />
+              </div>
+      
+              {/* Main */}
+              <div className="ml-10 w-[70vw]">
+                {children}
+              </div>
+            </section>
+          </Providers>
+        </main>
       </body>
     </html>
   );

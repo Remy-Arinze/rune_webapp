@@ -107,6 +107,26 @@ export default function Sidebar() {
 					
 					</ul>
 				</nav>
+				<nav className="mt-20">
+					<ul>
+						<SidebarItem
+							title="Login"
+							path="/auth/login"
+							filledIcon={<div className="ml-5"></div>}
+							disabledIcon={<div className="ml-5"></div>}
+						/>
+						
+						<SidebarItem
+							title="SignUp"
+							path="/auth/signup"
+							filledIcon={<div className="ml-5"></div>}
+							disabledIcon={<div className="ml-5"></div>}
+						/>
+						
+					
+					
+					</ul>
+				</nav>
 			</div>
 		</div>
 	);

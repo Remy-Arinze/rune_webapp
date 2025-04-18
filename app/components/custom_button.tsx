@@ -7,15 +7,17 @@ interface GameButtonProps {
   shadowColor?: string;
   className?: string;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 const GameButton: React.FC<GameButtonProps> = ({
   children,
   size = 'md',
   backgroundColor = 'var(--primary)',
-  shadowColor = '#65d4d0f8',
+  shadowColor = 'var(--borderAccent)',
   className = '',
   onClick,
+  disabled = false,
 }) => {
   // Size classes
   const sizeClasses = {
@@ -25,16 +27,26 @@ const GameButton: React.FC<GameButtonProps> = ({
   };
 
   // Base button classes
-  const baseClasses = `font-bold rounded-lg transition-all duration-200 active:translate-y-1 active:shadow-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[${backgroundColor}] focus:ring-opacity-50 ${className}`;
+  const baseClasses = `font-bold rounded-lg transition-all duration-200 focus:outline-none ${
+    disabled 
+      ? 'opacity-70 cursor-not-allowed' 
+      : 'active:translate-y-1 active:shadow-none focus:ring-2 focus:ring-offset-2 focus:ring-opacity-50'
+  } ${className}`;
+
+  // Calculate dynamic styles
+  const buttonStyles = {
+    backgroundColor,
+    boxShadow: disabled ? 'none' : `0 4px 0 ${shadowColor}, 0 5px 5px rgba(0, 0, 0, 0.1)`,
+    cursor: disabled ? 'not-allowed' : 'pointer',
+  };
 
   return (
     <button
-      onClick={onClick}
+      onClick={disabled ? undefined : onClick}
       className={`${baseClasses} ${sizeClasses[size]}`}
-      style={{
-        backgroundColor,
-        boxShadow: `0 4px 0 ${shadowColor}, 0 5px 5px rgba(0, 0, 0, 0.1)`,
-      }}
+      style={buttonStyles}
+      disabled={disabled}
+      aria-disabled={disabled}
     >
       <span className="relative z-10">{children}</span>
     </button>

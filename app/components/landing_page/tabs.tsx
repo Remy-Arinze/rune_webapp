@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
-import { ContentCreatorCard } from './content_card'
+import NewsCard from './content_card'
 
 export function CustomTabs() {
   const [activeTab, setActiveTab] = useState('rune')
@@ -14,7 +14,7 @@ export function CustomTabs() {
     >
       {/* Custom Tab List */}
      <div className='flex items-center justify-between'>
-        <p className='text-[18px] font-bold' >News Feed</p>
+        <p className='text-[18px] font-bold' >Chess Today</p>
          <TabsList className="w-[25%] p-1 h-auto rounded-xl">
         {[
           { value: 'rune', label: 'Rune' },
@@ -43,9 +43,9 @@ export function CustomTabs() {
      </div>
 
       {/* Tab Contents */}
-      <div className="  text-white w-full rounded-lg">
+      <div className="  text-white w-full rounded-lg mt-5">
         <TabsContent value="rune">
-         <ContentCreatorCard />
+         <NewsCard />
         </TabsContent>
 
         <TabsContent value="trending">

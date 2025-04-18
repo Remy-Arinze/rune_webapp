@@ -16,8 +16,8 @@ export default function Home() {
             
             {/* Fixed Suggested Tournaments */}
             <div className='sticky top-[80px] h-fit ml-20'>
-              <div className='bg-[#121212] w-[200px] p-4 rounded-lg'>
-                <p className='font-bold text-[12px]'>Suggested Tournaments</p>
+              <div className='bg-[#121212] w-[250px] p-4 rounded-lg'>
+                <p className='font-semibold text-[14px]'>Suggested Tournaments</p>
                 <div className='mt-5'>
                   <TournamentCard/>
                   <TournamentCard/>

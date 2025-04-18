@@ -1,9 +1,10 @@
 import React from 'react'
-import { CustomTabs } from '../components/tab_component'
 import { Button } from '@/components/ui/button'
 import { FaPlus } from 'react-icons/fa'
-import { SearchBar } from '../components/searchbar'
 import { SelectDropdown } from '../components/dropdown'
+import { SearchBar } from '../components/searchbar'
+import { CustomTabs } from '../components/tab_component'
+
 
 export default function Tournament() {
   return (
@@ -11,8 +12,6 @@ export default function Tournament() {
       <div className='flex items-center justify-between'>
         <p className='text-2xl font-bold'>Tournament</p>
         <p className='text-md'>Apr 3 10:00 AM  </p>
-
-      
       </div>
 
       <div className='flex justify-between mt-10 '>

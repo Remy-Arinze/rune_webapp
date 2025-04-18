@@ -6,9 +6,9 @@ import One from '../../public/assets/marketplace/one.png'
 import Two from '../../public/assets/marketplace/two.png'
 import Three from '../../public/assets/marketplace/three.png'
 import Four from '../../public/assets/marketplace/four.png'
-
-
 import NFTCOMPONENT from '../components/marketpplace/nft_component'
+
+
 
 
 export default function Marketplace() {
