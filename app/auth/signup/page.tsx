@@ -125,13 +125,13 @@ const SignUp = () => {
     try {
       // Prepare the data for registration (exclude confirmPassword)
       const { confirmPassword, ...registrationData } = formData;
-      
+      console.log('Registration data:', confirmPassword);
       const response = await registerUser(registrationData).unwrap();
-      
+      console.log('Registration response:', response);
       toast.success('Registration successful! Redirecting...');
       router.push('/dashboard'); // Or wherever you want to redirect after registration
-    } catch (err: any) {
-      toast.error(err.data?.message || 'Registration failed. Please try again.');
+    } catch (err) {
+      // toast.error(err.data?.message || 'Registration failed. Please try again.');
       console.error('Registration error:', err);
     }
   };

@@ -2,7 +2,7 @@ import GameButton from '@/app/components/custom_button';
 import Input from '@/app/components/custom_input';
 import React from 'react';
 import Image from 'next/image';
-import { FaGoogle, FaApple, FaFacebook, FaChessKnight } from 'react-icons/fa';
+import { FaGoogle, FaChessKnight } from 'react-icons/fa';
 
 const Login = () => {
   return (
@@ -65,7 +65,7 @@ const Login = () => {
 
         {/* Footer */}
         <p className="text-center text-sm text-gray-500 mt-6">
-          Don't have an account? <a href="/auth/signup" className="text-[var(--primary)] hover:underline">Sign up</a>
+          Don&apos;t have an account? <a href="/auth/signup" className="text-[var(--primary)] hover:underline">Sign up</a>
         </p>
       </div>
     </div>
