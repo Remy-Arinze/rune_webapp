@@ -4,10 +4,12 @@ import GameBoard from './game_board'
 import GameButton from '../components/custom_button';
 import { SelectDropdown } from '../components/dropdown';
 import { CustomTabs } from '../components/tab_component';
+import { useRouter } from 'next/navigation';
 
 
 
 export default function PlayScreen() {
+  const router = useRouter();
    const customOptions = [
     { value: "apple", label: "Apple" },
     { value: "banana", label: "Banana" },
@@ -46,7 +48,7 @@ export default function PlayScreen() {
       />
         </div>
 
-         <GameButton className='mt-10 w-full'>
+         <GameButton className='mt-10 w-full' onClick={()=> router.push('/game')} >
         <p className='text-black text-[15px] font-semibold '>Start Game</p>
       </GameButton>
 
