@@ -1,32 +1,45 @@
-import React from 'react';
-import Carousel from './components/landing_page/landing_page_swiper';
-import { CustomTabs } from './components/landing_page/tabs';
-import TournamentCard from './components/landing_page/tournament_card';
+"use client";
+import React from "react";
 
-export default function Home() {
-  return (
-    <div className=' overflow-y-auto no-scrollbar scroll-mask'>
-          <Carousel />
-          
-          <div className='flex mt-10'>
-            {/* Main Scrollable Content */}
-            <div className='flex-1'>
-              <CustomTabs />
-            </div>
-            
-            {/* Fixed Suggested Tournaments */}
-            <div className='sticky top-[80px] h-fit ml-20'>
-              <div className='bg-[#121212] w-[250px] p-4 rounded-lg'>
-                <p className='font-semibold text-[14px]'>Suggested Tournaments</p>
-                <div className='mt-5'>
-                  <TournamentCard/>
-                  <TournamentCard/>
-                  <TournamentCard/>
-                 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-  );
-}
+import "swiper/css";
+import "swiper/css/pagination";
+import Carousel from "./components/landing_page/landing_page_swiper";
+import { HeaderComponent } from "./components/Header";
+import { HorizontalScrollContainer } from "./components/horizontal_scroll";
+import { TournamentCardComponent } from "./components/TournamentCard";
+
+import { generateTournaments } from "@/utils/tournaments";
+
+const LandingPage = () => {
+	const tournaments = generateTournaments(6); // Generate 6 tournaments
+
+	return (
+		<div className="min-h-screen bg-[var(--background)] p-6 font-sans">
+			{/* Time Display
+			<div className="text-center mb-8">
+				<h1 className="text-4xl font-bold mb-2">12:21</h1>
+			</div> */}
+
+			<Carousel />
+
+			{/* Main Content Grid */}
+			<div className="flex items-start justify-between">
+				<div className="w-[65%]">
+					<HeaderComponent title={"Top Tournaments"} />
+					<HorizontalScrollContainer className="mt-3">
+						{tournaments.map((tournament, index) => (
+							<TournamentCardComponent
+								key={`tournament-${index}`}
+								{...tournament}
+								className="flex-shrink-0" // Prevent cards from shrinking
+							/>
+						))}
+					</HorizontalScrollContainer>
+				</div>
+				<div className="bg-[var(--dark)] rounded-lg w-[20%] h-[130px]"></div>
+			</div>
+		</div>
+	);
+};
+
+export default LandingPage;

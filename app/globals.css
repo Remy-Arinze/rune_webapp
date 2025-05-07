@@ -2,56 +2,62 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #85fffbf8;
-  --background: #000601;
-  --borderAccent:#010909f8;
-  --dark: rgb(21, 21, 21);
-  --lightPrimary: #f0fab9;
-  --white: #f9f9f9;
-  --danger: #ff0000;
-  --success: #00ff00;
-  --warning: #f9a826;
-  --info: #00bfff;
+	--primary: #85fffbf8;
+	--background: #000601;
+	--borderAccent: #010909f8;
+	--dark: #1e1f25;
+	--lightPrimary: #f0fab9;
+	--white: #f9f9f9;
+	--danger: #ff0000;
+	--success: #00ff00;
+	--warning: #f9a826;
+	--info: #00bfff;
 }
 
 body {
-  font-family: "Oxanium", Arial, Helvetica, sans-serif;
-  background-color: var(--background);
-  color: var(--white);
+	font-family: "Oxanium", Arial, Helvetica, sans-serif;
+	background-color: var(--background);
+	color: var(--white);
 }
 
 .no-scrollbar::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
 .scroll-mask {
-  mask-image: linear-gradient(to bottom, transparent 0%, black 20px, black calc(100% - 20px), transparent 100%);
+	mask-image: linear-gradient(
+		to bottom,
+		transparent 0%,
+		black 20px,
+		black calc(100% - 20px),
+		transparent 100%
+	);
 }
 .swiper-pagination {
-  position: absolute;
-  bottom: 10 !important;
-  /* Force to bottom */
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  padding-top: 20px;
+	position: absolute;
+	bottom: 10 !important;
+	/* Force to bottom */
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+	padding-top: 20px;
 }
 
 .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background: #d1d5db;
-  opacity: 1;
-  transition: all 0.3s ease;
+	width: 12px;
+	height: 12px;
+	background: #d1d5db;
+	opacity: 1;
+	transition: all 0.3s ease;
 }
 
 .swiper-pagination-bullet-active {
-  width: 30px;
-  background: #e3f77a;
-  /* Your primary color */
-  border-radius: 4px;
+	width: 30px;
+	background: #e3f77a;
+	/* Your primary color */
+	border-radius: 4px;
 }

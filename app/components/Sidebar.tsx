@@ -3,15 +3,40 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
+<<<<<<< HEAD
 import { RiHome5Fill, RiHome5Line, RiMenu2Fill } from "react-icons/ri";
 import { CiGlobe, } from "react-icons/ci";
 import { FaGlobe} from "react-icons/fa";
+=======
+import {
+	RiHome5Fill,
+	RiHome5Line,
+	RiMenu2Fill,
+	RiFireFill,
+	RiFireLine,
+} from "react-icons/ri";
+import {
+	FaTrophy,
+	FaUsers,
+	FaCog,
+	FaSignOutAlt,
+	FaGamepad,
+	FaHistory,
+	FaChartLine,
+	FaCalendarAlt,
+	FaChevronRight,
+} from "react-icons/fa";
+import { IoMdStats } from "react-icons/io";
+import { BsFillPeopleFill, BsPeople } from "react-icons/bs";
+import DashboardNavbar from "./sidebar/main";
+>>>>>>> d4d3aac (revamped sidebar and landing)
 
 interface ItemProps {
 	title: string;
 	path: string;
 	disabledIcon: ReactNode;
 	filledIcon: ReactNode;
+<<<<<<< HEAD
 }
 
 function SidebarItem({ title, path, disabledIcon, filledIcon }: ItemProps) {
@@ -37,15 +62,53 @@ function SidebarItem({ title, path, disabledIcon, filledIcon }: ItemProps) {
       </Link>
     </li>
   );
+=======
+	showChevron?: boolean;
+}
+
+function SidebarItem({
+	title,
+	path,
+	disabledIcon,
+	filledIcon,
+	showChevron = false,
+}: ItemProps) {
+	const pathname = usePathname();
+	const isActive = pathname === path;
+	const linkClass = isActive
+		? "text-white font-bold py-2 bg-[#2a2e35]"
+		: "text-gray-400 font-semibold py-2 hover:bg-[#2a2e35] rounded-lg";
+
+	return (
+		<li className="mb-1">
+			<Link href={path}>
+				<div
+					className={`${linkClass} rounded-lg flex gap-x-3 items-center text-[13px] px-3 py-3 transition-all duration-200`}
+				>
+					<span className="flex items-center justify-center w-6">
+						{isActive ? filledIcon : disabledIcon}
+					</span>
+					<p className="md:text-[14px] text-[14px] flex-grow">{title}</p>
+					{showChevron && <FaChevronRight className="text-xs" />}
+				</div>
+			</Link>
+		</li>
+	);
+>>>>>>> d4d3aac (revamped sidebar and landing)
 }
 
 export default function Sidebar() {
 	const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+<<<<<<< HEAD
+=======
+	const [isMainSidebarExpanded, setIsMainSidebarExpanded] = useState(true);
+>>>>>>> d4d3aac (revamped sidebar and landing)
 
 	const toggleSidebar = () => {
 		setIsSidebarVisible(!isSidebarVisible);
 	};
 
+<<<<<<< HEAD
 	return (
 		<div>
 			{/* Toggle button for mobile screens */}
@@ -128,6 +191,46 @@ export default function Sidebar() {
 					</ul>
 				</nav>
 			</div>
+=======
+	const toggleMainSidebar = () => {
+		setIsMainSidebarExpanded(!isMainSidebarExpanded);
+	};
+
+	return (
+		<div className="flex ml-5">
+			{/* Icon Sidebar (Leading) */}
+			<div className="hidden md:flex flex-col mr-4 items-center bg-[#1e2025] h-[90dvh] w-16 py-5 rounded-lg">
+				<div className="mb-8 p-2 rounded-lg bg-[#2a2e35]">
+					<RiFireFill className="text-orange-400 text-xl" />
+				</div>
+				<div className=" flex flex-col space-y-3">
+					<div className="h-[30] w-[30] bg-yellow-500 rounded-md"></div>
+					<div className="h-[30] w-[30] bg-red-500 rounded-md"></div>
+					<div className="h-[30] w-[30] bg-blue-500 rounded-md"></div>
+					<div className="h-[30] w-[30] bg-pink-500 rounded-md"></div>
+				</div>
+				<div className="flex flex-col items-center space-y-6 mt-[auto]">
+					<button className="p-2 rounded-lg hover:bg-[#2a2e35]">
+						<RiHome5Line className="text-gray-å0 text-xl" />
+					</button>
+					<button className="p-2 rounded-lg hover:bg-[#2a2e35]">
+						<FaGamepad className="text-gray-400 text-xl" />
+					</button>
+					<button className="p-2 rounded-lg bg-[#2a2e35]">
+						<FaTrophy className="text-orange-400 text-xl" />
+					</button>
+					<button className="p-2 rounded-lg hover:bg-[#2a2e35]">
+						<IoMdStats className="text-gray-400 text-xl" />
+					</button>
+					<button className="p-2 rounded-lg hover:bg-[#2a2e35]">
+						<BsPeople className="text-gray-400 text-xl" />
+					</button>
+				</div>
+			</div>
+
+			{/* Main Sidebar */}
+			<DashboardNavbar />
+>>>>>>> d4d3aac (revamped sidebar and landing)
 		</div>
 	);
 }
