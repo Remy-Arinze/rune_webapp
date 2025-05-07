@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-export interface TournamentCardProps {
+interface TournamentCardProps {
 	title: string;
 	description: string;
 	status: "live" | "upcoming" | "completed";
@@ -47,11 +47,15 @@ export const TournamentCardComponent: React.FC<TournamentCardProps> = ({
 			</div>
 			<div className="w-1/2 relative">
 				<Image
-					src="https://airnfts.s3.amazonaws.com/nft-images/20220208/Transparent_Ape_1644319564115.png"
+					src={imageSrc}
 					alt={title}
 					fill
 					className="object-cover"
 					sizes="(max-width: 768px) 100vw, 50vw"
+					unoptimized={true} // Add this if you're having optimization issues
+					onError={(e) => {
+						(e.target as HTMLImageElement).src = "/fallback-tournament.jpg";
+					}}
 				/>
 			</div>
 		</div>
