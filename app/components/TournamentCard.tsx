@@ -28,7 +28,7 @@ export const TournamentCardComponent: React.FC<TournamentCardProps> = ({
 
 	return (
 		<div
-			className={`bg-[var(--dark)] flex h-[200px] rounded-sm overflow-hidden min-w-[300px] ${className}`}
+			className={`bg-[var(--dark)] flex h-[150px] rounded-sm overflow-hidden min-w-[200px] ${className}`}
 		>
 			<div className="w-1/2 p-4 flex flex-col justify-between">
 				<div>

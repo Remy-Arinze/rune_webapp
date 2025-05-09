@@ -5,7 +5,7 @@ import { FaSearch, FaBell, FaUserCircle } from "react-icons/fa";
 
 const Nav = () => {
 	return (
-		<nav className="bg-[var(--background)] text-white p-4 flex items-center justify-between border-b border-gray-700">
+		<nav className="bg-[var(--background)] text-white  p-4 flex items-center justify-between border-b border-gray-700">
 			<div className="flex items-center space-x-20">
 				<div className="flex items-center space-x-3">
 					<Image src={Logo} alt="logo" className="w-[25%]" />

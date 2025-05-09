@@ -23,10 +23,10 @@ export const HorizontalScrollContainer: React.FC<
 	};
 
 	return (
-		<div className={`relative ${className}`}>
+		<div className={`relative ${className} `}>
 			<div
 				ref={scrollContainerRef}
-				className="flex space-x-4 overflow-x-auto scrollbar-hide py-2"
+				className="flex space-x-4 overflow-x-auto no-scrollbar py-2"
 			>
 				{children}
 			</div>
