@@ -17,29 +17,29 @@ const TournamentsPage = () => {
 		{ month: "Fertime", time: "20:12 GAMES R&S" },
 	];
 
-	const upcomingTournaments = [
-		{
-			title: "Winter 2025 Tournament",
-			description:
-				"Compete with your friends in this winter season themed championship.",
-			points: "10:00 pts",
-			type: "Joint Tournament",
-		},
-		{
-			title: "Fortnite Epic Challenge",
-			description:
-				"The incredible challenge awaits you in this random panzyroth.",
-			points: "10:00 pts",
-			type: "Joint Tournament",
-		},
-		{
-			title: "Guns 9 Görng Championship",
-			description:
-				"Pevper ever joins on old trying Random test example message.",
-			points: "10:00 pts",
-			type: "Joint Tournament",
-		},
-	];
+	// const upcomingTournaments = [
+	// 	{
+	// 		title: "Winter 2025 Tournament",
+	// 		description:
+	// 			"Compete with your friends in this winter season themed championship.",
+	// 		points: "10:00 pts",
+	// 		type: "Joint Tournament",
+	// 	},
+	// 	{
+	// 		title: "Fortnite Epic Challenge",
+	// 		description:
+	// 			"The incredible challenge awaits you in this random panzyroth.",
+	// 		points: "10:00 pts",
+	// 		type: "Joint Tournament",
+	// 	},
+	// 	{
+	// 		title: "Guns 9 Görng Championship",
+	// 		description:
+	// 			"Pevper ever joins on old trying Random test example message.",
+	// 		points: "10:00 pts",
+	// 		type: "Joint Tournament",
+	// 	},
+	// ];
 
 	return (
 		<div className="text-white pr-3 mt-5">

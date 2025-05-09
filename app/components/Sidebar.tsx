@@ -1,8 +1,4 @@
 "use client";
-import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { ReactNode } from "react";
 import {
 	RiHome5Line,
 	RiFireFill,
@@ -10,61 +6,30 @@ import {
 import {
 	FaTrophy,
 	FaGamepad,
-	FaChevronRight,
 } from "react-icons/fa";
 import { IoMdStats } from "react-icons/io";
-import { BsFillPeopleFill, BsPeople } from "react-icons/bs";
+import {  BsPeople } from "react-icons/bs";
 import DashboardNavbar from "./sidebar/dashboard_sidebar";
 
-interface ItemProps {
-	title: string;
-	path: string;
-	disabledIcon: ReactNode;
-	filledIcon: ReactNode;
-	showChevron?: boolean;
-}
-
-function SidebarItem({
-	title,
-	path,
-	disabledIcon,
-	filledIcon,
-	showChevron = false,
-}: ItemProps) {
-	const pathname = usePathname();
-	const isActive = pathname === path;
-	const linkClass = isActive
-		? "text-white font-bold py-2 bg-[#2a2e35]"
-		: "text-gray-400 font-semibold py-2 hover:bg-[#2a2e35] rounded-lg";
-
-	return (
-		<li className="mb-1">
-			<Link href={path}>
-				<div
-					className={`${linkClass} rounded-lg flex gap-x-3 items-center text-[13px] px-3 py-3 transition-all duration-200`}
-				>
-					<span className="flex items-center justify-center w-6">
-						{isActive ? filledIcon : disabledIcon}
-					</span>
-					<p className="md:text-[14px] text-[14px] flex-grow">{title}</p>
-					{showChevron && <FaChevronRight className="text-xs" />}
-				</div>
-			</Link>
-		</li>
-	);
-}
+// interface ItemProps {
+// 	title: string;
+// 	path: string;
+// 	disabledIcon: ReactNode;
+// 	filledIcon: ReactNode;
+// 	showChevron?: boolean;
+// }
 
 export default function Sidebar() {
-	const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-	const [isMainSidebarExpanded, setIsMainSidebarExpanded] = useState(true);
+	// const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+	// const [isMainSidebarExpanded,setIsMainSidebarExpanded] = useState(true);
 
-	const toggleSidebar = () => {
-		setIsSidebarVisible(!isSidebarVisible);
-	};
+	// const toggleSidebar = () => {
+	// 	setIsSidebarVisible(!isSidebarVisible);
+	// };
 
-	const toggleMainSidebar = () => {
-		setIsMainSidebarExpanded(!isMainSidebarExpanded);
-	};
+	// const toggleMainSidebar = () => {
+	// 	setIsMainSidebarExpanded(!isMainSidebarExpanded);
+	// };
 
 	return (
 		<div className="flex ml-5">

@@ -195,7 +195,7 @@ export default function ChessNewsPage() {
               <p className="text-[13px] mb-4 line-clamp-2 mb-5 ">
                 {newsItem.subtitle}
               </p>
-            <img 
+            <Image
               src={newsItem.imageUrl} 
               alt={newsItem.title}
               className="w-full h-20 object-cover"

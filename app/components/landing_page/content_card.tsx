@@ -6,7 +6,7 @@ const NewsCard = () => {
 		<div className="max-w-2xl mx-auto bg-[var(--dark)] rounded-lg shadow-md overflow-hidden">
 			{/* Featured Image */}
 			<div className="relative h-48 w-full">
-				<img
+				<Image
 					src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
 					alt="Chess tournament"
 					className="w-full h-full object-cover"
@@ -57,7 +57,7 @@ const NewsCard = () => {
 
 				{/* Author Profile */}
 				<div className="flex items-center">
-					<img
+					<Image
 						src="https://randomuser.me/api/portraits/men/32.jpg"
 						alt="PeterDoggers"
 						className="w-10 h-10 rounded-full mr-3"

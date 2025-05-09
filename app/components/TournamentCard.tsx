@@ -17,7 +17,7 @@ export const TournamentCardComponent: React.FC<TournamentCardProps> = ({
 	title,
 	description,
 	status,
-	imageSrc,
+	// imageSrc,
 	participants,
 	prizePool,
 	className = "",

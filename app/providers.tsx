@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { usePathname } from "next/navigation";
 import Sidebar from "./components/Sidebar";
 import { Provider } from "react-redux";
 import { store } from "@/store";

@@ -66,8 +66,8 @@ const LandingPage = () => {
 						<div className="mt-20">
 						<HeaderComponent title={"Top Games"} />
                         <HorizontalScrollContainer className="mt-3 no-scrollbar">
-                            {tournaments.map((tournament, index) => (
-                               <div key={`game+$index`} className="flex-shrink-0 w-[200px] bg-[var(--dark)] rounded-md p-2">
+                            {tournaments.map(() => (
+                               <div key={`$tournamen $index`} className="flex-shrink-0 w-[200px] bg-[var(--dark)] rounded-md p-2">
 								<div className="flex item-center"><Timer color="orange" size="15"/> <p className="text-[10px] ml-1">20mins ago</p></div>
 
 								<div className="flex item-center justify-center space-x-3 mt-10">
