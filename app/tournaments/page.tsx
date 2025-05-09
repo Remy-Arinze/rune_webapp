@@ -1,12 +1,14 @@
 import React from "react";
 import {
-	FaGamepad,
-	FaCalendarAlt,
-	FaHistory,
-	FaTrophy,
-	FaUsers,
-} from "react-icons/fa";
 
+	FaTrophy,
+	FaClock,
+	FaGamepad,
+} from "react-icons/fa";
+import Image from 'next/image'
+import { HorizontalScrollContainer } from "../components/horizontal_scroll";
+import Knight from '../../public/assets/khight.jpg'
+import { RiFireFill } from "react-icons/ri";
 const TournamentsPage = () => {
 	// Tournament data
 	const pastTournaments = [
@@ -40,50 +42,61 @@ const TournamentsPage = () => {
 	];
 
 	return (
-		<div className="text-white">
+		<div className="text-white pr-3 mt-5">
 			{/* Header Section */}
-			<div className="mb-8">
-				<h1 className="text-4xl font-bold mb-2">FORTNITE</h1>
-				<h2 className="text-2xl font-semibold mb-6">
-					COMPETE IN FORTNITE BATTLE ROYALE
+			<div className="mb-8 flex justify-center space-x-2 ">
+			<div className="w-[15%] rounded-lg">
+				<Image src={Knight} alt="" className=""/>
+			</div>
+			<div className="w-full">
+				<h1 className="text-2xl font-bold ">RUNE</h1>
+				<h2 className="text-xl font-semibold">
+					MAKE YOUR MOVE IN THE BIGGEST STAGES
 				</h2>
-				<p className="text-gray-300 mb-6">
-					Compete in epic tournaments on Elite Camera Arena.
+				<p className="text-gray-400 text-[12px] mb-6">
+					Compete In Epic Tournaments On Rune And Win.
 				</p>
-
 				{/* Stats */}
-				<div className="flex space-x-8 mb-8">
-					<div className="bg-gray-800 p-4 rounded-lg w-40">
-						<div className="text-3xl font-bold">3200</div>
-						<div className="text-gray-400">Players</div>
+				<div className="flex space-x-5 mb-8 bg-[var(--dark)] w-full">
+				<div className="bg-[var(--dark)] p-2 flex space-x-2 items-start rounded-lg ">
+					<FaGamepad className="text-orange-400 text-lg" />
+						<div>
+						<p className="text-[14px] font-bold">3200+</p>
+						<p className="text-gray-400 text-[12px]">Players</p>
+						</div>
 					</div>
-					<div className="bg-gray-800 p-4 rounded-lg w-40">
-						<div className="text-3xl font-bold">235</div>
-						<div className="text-gray-400">Matches played</div>
-					</div>
-					<div className="bg-gray-800 p-4 rounded-lg w-40">
-						<div className="text-3xl font-bold">12</div>
-						<div className="text-gray-400">Tournaments held</div>
+					<div className="bg-[var(--dark)] p-2 flex space-x-2 items-tart rounded-lg ">
+					<RiFireFill className="text-orange-400 text-lg" />
+						<div>
+						<p className="text-[14px] font-bold">100+</p>
+						<p className="text-gray-400 text-[12px]">Tournaments held</p>
+						</div>
 					</div>
 				</div>
+				</div>
+
+				
 			</div>
 
-			<div className="border-t border-gray-700 pt-6">
-				<h3 className="text-xl font-bold mb-6 flex items-center">
-					<FaTrophy className="mr-2" /> HEATING TOURNAMENTS
+			<div className=" mt-20">
+			<div className="flex items-start justify-between ">
+			<div>
+			<h3 className="text-[14px] mb-1 flex items-center">
+					<FaTrophy className="mr-2" /> ONGOING TOURNAMENTS
 				</h3>
-				<p className="text-gray-300 mb-6">
-					Participate in contests and win prices.
+				<p className="text-gray-500 text-[10px] mb-5">
+					Participate in contests and win wagers.
 				</p>
+			</div>
+			<p className="text-[11px] text-gray-400">view all</p>
+			</div>
 
 				{/* Past Tournaments */}
 				<div className="mb-12">
-					<h4 className="text-lg font-semibold mb-4 flex items-center">
-						<FaHistory className="mr-2" /> PAST TOURNAMENTS
-					</h4>
+					<HorizontalScrollContainer>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 						{pastTournaments.map((tournament, index) => (
-							<div key={index} className="bg-gray-800 p-4 rounded-lg">
+							<div key={index} className="bg-[var(--dark)] p-4 rounded-lg">
 								<div className="font-bold text-blue-400">
 									{tournament.month}
 								</div>
@@ -96,51 +109,73 @@ const TournamentsPage = () => {
 							</div>
 						))}
 					</div>
+					</HorizontalScrollContainer>
 				</div>
 
-				{/* Upcoming Tournaments */}
-				<div>
-					<h4 className="text-lg font-semibold mb-4 flex items-center">
-						<FaCalendarAlt className="mr-2" /> UPCOMING
-					</h4>
-					<p className="text-gray-300 mb-6">
-						Discover the upcoming competitions.
-					</p>
+			</div>
+			<div className=" mt-10">
+			<div className="flex items-start justify-between ">
+			<div>
+			<h3 className="text-[14px] mb-1 flex items-center">
+					<FaClock className="mr-2" /> UPCOMING TOURNAMENTS
+				</h3>
+				<p className="text-gray-500 text-[10px] mb-5">
+					Play and wager in upcoming constests and win.
+				</p>
+			</div>
+			<p className="text-[11px] text-gray-400">view all</p>
+			</div>
 
-					<div className="space-y-6">
-						{upcomingTournaments.map((tournament, index) => (
-							<div key={index} className="bg-gray-800 p-6 rounded-lg">
-								<div className="flex justify-between items-start">
-									<div>
-										<h5 className="text-xl font-bold mb-2">
-											{tournament.title}
-										</h5>
-										<p className="text-gray-300 mb-4">
-											{tournament.description}
-										</p>
-									</div>
-									<div className="bg-blue-900 text-white px-3 py-1 rounded-full text-sm">
-										Register
-									</div>
+				{/* Past Tournaments */}
+				<div className="mb-12">
+					<HorizontalScrollContainer>
+						{pastTournaments.map((tournament, index) => (
+							<div key={index} className="bg-[var(--dark)] p-4 rounded-lg w-[35%] flex-shrink-0">
+								<div className="font-bold text-blue-400">
+									{tournament.month}
 								</div>
-								<div className="flex justify-between mt-4">
-									<div>
-										<div className="text-blue-400">{tournament.points}</div>
-										<div className="text-gray-400">{tournament.type}</div>
-									</div>
-									<div className="flex space-x-2">
-										<div className="bg-gray-700 p-2 rounded-full">
-											<FaGamepad />
-										</div>
-										<div className="bg-gray-700 p-2 rounded-full">
-											<FaUsers />
-										</div>
-									</div>
+								<div className="text-xl my-2">
+									{tournament.points || tournament.time}
+								</div>
+								<div className="text-gray-400">
+									{tournament.type || "Completed"}
 								</div>
 							</div>
 						))}
-					</div>
+					</HorizontalScrollContainer>
 				</div>
+
+			</div>
+			<div className=" mt-10">
+			<div className="flex items-start justify-between ">
+			<div>
+			<h3 className="text-[14px] mb-1 flex items-center">
+					<FaClock className="mr-2" /> RECENTLY FINISHED
+				</h3>
+			
+			</div>
+			<p className="text-[11px] text-gray-400">view all</p>
+			</div>
+
+				{/* Past Tournaments */}
+				<div className="mb-12">
+					<HorizontalScrollContainer>
+						{pastTournaments.map((tournament, index) => (
+							<div key={index} className="bg-[var(--dark)] p-4 rounded-lg w-[35%] flex-shrink-0">
+								<div className="font-bold text-blue-400">
+									{tournament.month}
+								</div>
+								<div className="text-xl my-2">
+									{tournament.points || tournament.time}
+								</div>
+								<div className="text-gray-400">
+									{tournament.type || "Completed"}
+								</div>
+							</div>
+						))}
+					</HorizontalScrollContainer>
+				</div>
+
 			</div>
 		</div>
 	);

@@ -14,7 +14,7 @@ import {
 } from "react-icons/fa";
 import { IoMdStats } from "react-icons/io";
 import { BsFillPeopleFill, BsPeople } from "react-icons/bs";
-import DashboardNavbar from "./sidebar/main";
+import DashboardNavbar from "./sidebar/dashboard_sidebar";
 
 interface ItemProps {
 	title: string;

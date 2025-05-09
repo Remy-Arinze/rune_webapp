@@ -141,7 +141,7 @@ const NavItem = ({
                     : "hover:bg-[#2A2E35] text-gray-400 hover:text-gray-300"
             }`}>
                 <span>{icon}</span>
-                <span className="text-sm">{label}</span>
+                <span className="text-[12px]">{label}</span>
             </li>
         </Link>
     );
