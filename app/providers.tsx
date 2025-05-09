@@ -6,19 +6,16 @@ import { Provider } from "react-redux";
 import { store } from "@/store";
 
 export function Providers({ children }: { children: React.ReactNode }) {
-	const pathname = usePathname();
-	const noSidebarRoutes = ["/game", "/focus-mode", "/chess"];
-	const hideSidebar = noSidebarRoutes.includes(pathname);
 
 	return (
 		<Provider store={store}>
 			<section className="flex mx-auto pt-5">
-				{!hideSidebar && (
-					<div className="sticky top-[80px] h-[calc(100vh-80px)]">
+				
+					<div className=" h-[calc(100vh-80px)] fixed overflow-y-scroll no-scrollbar">
 						<Sidebar />
 					</div>
-				)}
-				<div className={hideSidebar ? "w-full" : "ml-10 w-[70vw]"}>
+			
+				<div className={  "w-[72%] ml-[30%] x"}>
 					{children}
 				</div>
 			</section>

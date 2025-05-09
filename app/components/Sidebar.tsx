@@ -69,7 +69,7 @@ export default function Sidebar() {
 	return (
 		<div className="flex ml-5">
 			{/* Icon Sidebar (Leading) */}
-			<div className="hidden md:flex flex-col mr-4 items-center bg-[#1e2025] h-[100dvh] w-16 py-5 rounded-lg">
+			<div className="hidden md:flex flex-col mr-4 items-center bg-[#1e2025] w-16 py-5 rounded-lg">
 				<div className="mb-8 p-2 rounded-lg bg-[#2a2e35]">
 					<RiFireFill className="text-orange-400 text-xl" />
 				</div>

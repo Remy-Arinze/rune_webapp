@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
 
-interface TournamentCardProps {
+import NFT from '../../public/assets/nft.png'
+
+export interface TournamentCardProps {
 	title: string;
 	description: string;
 	status: "live" | "upcoming" | "completed";
@@ -47,7 +49,7 @@ export const TournamentCardComponent: React.FC<TournamentCardProps> = ({
 			</div>
 			<div className="w-1/2 relative">
 				<Image
-					src={imageSrc}
+					src={NFT}
 					alt={title}
 					fill
 					className="object-cover"

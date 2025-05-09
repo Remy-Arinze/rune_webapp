@@ -19,7 +19,10 @@ export default function RootLayout({
 			<body className={`antialiased`}>
 				<main className="min-h-screen">
 					<Nav />
+					<div className="mt-[6%]">
 					<Providers>{children}</Providers>
+
+					</div>
 				</main>
 			</body>
 		</html>

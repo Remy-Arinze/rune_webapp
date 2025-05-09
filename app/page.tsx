@@ -11,6 +11,9 @@ import { TournamentCardComponent } from "./components/TournamentCard";
 import { generateTournaments } from "@/utils/tournaments";
 import { Timer } from "lucide-react";
 
+import nft from '../public/assets/nft.png'
+import Image from "next/image";
+
 const LandingPage = () => {
     const tournaments = generateTournaments(6); // Generate 6 tournaments
     const guilds = [
@@ -48,7 +51,7 @@ const LandingPage = () => {
                 </HorizontalScrollContainer>
                 
                 <div className="flex item-start justify-between mt-10">
-                    <div className="w-[65%]">
+                    <div className="w-[75%]">
                         <HeaderComponent title={"Top Tournaments"} />
                         <HorizontalScrollContainer className="mt-3 no-scrollbar">
                             {tournaments.map((tournament, index) => (
@@ -67,18 +70,18 @@ const LandingPage = () => {
                                <div key={`game+$index`} className="flex-shrink-0 w-[200px] bg-[var(--dark)] rounded-md p-2">
 								<div className="flex item-center"><Timer color="orange" size="15"/> <p className="text-[10px] ml-1">20mins ago</p></div>
 
-								<div className="flex item-center mt-10 justify-center">
-									<div>
-										<div className="h-[60px] w-[40px] bg-gray-500"></div>
-										<p className="text-[10px]">0x_Ra</p>
+								<div className="flex item-center justify-center space-x-3 mt-10">
+									<div className="w-[50%] ">
+<Image src={nft} alt="nft" className="w-full" />	
+									<p className="text-[10px]">0x_Ra</p>
 									</div>
-									<p className="mx-10">vs</p>
-									<div>
-									<div className="h-[60px] w-[40px] bg-gray-500"></div>
+									<p className="text-[10px]">vs</p>
+									<div className="w-[50%]">
+                                    <Image src={nft} alt="nft" className="w-full" />										<p className="text-[10px]">0x_Ra</p>
 									<p className="text-[10px]">dann</p>									</div>
 								</div>
 
-								<div className="mt-10 bg-[var(--background)] flex item-center justify-between rounded-lg">
+								<div className="mt-10 bg-[var(--background)] flex item-center justify-between rounded-lg p-2">
 									<p className="text-[10px]">odd:3.4</p>
 									<p className="text-[10px]">x:0.5</p>
 									<p className="text-[10px]">odd:2.2</p>

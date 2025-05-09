@@ -17,7 +17,8 @@ const DashboardNavbar = () => {
     const pathname = usePathname();
 
     return (
-        <div className="bg-[var(--dark)] text-white w-50 h-[90dvhd] p-6 flex flex-col border-r border-gray-800">
+       <div>
+         <div className="bg-[var(--dark)] text-white w-50 h-[90dvhd] p-6 flex flex-col border-r border-gray-800">
             {/* User Profile Header */}
             <div className="mb-8">
                 <div className="h-[50] w-[50] rounded-full bg-orange-400"></div>
@@ -116,6 +117,7 @@ const DashboardNavbar = () => {
                 </div>
             </div>
         </div>
+       </div>
     );
 };
 
