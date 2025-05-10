@@ -10,6 +10,9 @@ import {
     FaNewspaper,
     FaHome,
     FaStore,
+    FaGamepad,
+    FaGlobe,
+    FaUser,
 } from "react-icons/fa";
 
 const DashboardNavbar = () => {
@@ -20,13 +23,15 @@ const DashboardNavbar = () => {
          <div className="bg-[var(--dark)] text-white w-50 h-[90dvhd] p-6 flex flex-col border-r border-gray-800">
             {/* User Profile Header */}
             <div className="mb-8">
-                <div className="h-[50] w-[50] rounded-full bg-orange-400"></div>
+                <div className="h-[50] w-[50] flex items-center justify-center rounded-full bg-orange-400">
+                    <FaUser color="black" />
+                </div>
                 <p className="text-[10px] text-gray-500 mt-5">Good Morning</p>
-                <h1 className="text-xl font-bold ">Erik Padamans</h1>
+                <h1 className="text-xl font-bold ">0X_RA</h1>
                 <hr className="text-gray-700 my-2 mb-5" />
                 <NavItem 
                     icon={<FaHome />} 
-                    label="Dashboard" 
+                    label="Home" 
                     link="/" 
                     isActive={pathname === "/"} 
                 />
@@ -41,6 +46,12 @@ const DashboardNavbar = () => {
                     </h2>
 
                     <ul className="space-y-3">
+                        <NavItem
+                            icon={<FaGamepad />}
+                            link="/play"
+                            label="Play"
+                            isActive={pathname === "/play"}
+                        />
                         <NavItem
                             icon={<FaTrophy />}
                             link="/tournaments"
@@ -60,9 +71,9 @@ const DashboardNavbar = () => {
                             isActive={pathname === "/store"} 
                         />
                         <NavItem
-                            icon={<FaUsers />}
+                            icon={<FaGlobe />}
                             link="/leaderboards"
-                            label="Leaderboards"
+                            label="Leaderboard"
                             isActive={pathname === "/leaderboards"}
                         />
                     </ul>

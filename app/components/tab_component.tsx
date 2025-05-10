@@ -58,13 +58,14 @@ export function CustomTabs({
               value={tab.value}
               disabled={tab.disabled}
               style={activeTab === tab.value ? { 
-                boxShadow: '0 3px 0 #65d4d0f8',
+                
+                boxShadow: '0 3px 0 orange',
                 transform: 'translateZ(0)' // Force GPU acceleration
               } : {}}
               className={`
                 py-1.5 mr-5 text-[12px] font-medium transition-all
                 ${activeTab === tab.value 
-                  ? 'bg-white dark:bg-[var(--primary)] text-black shadow-sm rounded-lg' 
+                  ? 'bg-orange-400 dark:bg-[var(--primary)] text-black shadow-sm rounded-lg' 
                   : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
                 }
                 ${tabTriggerClassName}
