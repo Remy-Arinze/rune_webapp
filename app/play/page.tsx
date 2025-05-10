@@ -5,9 +5,7 @@ import GameButton from '../components/custom_button';
 import { SelectDropdown } from '../components/dropdown';
 import { CustomTabs } from '../components/tab_component';
 import { useRouter } from 'next/navigation';
-import { FaArrowDown } from 'react-icons/fa';
-import { IoArrowDown } from 'react-icons/io5';
-import { IoIosArrowDown, IoIosArrowDropdown } from 'react-icons/io';
+import { IoIosArrowDown } from 'react-icons/io';
 
 
 
