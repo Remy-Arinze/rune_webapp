@@ -5,6 +5,7 @@ import { VscSettings } from "react-icons/vsc";
 import Image  from 'next/image';
 
 import Rune from '../../public/assets/logo.png'
+import NFT from '../../public/assets/nft.png'
 
 // Define the type for chess news items
 type ChessNewsItem = {
@@ -178,38 +179,39 @@ export default function ChessNewsPage() {
       {/* News grid */}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
         {chessNewsData.map((newsItem) => (
-          <div key={newsItem.id} className=" px-2 py-4 bg-[var(--dark)] rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+          <div key={newsItem.id} className=" px-4 py-4 bg-[var(--dark)] rounded-[20px] shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
             <div className='flex items-center justify-between mb-5'>
                <div className='flex items-center space-x-3'>
                <p className='font-semibold'>{newsItem.id}</p>
-               <span className="inline-block px-2 py-1 text-[10px] text-white bg-orange-400 rounded-lg mb-2">
+               <span className="inline-block px-2 py-1 text-[8px] text-white bg-orange-400 rounded-md mb-2">
                 {newsItem.category}
               </span>
                </div>
                 <Image src={Rune} alt='' className='w-[50px]' />
             </div>
-            <hr className='text-gray-500 mb-5'/>
-            <h2 className="text-[11px]  text-gray-300 mt-2 mb-2 line-clamp-2">
+            <hr className='text-gray-700 mb-5'/>
+            <h2 className="text-[13px] mt-2 mb-1 line-clamp-2">
                 {newsItem.title}
               </h2>
-              <p className="text-[13px] mb-4 line-clamp-2 mb-5 ">
+              <p className="text-[11px] mb-4 line-clamp-2 mb-5 text-gray-400 ">
                 {newsItem.subtitle}
               </p>
             <Image
-              src={newsItem.imageUrl} 
+              src={NFT} 
               alt={newsItem.title}
-              className="w-full h-20 object-cover"
+              className="w-full h-20 object-cover mb-5"
             />
 
-            <div className='mb-5'>
-                <div className='rounded-full h-[40px] w-[40px] bg-orange-400'></div>
+            <div className='mb-5 flex space-x-2'>
+                <div className='rounded-full h-[30px] w-[30px] bg-orange-400'></div>
                 <div>
-                    <p>Reported by</p>
-                    <p>Jerome Powell</p>
+                    <p className='text-[10px] text-gray-500'>Reported by</p>
+                    <p className='text-[12px]'>Jerome Powell</p>
                 </div>
             </div>
             <div className="">
-              
+            <hr className='text-gray-700 mb-5'/>
+
               <div className="flex justify-between items-center text-[10px] text-gray-500">
                 <span>{newsItem.date}</span>
                 <span>{newsItem.time}</span>
