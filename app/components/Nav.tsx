@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Logo from "./../../public/assets/logo.png";
 import { FaSearch, FaBell, FaUserCircle } from "react-icons/fa";
+import Link from "next/link";
 
 const Nav = () => {
 	return (
@@ -37,9 +38,9 @@ const Nav = () => {
 				<button className="p-2 rounded-full hover:bg-gray-700">
 					<FaBell className="text-lg" />
 				</button>
-				<button className="p-2 rounded-full hover:bg-gray-700">
+				<Link href={'/account'} className="p-2 rounded-full hover:bg-gray-700">
 					<FaUserCircle className="text-2xl" />
-				</button>
+				</Link>
 			</div>
 		</nav>
 	);

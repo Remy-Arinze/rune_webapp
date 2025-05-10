@@ -14,7 +14,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 						<Sidebar />
 					</div>
 			
-				<div className={  "w-[72%] ml-[30%] x"}>
+				<div className={  "w-[72%] ml-[28%] "}>
 					{children}
 				</div>
 			</section>
