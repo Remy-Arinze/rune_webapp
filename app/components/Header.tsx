@@ -16,7 +16,7 @@ export const HeaderComponent: React.FC<HeaderProps> = ({
 			<p className="text-[13px] font-medium">{title}</p>
 			<button
 				onClick={onActionClick}
-				className="text-sm text-gray-400 hover:text-white transition-colors"
+				className="text-[11px] text-gray-400 hover:text-white transition-colors"
 			>
 				{actionText}
 			</button>

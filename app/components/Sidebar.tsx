@@ -45,19 +45,19 @@ export default function Sidebar() {
 					<div className="h-[30] w-[30] bg-pink-500 rounded-md"></div>
 				</div>
 				<div className="flex flex-col items-center space-y-6 mt-[auto]">
-					<button className="p-2 rounded-lg hover:bg-[#2a2e35]">
+					<button className="p-2 rounded-lg hover:cursor-pointer hover:bg-[#2a2e35]">
 						<RiHome5Line className="text-gray-å0 text-xl" />
 					</button>
-					<button className="p-2 rounded-lg hover:bg-[#2a2e35]">
+					<button className="p-2 rounded-lg hover:cursor-pointer hover:bg-[#2a2e35]">
 						<FaGamepad className="text-gray-400 text-xl" />
 					</button>
 					<button className="p-2 rounded-lg bg-[#2a2e35]">
 						<FaTrophy className="text-orange-400 text-xl" />
 					</button>
-					<button className="p-2 rounded-lg hover:bg-[#2a2e35]">
+					<button className="p-2 rounded-lg hover:cursor-pointer hover:bg-[#2a2e35]">
 						<IoMdStats className="text-gray-400 text-xl" />
 					</button>
-					<button className="p-2 rounded-lg hover:bg-[#2a2e35]">
+					<button className="p-2 rounded-lg hover:cursor-pointer hover:bg-[#2a2e35]">
 						<BsPeople className="text-gray-400 text-xl" />
 					</button>
 				</div>

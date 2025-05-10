@@ -9,12 +9,21 @@ import Image from 'next/image'
 import { HorizontalScrollContainer } from "../components/horizontal_scroll";
 import Knight from '../../public/assets/khight.jpg'
 import { RiFireFill } from "react-icons/ri";
+
+import NFT from '../../public/assets/nft.png'
+import TournamentCard from "../components/tournaments.tsx/tournament_card";
+
+
 const TournamentsPage = () => {
 	// Tournament data
 	const pastTournaments = [
-		{ month: "AUGUST", points: "1,000.00 pts", type: "Joint Tournament" },
-		{ month: "HISTORY", time: "10:24 Socks" },
-		{ month: "Fertime", time: "20:12 GAMES R&S" },
+		{image:NFT, title:"Winter Chess Games Austria", subtitle:"compete for a chance to win the ultimate in the austrian open", date: "Sat 11 Jan",stake: "1,000.00 RUNE", Slots:'32'},
+		{image:NFT, title:"Winter Chess Games Austria", subtitle:"compete for a chance to win the ultimate in the austrian open", date: "Sat 11 Jan",stake:"10,0000 RUNE"  , Slots:'32'},
+		{image:NFT, title:"Winter Chess Games Austria", subtitle:"compete for a chance to win the ultimate in the austrian open", date: "Sat 11 Jan",stake:"10,0000 RUNE"  , Slots:'32'},
+		{image:NFT, title:"Winter Chess Games Austria", subtitle:"compete for a chance to win the ultimate in the austrian open", date: "Sat 11 Jan",stake:"10,0000 RUNE"  , Slots:'32'},
+		{image:NFT, title:"Winter Chess Games Austria", subtitle:"compete for a chance to win the ultimate in the austrian open", date: "Sat 11 Jan",stake:"10,0000 RUNE"  , Slots:'32'},
+		{image:NFT, title:"Winter Chess Games Austria", subtitle:"compete for a chance to win the ultimate in the austrian open", date: "Sat 11 Jan",stake:"10,0000 RUNE"  , Slots:'32'},
+		{image:NFT, title:"Winter Chess Games Austria", subtitle:"compete for a chance to win the ultimate in the austrian open", date: "Sat 11 Jan",stake:"10,0000 RUNE"  , Slots:'32'},
 	];
 
 	// const upcomingTournaments = [
@@ -42,7 +51,7 @@ const TournamentsPage = () => {
 	// ];
 
 	return (
-		<div className="text-white pr-3 mt-5">
+		<div className="text-white pr-5 mt-5">
 			{/* Header Section */}
 			<div className="mb-8 flex justify-center space-x-2 ">
 			<div className="w-[15%] rounded-lg">
@@ -82,7 +91,7 @@ const TournamentsPage = () => {
 			<div className="flex items-start justify-between ">
 			<div>
 			<h3 className="text-[14px] mb-1 flex items-center">
-					<FaTrophy className="mr-2" /> ONGOING TOURNAMENTS
+					<FaTrophy className="mr-2" /> FEATURED TOURNAMENTS
 				</h3>
 				<p className="text-gray-500 text-[10px] mb-5">
 					Participate in contests and win wagers.
@@ -94,21 +103,9 @@ const TournamentsPage = () => {
 				{/* Past Tournaments */}
 				<div className="mb-12">
 					<HorizontalScrollContainer>
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 						{pastTournaments.map((tournament, index) => (
-							<div key={index} className="bg-[var(--dark)] p-4 rounded-lg">
-								<div className="font-bold text-blue-400">
-									{tournament.month}
-								</div>
-								<div className="text-xl my-2">
-									{tournament.points || tournament.time}
-								</div>
-								<div className="text-gray-400">
-									{tournament.type || "Completed"}
-								</div>
-							</div>
+							<TournamentCard image={tournament.image} title={tournament.title} subtitle={tournament.subtitle} stake={tournament.stake} slot={tournament.Slots} date={tournament.date} index={index} />
 						))}
-					</div>
 					</HorizontalScrollContainer>
 				</div>
 
@@ -129,18 +126,8 @@ const TournamentsPage = () => {
 				{/* Past Tournaments */}
 				<div className="mb-12">
 					<HorizontalScrollContainer>
-						{pastTournaments.map((tournament, index) => (
-							<div key={index} className="bg-[var(--dark)] p-4 rounded-lg w-[35%] flex-shrink-0">
-								<div className="font-bold text-blue-400">
-									{tournament.month}
-								</div>
-								<div className="text-xl my-2">
-									{tournament.points || tournament.time}
-								</div>
-								<div className="text-gray-400">
-									{tournament.type || "Completed"}
-								</div>
-							</div>
+					{pastTournaments.map((tournament, index) => (
+							<TournamentCard image={tournament.image} title={tournament.title} subtitle={tournament.subtitle} stake={tournament.stake} slot={tournament.Slots} date={tournament.date} index={index} />
 						))}
 					</HorizontalScrollContainer>
 				</div>
@@ -160,18 +147,8 @@ const TournamentsPage = () => {
 				{/* Past Tournaments */}
 				<div className="mb-12">
 					<HorizontalScrollContainer>
-						{pastTournaments.map((tournament, index) => (
-							<div key={index} className="bg-[var(--dark)] p-4 rounded-lg w-[35%] flex-shrink-0">
-								<div className="font-bold text-blue-400">
-									{tournament.month}
-								</div>
-								<div className="text-xl my-2">
-									{tournament.points || tournament.time}
-								</div>
-								<div className="text-gray-400">
-									{tournament.type || "Completed"}
-								</div>
-							</div>
+					{pastTournaments.map((tournament, index) => (
+							<TournamentCard image={tournament.image} title={tournament.title} subtitle={tournament.subtitle} stake={tournament.stake} slot={tournament.Slots} date={tournament.date} index={index} />
 						))}
 					</HorizontalScrollContainer>
 				</div>

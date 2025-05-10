@@ -101,17 +101,17 @@ const DashboardNavbar = () => {
                 </div>
 
                 {/* Premium Membership Banner */}
-                <div className="bg-[#2A2E35] p-4 rounded-lg mb-6">
+                <div className="bg-orange-400 p-4 rounded-lg mb-6">
                     <div className="flex items-start mb-2">
                         <FaCrown className="text-yellow-400 mt-1 mr-2" />
                         <div>
-                            <h3 className="font-bold text-sm">Unlock more with Premium</h3>
-                            <p className="text-gray-400 text-xs">
+                            <h3 className="font-bold text-sm text-[var(--background)]">Unlock more with Premium</h3>
+                            <p className="text-gray-700 text-[10px]">
                                 More comes the benefit of a premium membership.
                             </p>
                         </div>
                     </div>
-                    <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black py-2 px-4 rounded text-sm font-bold transition-colors">
+                    <button className="w-full bg-[var(--background)] hover:cursor-pointer text-orange-400 py-2 px-4 rounded text-sm font-bold transition-colors">
                         Upgrade Now
                     </button>
                 </div>

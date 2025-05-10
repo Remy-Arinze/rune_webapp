@@ -33,12 +33,12 @@ const LandingPage = () => {
     ]
 
     return (
-        <div className="min-h-screen bg-[var(--background)] p-6 font-sans">
+        <div className="bg-[var(--background)] px-5">
             <Carousel />
 
             {/* Main Content Grid */}
-            <div className="mt-10 overflow-hidden">
-                <HorizontalScrollContainer className="no-scrollbar">
+            <div className="mt-10">
+                <HorizontalScrollContainer className="">
                     {guilds.map((guild,index) => (
                         <div 
                             key={index+1} 

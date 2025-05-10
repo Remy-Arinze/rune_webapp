@@ -35,7 +35,6 @@ const GameButton: React.FC<GameButtonProps> = ({
 
   // Calculate dynamic styles
   const buttonStyles = {
-    backgroundColor,
     boxShadow: disabled ? 'none' : `0 4px 0 ${shadowColor}, 0 5px 5px rgba(0, 0, 0, 0.1)`,
     cursor: disabled ? 'not-allowed' : 'pointer',
   };
@@ -43,7 +42,7 @@ const GameButton: React.FC<GameButtonProps> = ({
   return (
     <button
       onClick={disabled ? undefined : onClick}
-      className={`${baseClasses} ${sizeClasses[size]}`}
+      className={`bg-orange-400 ${baseClasses} ${sizeClasses[size]}`}
       style={buttonStyles}
       disabled={disabled}
       aria-disabled={disabled}
