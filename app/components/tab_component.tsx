@@ -20,6 +20,7 @@ type CustomTabsProps = {
   tabContentClassName?: string
   containerClassName?: string
   onTabChange?: (value: string) => void
+  hasBackgroundColor?: boolean | null
 }
 
 export function CustomTabs({
@@ -31,7 +32,8 @@ export function CustomTabs({
   tabTriggerClassName = '',
   tabContentClassName = '',
   containerClassName = '',
-  onTabChange
+  onTabChange,
+  hasBackgroundColor = true
 }: CustomTabsProps) {
   const [activeTab, setActiveTab] = useState(defaultTab || tabs[0]?.value || '')
 
@@ -50,33 +52,34 @@ export function CustomTabs({
     >
       <div className='flex items-center justify-between'>
         {header}
-      <div className='w-full bg-(var(--background)]'>
-          <TabsList className={`p-1 h-auto rounded-xl  ${tabListClassName}`}>
-          {tabs.map((tab) => (
-            <TabsTrigger
-              key={tab.value}
-              value={tab.value}
-              disabled={tab.disabled}
-              style={activeTab === tab.value ? { 
-                
-                boxShadow: '0 3px 0 orange',
-                transform: 'translateZ(0)' // Force GPU acceleration
-              } : {}}
-              className={`
-                py-1.5 mr-5 text-[12px] font-medium transition-all
-                ${activeTab === tab.value 
-                  ? 'bg-orange-400 dark:bg-[var(--primary)] text-black shadow-sm rounded-lg' 
-                  : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
-                }
-                ${tabTriggerClassName}
-              `}
-            >
-              {tab.icon && <span className="mr-2">{tab.icon}</span>}
-              {tab.label}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-      </div>
+        <div className='w-full bg-(var(--background)]'>
+          <TabsList className={`p-1 h-auto rounded-xl ${tabListClassName}`}>
+            {tabs.map((tab) => (
+              <TabsTrigger
+                key={tab.value}
+                value={tab.value}
+                disabled={tab.disabled}
+                style={activeTab === tab.value ? { 
+                  boxShadow: hasBackgroundColor ? '0 3px 0 orange' : 'none',
+                  transform: 'translateZ(0)'
+                } : {}}
+                className={`
+                  py-1.5 mr-5 text-[12px] font-medium transition-all
+                  ${activeTab === tab.value 
+                    ? hasBackgroundColor 
+                      ? 'bg-orange-400 dark:bg-[var(--primary)] text-black shadow-sm rounded-lg' 
+                      : 'text-[var(--primary)] dark:text-[var(--primary)] font-semibold'
+                    : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
+                  }
+                  ${tabTriggerClassName}
+                `}
+              >
+                {tab.icon && <span className="mr-2">{tab.icon}</span>}
+                {tab.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </div>
       </div>
 
       <div className={`text-white w-full rounded-lg ${tabContentClassName}`}>

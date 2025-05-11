@@ -23,9 +23,11 @@ const DashboardNavbar = () => {
          <div className="bg-[var(--dark)] text-white w-50 h-[90dvhd] p-6 flex flex-col border-r border-gray-800">
             {/* User Profile Header */}
             <div className="mb-8">
+                <Link href={'/account'}>
                 <div className="h-[50] w-[50] flex items-center justify-center rounded-full bg-orange-400">
                     <FaUser color="black" />
                 </div>
+                </Link>
                 <p className="text-[10px] text-gray-500 mt-5">Good Morning</p>
                 <h1 className="text-xl font-bold ">0X_RA</h1>
                 <hr className="text-gray-700 my-2 mb-5" />

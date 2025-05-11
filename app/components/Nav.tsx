@@ -27,20 +27,11 @@ const Nav = () => {
 			</div>
 
 			<div className="flex items-center space-x-4">
-				<div className="relative">
-					<input
-						type="text"
-						placeholder="Search..."
-						className="bg-gray-800 rounded-full py-1 px-4 pl-10 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-					/>
-					<FaSearch className="absolute left-3 top-2 text-gray-400" />
-				</div>
+				
 				<button className="p-2 rounded-full hover:bg-gray-700">
-					<FaBell className="text-lg" />
+					<FaBell size={15} className="text-md" />
 				</button>
-				<Link href={'/account'} className="p-2 rounded-full hover:bg-gray-700">
-					<FaUserCircle className="text-2xl" />
-				</Link>
+			
 			</div>
 		</nav>
 	);

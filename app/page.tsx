@@ -33,7 +33,7 @@ const LandingPage = () => {
     ]
 
     return (
-        <div className="bg-[var(--background)] px-5">
+        <div className="bg-[var(--background)] pr-10">
             <Carousel />
 
             {/* Main Content Grid */}
@@ -52,8 +52,8 @@ const LandingPage = () => {
                 
                 <div className="flex item-start justify-between mt-10">
                     <div className="w-[75%]">
-                        <HeaderComponent title={"Top Tournaments"} />
-                        <HorizontalScrollContainer className="mt-3 no-scrollbar">
+                        <HeaderComponent title={"Top Tournaments"} path="/all-tournaments" />
+                        <HorizontalScrollContainer className="mt-1 no-scrollbar">
                             {tournaments.map((tournament, index) => (
                                 <TournamentCardComponent
                                     key={`tournament-${index}`}
@@ -64,8 +64,8 @@ const LandingPage = () => {
                         </HorizontalScrollContainer>
 
 						<div className="mt-20">
-						<HeaderComponent title={"Top Games"} />
-                        <HorizontalScrollContainer className="mt-3 no-scrollbar">
+						<HeaderComponent title={"Top Matches"} path="/matches" />
+                        <HorizontalScrollContainer className="mt-1 no-scrollbar">
                             {tournaments.map(() => (
                                <div key={`$tournamen $index`} className="flex-shrink-0 w-[200px] bg-[var(--dark)] rounded-md p-2">
 								<div className="flex item-center"><Timer color="orange" size="15"/> <p className="text-[10px] ml-1">20mins ago</p></div>
