@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import Sidebar from "./components/Sidebar";
 import { Provider } from "react-redux";
 import { store } from "@/store";
+import Sidebar from "./components/sidebar/Sidebar";
 
 export function Providers({ children }: { children: React.ReactNode }) {
 

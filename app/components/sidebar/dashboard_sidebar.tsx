@@ -146,7 +146,7 @@ const NavItem = ({
     isActive: boolean;
 }) => {
     return (
-        <Link href={link}>
+        <Link href={link} prefetch>
             <li className={`flex items-center space-x-3 p-2 rounded cursor-pointer transition-colors ${
                 isActive 
                     ? "bg-[#2A2E35] text-orange-400" 

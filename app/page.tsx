@@ -13,6 +13,7 @@ import { Timer } from "lucide-react";
 
 import nft from '../public/assets/nft.png'
 import Image from "next/image";
+import Link from "next/link";
 
 const LandingPage = () => {
     const tournaments = generateTournaments(6); // Generate 6 tournaments
@@ -52,7 +53,7 @@ const LandingPage = () => {
                 
                 <div className="flex item-start justify-between mt-10">
                     <div className="w-[75%]">
-                        <HeaderComponent title={"Top Tournaments"} path="/all-tournaments" />
+                        <HeaderComponent title={"Top Tournaments"} path="/tournaments/all"  />
                         <HorizontalScrollContainer className="mt-1 no-scrollbar">
                             {tournaments.map((tournament, index) => (
                                 <TournamentCardComponent
@@ -67,12 +68,13 @@ const LandingPage = () => {
 						<HeaderComponent title={"Top Matches"} path="/matches" />
                         <HorizontalScrollContainer className="mt-1 no-scrollbar">
                             {tournaments.map(() => (
-                               <div key={`$tournamen $index`} className="flex-shrink-0 w-[200px] bg-[var(--dark)] rounded-md p-2">
+                                
+                           <Link href={'/stream'} prefetch>
+                               <div key={`$tournamen $index`} className="hover:cursor-pointer flex-shrink-0 w-[200px] bg-[var(--dark)] rounded-md p-2">
 								<div className="flex item-center"><Timer color="orange" size="15"/> <p className="text-[10px] ml-1">20mins ago</p></div>
-
 								<div className="flex item-center justify-center space-x-3 mt-10">
 									<div className="w-[50%] ">
-<Image src={nft} alt="nft" className="w-full" />	
+                                    <Image src={nft} alt="nft" className="w-full" />	
 									<p className="text-[10px]">0x_Ra</p>
 									</div>
 									<p className="text-[10px]">vs</p>
@@ -87,6 +89,7 @@ const LandingPage = () => {
 									<p className="text-[10px]">odd:2.2</p>
 								</div>
 							   </div>
+                           </Link>
                             ))}
                         </HorizontalScrollContainer>
 						</div>

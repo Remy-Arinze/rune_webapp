@@ -10,12 +10,14 @@ interface props{
     slot:string;
     date:string;
     index:string|number;
+    width?:string;
+    height?:string
 
 }
 
-export default function TournamentCard({title,subtitle,index,stake,slot,image,date}:props) {
+export default function TournamentCard({title,subtitle,index,stake,slot,image,date,width,height}:props) {
   return (
-         <div className="flex-shrink-0 w-[30%]" >
+         <div className={`flex-shrink-0 ${width ? width : "w-[30%]"} ${height ? height : ""}`} >
                                 <div key={index} className="bg-[var(--dark)] p-2 rounded-lg">
                                 <div>
                                     <Image src={image} alt="" className=""/>

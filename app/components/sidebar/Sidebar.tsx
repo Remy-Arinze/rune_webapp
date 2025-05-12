@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import { IoMdStats } from "react-icons/io";
 import {  BsPeople } from "react-icons/bs";
-import DashboardNavbar from "./sidebar/dashboard_sidebar";
+import DashboardNavbar from "./dashboard_sidebar";
 
 // interface ItemProps {
 // 	title: string;
