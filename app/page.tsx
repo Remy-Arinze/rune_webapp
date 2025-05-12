@@ -67,10 +67,10 @@ const LandingPage = () => {
 						<div className="mt-20">
 						<HeaderComponent title={"Top Matches"} path="/matches" />
                         <HorizontalScrollContainer className="mt-1 no-scrollbar">
-                            {tournaments.map(() => (
+                            {tournaments.map((_,index) => (
                                 
-                           <Link href={'/stream'} prefetch>
-                               <div key={`$tournamen $index`} className="hover:cursor-pointer flex-shrink-0 w-[200px] bg-[var(--dark)] rounded-md p-2">
+                           <Link  key={index} href={'/stream'} prefetch>
+                               <div className="hover:cursor-pointer flex-shrink-0 w-[200px] bg-[var(--dark)] rounded-md p-2">
 								<div className="flex item-center"><Timer color="orange" size="15"/> <p className="text-[10px] ml-1">20mins ago</p></div>
 								<div className="flex item-center justify-center space-x-3 mt-10">
 									<div className="w-[50%] ">

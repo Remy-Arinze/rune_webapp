@@ -5,7 +5,6 @@ import {
     FaCrown,
     FaQuestionCircle,
     FaCog,
-    FaUsers,
     FaTrophy,
     FaNewspaper,
     FaHome,

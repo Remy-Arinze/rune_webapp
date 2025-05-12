@@ -15,8 +15,8 @@ const Stream = () => {
   const [messageInput, setMessageInput] = useState<string>('');
   const [reactions, setReactions] = useState<Reaction[]>([]);
   const [viewers, setViewers] = useState<number>(1243);
-  const [streamTitle, setStreamTitle] = useState<string>('GM Magnus vs GM Hikaru - World Championship Match');
-  const [streamer, setStreamer] = useState<string>('ChessNetwork');
+  const [streamTitle] = useState<string>('GM Magnus vs GM Hikaru - World Championship Match');
+  const [streamer] = useState<string>('ChessNetwork');
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
 
   // Sample PGN for demo
@@ -44,7 +44,7 @@ const Stream = () => {
     setGame(chess);
     movesRef.current = chess.history();
     moveIndexRef.current = 0;
-  }, []);
+  }, [samplePGN]);
 
   // Simulate live moves
   useEffect(() => {
@@ -70,7 +70,7 @@ const Stream = () => {
     }, 3000); // Move every 3 seconds
 
     return () => clearInterval(interval);
-  }, [isPlaying]);
+  }, [isPlaying,samplePGN]);
 
   // Simulate random chat messages
   useEffect(() => {

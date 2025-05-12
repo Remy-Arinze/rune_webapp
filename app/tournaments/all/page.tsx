@@ -1,5 +1,3 @@
-import GameButton from '@/app/components/custom_button'
-import { HorizontalScrollContainer } from '@/app/components/horizontal_scroll'
 import SearchInput from '@/app/components/search'
 import React from 'react'
 import TournamentCard from "../../components/tournaments.tsx/tournament_card";
@@ -23,7 +21,7 @@ export default function AllTournaments() {
           <p className='text-[14px]'>Recommended for you</p>
           <div className='flex items-center space-x-3 '>
           {RecommendedTournaments.map((tournament, index) => (
-              <TournamentCard height='h-[100px]' image={tournament.image} title={tournament.title} subtitle={tournament.subtitle} stake={tournament.stake} slot={tournament.Slots} date={tournament.date} index={index} />
+              <TournamentCard key={index} height='h-[100px]' image={tournament.image} title={tournament.title} subtitle={tournament.subtitle} stake={tournament.stake} slot={tournament.Slots} date={tournament.date} index={index} />
             ))}
           </div>
         </div>

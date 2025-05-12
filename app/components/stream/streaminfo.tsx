@@ -1,6 +1,6 @@
 import { StreamInfoProps } from "@/app/account/types/stream_types";
 
-const StreamInfo = ({ title, streamer, isPlaying, onTogglePlayPause }: StreamInfoProps) => {
+const StreamInfo = ({ title, streamer, }: StreamInfoProps) => {
   return (
     <div className="px-4 border-b border-gray-700 flex items-center justify-between">
       <div>

@@ -1,5 +1,5 @@
 import { Chessboard } from 'react-chessboard';
-import { Chess } from 'chess.js';
+// import { Chess } from 'chess.js';
 import { ChessBoardProps } from '@/app/account/types/stream_types';
 
 const ChessBoard = ({ game }: ChessBoardProps) => {

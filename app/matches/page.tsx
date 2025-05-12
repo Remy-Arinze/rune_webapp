@@ -2,7 +2,6 @@ import React from 'react'
 import { HorizontalScrollContainer } from '../components/horizontal_scroll'
 import { IoTrophySharp } from 'react-icons/io5'
 import { FaCrown } from 'react-icons/fa'
-import GameButton from '../components/custom_button'
 
 function Matches() {
   const topTournaments = [
@@ -68,7 +67,7 @@ function Matches() {
     <div className='pr-10'>
         <HorizontalScrollContainer>
         {
-          topTournaments.map((tournament,index)=> <div className='flex-shrink-0 w-[40%] p-2 bg-[var(--dark)] rounded-md mr-10 flex flex-col items-center justify-center
+          topTournaments.map((tournament,index)=> <div key={index} className='flex-shrink-0 w-[40%] p-2 bg-[var(--dark)] rounded-md mr-10 flex flex-col items-center justify-center
           '>
               <div className='flex space-x-2 mb-5 items-center'>
                 <IoTrophySharp/>
@@ -87,7 +86,7 @@ function Matches() {
 
 {/* Games  */}
   <div className='bg-[var(--dark)] h-[55dvh] overflow-y-scroll no-scrollbar mt-2 rounded-t-md'>
-{wagers.map((wager,index)=> <div className='flex py-2 px-2 items-center border-[transparent] border border-b-gray-700'>
+{wagers.map((wager,index)=> <div key={index} className='flex py-2 px-2 items-center border-[transparent] border border-b-gray-700'>
 <div className=' w-[40%] border-[transparent] border border-r-gray-500' >
   <p className='text-[10px] text-gray-400 flex items-center justify-between'>Blitz <span>1:34:00</span></p>
 <div className='flex items-center space-x-3'>

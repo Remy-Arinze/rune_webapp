@@ -1,8 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Logo from "./../../public/assets/logo.png";
-import { FaSearch, FaBell, FaUserCircle } from "react-icons/fa";
-import Link from "next/link";
+import {  FaBell } from "react-icons/fa";
 
 const Nav = () => {
 	return (

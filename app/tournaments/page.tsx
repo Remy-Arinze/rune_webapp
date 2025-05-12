@@ -104,7 +104,7 @@ const TournamentsPage = () => {
 				<div className="mb-12">
 					<HorizontalScrollContainer>
 						{pastTournaments.map((tournament, index) => (
-							<TournamentCard image={tournament.image} title={tournament.title} subtitle={tournament.subtitle} stake={tournament.stake} slot={tournament.Slots} date={tournament.date} index={index} />
+							<TournamentCard key={index} image={tournament.image} title={tournament.title} subtitle={tournament.subtitle} stake={tournament.stake} slot={tournament.Slots} date={tournament.date} index={index} />
 						))}
 					</HorizontalScrollContainer>
 				</div>
@@ -127,7 +127,7 @@ const TournamentsPage = () => {
 				<div className="mb-12">
 					<HorizontalScrollContainer>
 					{pastTournaments.map((tournament, index) => (
-							<TournamentCard image={tournament.image} title={tournament.title} subtitle={tournament.subtitle} stake={tournament.stake} slot={tournament.Slots} date={tournament.date} index={index} />
+							<TournamentCard key={index} image={tournament.image} title={tournament.title} subtitle={tournament.subtitle} stake={tournament.stake} slot={tournament.Slots} date={tournament.date} index={index} />
 						))}
 					</HorizontalScrollContainer>
 				</div>
@@ -148,7 +148,7 @@ const TournamentsPage = () => {
 				<div className="mb-12">
 					<HorizontalScrollContainer>
 					{pastTournaments.map((tournament, index) => (
-							<TournamentCard image={tournament.image} title={tournament.title} subtitle={tournament.subtitle} stake={tournament.stake} slot={tournament.Slots} date={tournament.date} index={index} />
+							<TournamentCard key={index} image={tournament.image} title={tournament.title} subtitle={tournament.subtitle} stake={tournament.stake} slot={tournament.Slots} date={tournament.date} index={index} />
 						))}
 					</HorizontalScrollContainer>
 				</div>
