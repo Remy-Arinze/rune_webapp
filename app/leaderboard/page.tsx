@@ -183,7 +183,7 @@ const Leaderboard: React.FC = () => {
 </h3>
         
         <div className="">
-          <img 
+          <Image 
             src={player.flag} 
             alt={player.country} 
             className="w-5 h-4 mr-2"
@@ -199,7 +199,7 @@ const Leaderboard: React.FC = () => {
   }
 
   const LevelSection: React.FC<LevelSectionProps> = ({ level }) => (
-    <div key={level} className="mb-20 rounded-lg overflow-hidden shadow-md">
+    <div key={level} className="mb-10 rounded-lg overflow-hidden shadow-md">
       <div className={`flex justify-between items-center px-4`}>
         <h2 className="text-lg font-bold text-white">{level}</h2>
         <button className="text-white text-[10px] hover:text-gray-200">

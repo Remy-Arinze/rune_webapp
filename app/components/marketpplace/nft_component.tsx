@@ -1,4 +1,3 @@
-import { CheckIcon } from 'flowbite-react/icons'
 import React, { ReactNode } from 'react'
 import { BsCart, BsHeartFill } from 'react-icons/bs'
 import { IoFlame } from 'react-icons/io5'
@@ -11,11 +10,11 @@ interface props{
 }
 
 export default function NFTCOMPONENT({name,price,item}:props) {
-  return (
-     <div className='px-1 py-3 w-[120px] bg-[var(--dark)] rounded-lg'>
-                   <div className=' mb-3 relative text-[50px] w-full h-[70px] flex items-center justify-center'>
-                      {item}
-                   </div>
+    return (
+        <div className='px-1 py-3 w-[120px] bg-[var(--dark)] rounded-lg'>
+            <div className=' mb-3 relative text-[50px] w-full h-[70px] flex items-center justify-center'>
+                {item}
+            </div>
             <p className='text-[10px]'>{name}</p>
         <p className='text-[9px] mt-1 rounded bg- text-gray-500 flex items-center text-red-500 space-x-2'><IoFlame className=' text-[15px]' /> Rare </p>
 

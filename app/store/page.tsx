@@ -6,7 +6,6 @@ import NFT from '../../public/assets/nft.png'
 import NFTCOMPONENT from '../components/marketpplace/nft_component'
 import { IoFlame } from 'react-icons/io5'
 import { FaChessBishop, FaChessBoard, FaChessKing } from 'react-icons/fa'
-import { HorizontalScrollContainer } from '../components/horizontal_scroll'
 
 
 
