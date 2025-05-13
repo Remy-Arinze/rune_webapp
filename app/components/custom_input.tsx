@@ -105,7 +105,7 @@ const Input = React.forwardRef<HTMLInputElement | HTMLSelectElement | HTMLTextAr
         return (
           <textarea
             ref={ref as React.Ref<HTMLTextAreaElement>}
-            className={`${baseClasses} ${error ? errorClasses : ''} min-h-[100px]`}
+            className={`${baseClasses} ${error ? errorClasses : ''} min-h-[100px] placeholder:text-[13px]`}
             placeholder={placeholder}
             {...props as React.TextareaHTMLAttributes<HTMLTextAreaElement>}
           />
@@ -140,7 +140,7 @@ const Input = React.forwardRef<HTMLInputElement | HTMLSelectElement | HTMLTextAr
             type={type === 'search' ? 'text' : type}
             className={`${baseClasses} ${error ? errorClasses : ''} ${
               type === 'search' && showSearchIcon ? 'pl-10' : ''
-            }`}
+            } placeholder:text-[13px]`}
             placeholder={placeholder}
             {...props as React.InputHTMLAttributes<HTMLInputElement>}
           />

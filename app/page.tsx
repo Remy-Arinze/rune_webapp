@@ -34,7 +34,7 @@ const LandingPage = () => {
     ]
 
     return (
-        <div className="bg-[var(--background)] pr-10">
+        <div className=" h-[80dvh] overflow-y-scroll no-scrollbar bg-[var(--background)] pr-10">
             <Carousel />
 
             {/* Main Content Grid */}
@@ -53,7 +53,7 @@ const LandingPage = () => {
                 
                 <div className="flex item-start justify-between mt-10">
                     <div className="w-[75%]">
-                        <HeaderComponent title={"Top Tournaments"} path="/tournaments/all"  />
+                        <HeaderComponent title={"Featured Tournaments"} path="/tournaments/all"  />
                         <HorizontalScrollContainer className="mt-1 no-scrollbar">
                             {tournaments.map((tournament, index) => (
                                 <TournamentCardComponent
