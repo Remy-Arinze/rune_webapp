@@ -36,11 +36,11 @@ const Login = () => {
                 type="checkbox"
                 className="h-4 w-4 text-[var(--primary)] focus:ring-[var(--primary)] border-gray-300 rounded"
               />
-              <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-500">
+              <label htmlFor="remember-me" className="ml-2 block text-[12px] text-gray-500">
                 Remember me
               </label>
             </div>
-            <a href="#" className="text-sm text-[var(--primary)] hover:underline">
+            <a href="#" className="text-[12px] text-[var(--primary)] hover:underline">
               Forgot password?
             </a>
           </div>

@@ -183,12 +183,14 @@ const Leaderboard: React.FC = () => {
 </h3>
         
         <div className="">
-          <Image 
+          <img 
             src={player.flag} 
             alt={player.country} 
             className="w-5 h-4 mr-2"
           />
-          <span className="text-[10px] text-gray-500">online</span>
+          <span className="text-[10px] text-gray-500">
+            {player.isOnline ? 'online' : 'offline'}
+          </span>
         </div>
       </div>
     </div>
@@ -200,13 +202,13 @@ const Leaderboard: React.FC = () => {
 
   const LevelSection: React.FC<LevelSectionProps> = ({ level }) => (
     <div key={level} className="mb-10 rounded-lg overflow-hidden shadow-md">
-      <div className={`flex justify-between items-center px-4`}>
-        <h2 className="text-lg font-bold text-white">{level}</h2>
-        <button className="text-white text-[10px] hover:text-gray-200">
+      <div className={`flex justify-between items-center `}>
+        <h2 className="text-[12px] text-gray-400">{level}</h2>
+        <button className="text-gray-500 text-[10px] hover:cursor-pointer hover:text-gray-200">
           View more
         </button>
       </div>
-      <div className=" flex flex-wrap space-x-2 mt-1">
+      <div className=" flex flex-wrap justify-between mt-1">
         {groupedPlayers[level]?.slice(0, 4).map(player => (
           <PlayerItem key={player.id} player={player} />
         ))}

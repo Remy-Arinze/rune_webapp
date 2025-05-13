@@ -24,7 +24,7 @@ export default function PlayScreen() {
         <div className='mt-10 bg-[var(--dark)] w-full'>Game History</div>
       </div>
 
-      <div className='ml-10 bg-[var(--dark)] h-[90dvh] px-2 py-1 rounded-lg w-[25%] '>
+      <div className='ml-10 bg-[var(--dark)] h-[80dvh] px-2 py-1 rounded-lg w-[25%] '>
          <CustomTabs
       tabs={[
         { label: 'New Game', value: 'new game' },

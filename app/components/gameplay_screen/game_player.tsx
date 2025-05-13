@@ -12,8 +12,8 @@ export default function GamePlayer() {
             </div>
 
             <div className='flex space-x-2'>
-                <div className='py-3 px-5 text-xl rounded-lg bg-gray-800'>03:00</div>
                 <CiSettings size={20} color='var(--primary)' />
+                <div className='py-2 px-4 text-xl rounded-lg bg-gray-800'>03:00</div>
             </div>
         </div>
   )
