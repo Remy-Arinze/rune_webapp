@@ -73,9 +73,9 @@ const DashboardNavbar = () => {
                         />
                         <NavItem
                             icon={<FaGlobe />}
-                            link="/leaderboards"
+                            link="/leaderboard"
                             label="Leaderboard"
-                            isActive={pathname === "/leaderboards"}
+                            isActive={pathname === "/leaderboard"}
                         />
                     </ul>
                 </div>
