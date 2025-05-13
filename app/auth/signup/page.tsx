@@ -145,7 +145,7 @@ const SignUp = () => {
   ];
 
   return (
-    <div className="min-h-screen relative bg-[var(--dark)] flex flex-col items-center justify-center p-4 overflow-hidden">
+    <div className="h-[80dvh] overflow-y-scroll no-scrollbar relative bg-[var(--dark)] flex flex-col items-center justify-center pt-[20%] mr-10">
       <div className="absolute top-4 right-4 bg-[var(--primary)] text-[var(--background)] px-3 py-1 rounded-full text-sm">
         {step}/2
       </div>
