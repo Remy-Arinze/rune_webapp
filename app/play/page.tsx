@@ -18,8 +18,8 @@ export default function PlayScreen() {
   ];
 
   return (
-    <div className='flex ml-5' >
-      <div>
+    <div className='flex ml-5 h-[80dvh] overflow-y-scroll no-scrollbar' >
+      <div className='mx-3'>
         <GameBoard />
         <div className='mt-10 bg-[var(--dark)] w-full'>Game History</div>
       </div>
