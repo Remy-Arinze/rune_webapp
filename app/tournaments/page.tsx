@@ -1,5 +1,5 @@
 import React from "react";
-import { FaTrophy, FaClock, FaGamepad } from "react-icons/fa";
+import { FaTrophy, FaGamepad } from "react-icons/fa";
 import Image from 'next/image'
 import { HorizontalScrollContainer } from "../components/horizontal_scroll";
 import Knight from '../../public/assets/khight.jpg'
@@ -80,14 +80,14 @@ const TournamentsPage = () => {
       <div className="mt-2">
         <div className="flex items-start justify-between">
           <div>
-            <h3 className="text-sm mb-1 flex items-center">
+            <h3 className="text-[13px] mb-1 flex items-center">
               <FaTrophy className="mr-2" /> FEATURED TOURNAMENTS
             </h3>
-            <p className="text-gray-500 text-xs mb-5">
+            <p className="text-gray-500 text-[10px] mb-2">
               Participate in contests and win wagers.
             </p>
           </div>
-          <p className="text-xs text-gray-400">view all</p>
+          <p className="text-[10px] text-gray-400">view all</p>
         </div>
 
         {/* Past Tournaments */}

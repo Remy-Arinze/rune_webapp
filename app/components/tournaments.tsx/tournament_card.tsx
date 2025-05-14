@@ -17,10 +17,10 @@ interface props{
 
 export default function TournamentCard({title,subtitle,index,stake,slot,image,date,width,height}:props) {
   return (
-         <div className={`flex-shrink-0 ${width ? width : "w-[30%]"} ${height ? height : ""}`} >
+         <div className={`flex-shrink-0 ${width ? width : "w-[35%]"} ${height ? height : ""}`} >
                                 <div key={index} className="bg-[var(--dark)] p-2 rounded-lg">
                                 <div>
-                                    <Image src={image} alt="" className=""/>
+                                    <Image src={image} alt="" className=" h-[100px]"/>
                                 </div>
                                 <p className="capitalise text-gray-400 text-[10px]">
                                     {date}
