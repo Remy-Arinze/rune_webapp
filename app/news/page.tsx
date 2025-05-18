@@ -159,25 +159,20 @@ const chessNewsData: ChessNewsItem[] = [
 
 export default function ChessNewsPage() {
   return (
-    <div className="container mx-auto pr-4">
+    <div className="mx-auto mt-5 md:mt-0 md:pr-10">
       {/* Header with search and filters */}
-      <div className="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4">
-        <h1 className="text-2xl font-bold ">NEWS</h1>
-        <div className='flex items-center space-x-4'>
-          <div className="w-full sm:w-64">
+        <div className='flex items-center justify-end space-x-2'>
             <SearchInput />
-          </div>
-          <button className="p-2 rounded-full hover:bg-gray-100">
-            <IoFilter className="text-gray-600 text-xl" />
+          <button className="p-2 rounded-full hover:bg-gray-700">
+            <IoFilter className="text-gray-600 text-md" />
           </button>
-          <button className="p-2 rounded-full hover:bg-gray-100">
-            <VscSettings className="text-gray-600 text-xl" />
+          <button className="p-2 rounded-full hover:bg-gray-700">
+            <VscSettings className="text-gray-600 text-md" />
           </button>
         </div>
-      </div>
 
       {/* News grid */}
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-5'>
         {chessNewsData.map((newsItem) => (
           <div key={newsItem.id} className=" px-4 py-4 bg-[var(--dark)] rounded-[20px] shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
             <div className='flex items-center justify-between mb-5'>

@@ -7,6 +7,7 @@ import { TokenComponent } from '../components/account/token_component';
 
 import Image from 'next/image'
 import ChessBoard from '../../public/assets/chess_board_copy.png'
+import { FaEthereum } from 'react-icons/fa';
 
 export default function Account() {
   const gameHistory = [
@@ -20,9 +21,9 @@ export default function Account() {
     {date:'Jan 12'},
   ]
   return (
-    <div className='flex space-x-5 pr-10'>
+    <div className='md:flex space-x-5 md:pr-10 md:mt-0 mt-5'>
      
-        <div className='w-[35%] h-[80dvh] overflow-y-scroll no-scrollbar'>
+        <div className='md:w-[35%] md:h-[80dvh] h-[60dvh] overflow-y-scroll no-scrollbar'>
           <div>
           <CustomTabs hasBackgroundColor={false} tabs={[
                   { value: 'token', label: 'Tokens' },
@@ -53,10 +54,9 @@ export default function Account() {
 
                 <div className='mt-5'>
                   <p className='text-gray-500 text-[10px] flex item-center justify-between'>Tokens <span className='hover:cursor-pointer'>more</span></p>
+                 <TokenComponent symbol='Rune' priceChange='0.000' icon={<p className='font-bold'>R</p>} name={'Rune'} amount={'0.000'} amountInUsd={'1000,000'} />                </div>
                  <TokenComponent symbol='BTC' priceChange='0.000' icon={<Bitcoin />} name={'Bitcoin'} amount={'0.000'} amountInUsd={'1000,000'} />
-                 <TokenComponent symbol='BTC' priceChange='0.000' icon={<Bitcoin />} name={'Bitcoin'} amount={'0.000'} amountInUsd={'1000,000'} />
-                 <TokenComponent symbol='BTC' priceChange='0.000' icon={<Bitcoin />} name={'Bitcoin'} amount={'0.000'} amountInUsd={'1000,000'} />
-                 <TokenComponent symbol='BTC' priceChange='0.000' icon={<Bitcoin />} name={'Rune'} amount={'0.000'} amountInUsd={'1000,000'} />                </div>
+                 {/* <TokenComponent symbol='ETH' priceChange='0.000' icon={<FaEthereum />} name={'Ethereun'} amount={'0.000'} amountInUsd={'1000,000'} /> */}
             </div>
             <div>Collections</div>
             <div>History</div>
@@ -65,7 +65,7 @@ export default function Account() {
           </div>
             
         </div>
-        <div className='w-[70%] p-4 rounded-lg h-[80dvh] bg-[var(--dark)] overflow-y-scroll no-scrollbar'>
+        <div className=' md:mt-0 mt-10 md:w-[70%] p-4 rounded-lg md:h-[80dvh] h-[70dvh] bg-[var(--dark)] overflow-y-scroll no-scrollbar'>
         <p className='text-[12px] text-gray-400 mb-5'>Game History</p>
       <div className='flex flex-wrap space-x-2 space-y-5'>
                {gameHistory.map((game,index)=>  <Image key={index} src={ChessBoard} alt="" width={450} className='w-[30%]'/> )}

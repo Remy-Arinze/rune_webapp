@@ -11,7 +11,7 @@ interface props{
 
 export default function NFTCOMPONENT({name,price,item}:props) {
     return (
-        <div className='px-1 py-3 w-[120px] bg-[var(--dark)] rounded-lg'>
+        <div className='px-1 py-3 flex-shrink-0 w-[120px] bg-[var(--dark)] rounded-lg'>
             <div className=' mb-3 relative text-[50px] w-full h-[70px] flex items-center justify-center'>
                 {item}
             </div>

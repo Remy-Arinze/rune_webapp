@@ -24,14 +24,14 @@ export default function Carousel() {
         }}
         loop={true}
         speed={1000}
-        className="h-[250px] rounded-xl"
+        className="md:h-[250px] rounded-xl"
       >
         {[1, 2, 3, 4].map((item) => (
           <SwiperSlide key={item} className="bg-gray-800 flex items-center justify-center">
             <Image 
               src={slideone} 
               alt={`Slide ${item}`} 
-              className="w-full h-full object-cover"
+              className="w-full object-cover"
               priority={item === 1} // Only prioritize first image
             />
           </SwiperSlide>

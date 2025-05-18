@@ -34,12 +34,12 @@ const LandingPage = () => {
     ]
 
     return (
-        <div className=" h-[80dvh] overflow-y-scroll no-scrollbar bg-[var(--background)] pr-10">
+        <div className=" md:h-[80dvh] overflow-y-scroll no-scrollbar bg-[var(--background)] md:pr-10 md:mt-0 mt-5">
             <Carousel />
 
             {/* Main Content Grid */}
-            <div className="mt-10">
-                <HorizontalScrollContainer className="">
+            <div className="md:mt-10">
+                {/* <HorizontalScrollContainer className="">
                     {guilds.map((guild,index) => (
                         <div 
                             key={index+1} 
@@ -49,10 +49,10 @@ const LandingPage = () => {
                             <p className="font-bold">{guild.title}</p>
                         </div>
                     ))}
-                </HorizontalScrollContainer>
+                </HorizontalScrollContainer> */}
                 
-                <div className="flex item-start justify-between mt-10">
-                    <div className="w-[75%]">
+                <div className="flex item-start justify-between">
+                    <div className="w-full md:w-[75%]">
                         <HeaderComponent title={"Featured Tournaments"} path="/tournaments/all"  />
                         <HorizontalScrollContainer className="mt-1 no-scrollbar">
                             {tournaments.map((tournament, index) => (
@@ -64,7 +64,7 @@ const LandingPage = () => {
                             ))}
                         </HorizontalScrollContainer>
 
-						<div className="mt-20">
+						<div className="md:mt-20 mt-10">
 						<HeaderComponent title={"Top Matches"} path="/matches" />
                         <HorizontalScrollContainer className="mt-1 no-scrollbar">
                             {tournaments.map((_,index) => (
@@ -94,7 +94,7 @@ const LandingPage = () => {
                         </HorizontalScrollContainer>
 						</div>
                     </div>
-                    <div className="bg-[var(--dark)] rounded-lg w-[20%] h-[130px]"></div>
+                    <div className="hidden md:flex bg-[var(--dark)] rounded-lg w-[20%] h-[130px]"></div>
                 </div>
             </div>
         </div>

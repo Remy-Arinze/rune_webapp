@@ -153,6 +153,56 @@ const Matches: React.FC = () => {
           ]
         }
       }
+    },
+    {
+      id: 3,
+      player_one: "0x_Kasparov",
+      player_two: "0x_Carlsen",
+      time_remaining: "2:15:00",
+      game_type: "Classical",
+      bets: {
+        match_winner: {
+          title: "1x2",
+          options: [
+            { label: "Player 1 Win", odds: "5/2" },
+            { label: "Draw", odds: "3/1" },
+            { label: "Player 2 Win", odds: "4/7" }
+          ]
+        },
+        piece_loss: {
+          title: "First Piece Lost",
+          options: [
+            { label: "Player 1 Rook", odds: "7/1" },
+            { label: "Player 1 Pawn", odds: "1/2" },
+            { label: "Player 2 Queen", odds: "12/1" }
+          ]
+        }
+      }
+    },
+    {
+      id: 4,
+      player_one: "0x_Kasparov",
+      player_two: "0x_Carlsen",
+      time_remaining: "2:15:00",
+      game_type: "Classical",
+      bets: {
+        match_winner: {
+          title: "1x2",
+          options: [
+            { label: "Player 1 Win", odds: "5/2" },
+            { label: "Draw", odds: "3/1" },
+            { label: "Player 2 Win", odds: "4/7" }
+          ]
+        },
+        piece_loss: {
+          title: "First Piece Lost",
+          options: [
+            { label: "Player 1 Rook", odds: "7/1" },
+            { label: "Player 1 Pawn", odds: "1/2" },
+            { label: "Player 2 Queen", odds: "12/1" }
+          ]
+        }
+      }
     }
   ];
 
@@ -167,12 +217,12 @@ const Matches: React.FC = () => {
   };
 
   return (
-    <div className='pr-10'>
+    <div className='md:pr-10 mt-5 md:mt-0'>
       <HorizontalScrollContainer>
         {topTournaments.map((tournament, index) => (
           <div 
             key={index} 
-            className='flex-shrink-0 w-[40%] p-2 bg-[var(--dark)] rounded-md mr-10 flex flex-col items-center justify-center'
+            className='flex-shrink-0 md:w-[40%] w-[60%] p-2 bg-[var(--dark)] rounded-md mr-10 flex flex-col items-center justify-center'
           >
             <div className='flex space-x-2 mb-5 items-center'>
               <IoTrophySharp />
@@ -186,22 +236,22 @@ const Matches: React.FC = () => {
         <span className='mr-3'><FaCrown color='var(--primary)'/></span> Top Matches
       </p>
 
-      <div className='bg-[var(--dark)] h-[55dvh] overflow-y-scroll no-scrollbar mt-2 rounded-t-md'>
+      <div className='bg-[var(--dark)] md:h-[55dvh] h-[60dvh] overflow-y-scroll no-scrollbar mt-2 rounded-t-md'>
         {wagers.map((wager) => (
           <div key={wager.id} className='flex py-2 px-2 items-center border-[transparent] border border-b-gray-700'>
-            <div className='w-[40%] border-[transparent] border border-r-gray-500 pr-2'>
+            <div className='md:w-[40%] border-[transparent] border border-r-gray-500 pr-2'>
               <p className='text-[10px] text-gray-400 flex items-center justify-between'>
                 {wager.game_type} <span>{wager.time_remaining}</span>
               </p>
-              <div className='flex items-center space-x-3'>
+              <div className='flex items-center md:space-x-3 space-x-2'>
                 <div className='flex items-center space-x-2 mt-2'>
-                  <div className='h-10 w-10 rounded-lg bg-[var(--background)]'></div>
-                  <p className='text-[12px]'>{wager.player_one}</p>
+                  <div className='h-5 w-5 md:h-10 md:w-10 rounded-lg bg-[var(--background)]'></div>
+                  <p className='mdLtext-[12px] text-[10px]'>{wager.player_one}</p>
                 </div>
-                <p className='text-gray-500 text-[10px]'>vs</p>
+                <p className='text-gray-500 md:text-[10px] text-[9px]'>vs</p>
                 <div className='flex items-center space-x-2 mt-2'>
-                  <div className='h-10 w-10 rounded-lg bg-[var(--background)]'></div>
-                  <p className='text-[12px]'>{wager.player_two}</p>
+                  <div className='h-5 w-5 md:h-10 md:w-10 rounded-lg bg-[var(--background)]'></div>
+                  <p className='md:text-[12px] text-[10px]'>{wager.player_two}</p>
                 </div>
               </div>
             </div>

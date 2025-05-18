@@ -17,22 +17,22 @@ interface props{
 
 export default function TournamentCard({title,subtitle,index,stake,slot,image,date,width,height}:props) {
   return (
-         <div className={`flex-shrink-0 ${width ? width : "w-[35%]"} ${height ? height : ""}`} >
+         <div className={`flex-shrink-0 ${width ? width : "md:w-[35%] w-[80%]"} ${height ? height : ""}`} >
                                 <div key={index} className="bg-[var(--dark)] p-2 rounded-lg">
-                                <div>
-                                    <Image src={image} alt="" className=" h-[100px]"/>
+                                <div className='bg-[var(--background)]'>
+                                    <Image src={image} alt="" className=" h-[100px] object-contain"/>
                                 </div>
                                 <p className="capitalise text-gray-400 text-[10px]">
                                     {date}
                                 </p>
-                                <p className="text-md Capitalise ">
+                                <p className="text-[12px] md:text-md Capitalise ">
                                     {title }
                                 </p>
                                 <p className="text-gray-400 text-[11px]">
                                     {subtitle || "Completed"}
                                 </p>
  
-                                <div className="flex items-center mt-5 py-1 rounded-md space-x-3 bg-[var(--background)]">
+                                <div className="flex items-center md:mt-5 mt-1 py-1 rounded-md space-x-3 bg-[var(--background)]">
                                     <div className="bg-orange-500 font-semibold text-[var(--background)] flex items-center justify-center py-2 flex-1 rounded-br-[15px] rounded-bl-md rounded-tl-md text-[10px]">
                                         <p>{stake}</p>
                                     </div>
