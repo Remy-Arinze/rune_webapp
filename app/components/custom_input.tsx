@@ -56,9 +56,6 @@ const SearchIcon = () => (
   </svg>
 );
 
-
-// ... (keep previous type definitions)
-
 const Input = React.forwardRef<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement, InputProps>(
   (
     {
@@ -71,10 +68,10 @@ const Input = React.forwardRef<HTMLInputElement | HTMLSelectElement | HTMLTextAr
       errorClassName = '',
       options,
       border = true,
-      borderColor = 'border-gray-300', // Changed to full class names
-      errorBorderColor = 'border-red-500', // Changed to full class names
+      borderColor = 'border-gray-300',
+      errorBorderColor = 'border-red-500',
       showSearchIcon = true,
-      placeholder = type === 'search' ? 'Search...' : undefined,
+      placeholder = type ? (type === 'search' ? 'Search...' : undefined) : undefined,
       ...props
     },
     ref
@@ -165,7 +162,6 @@ const Input = React.forwardRef<HTMLInputElement | HTMLSelectElement | HTMLTextAr
     );
   }
 );
-
 
 Input.displayName = 'Input';
 
