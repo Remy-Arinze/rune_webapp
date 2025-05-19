@@ -17,13 +17,11 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`antialiased`}>
-				<main className="">
-					<Nav />
+					
 					<div className="mt-[6%]">
 					<Providers>{children}</Providers>
 
 					</div>
-				</main>
 			</body>
 		</html>
 	);

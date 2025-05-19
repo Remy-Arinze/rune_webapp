@@ -3,6 +3,9 @@ import React from 'react'
 import TournamentCard from "../../components/tournaments.tsx/tournament_card";
 import NFT from '../../../public/assets/nft.png'
 import { HorizontalScrollContainer } from '@/app/components/horizontal_scroll';
+import { generateTournaments } from '@/utils/tournaments';
+import { TournamentCardComponent } from '@/app/components/TournamentCard';
+import { HeaderComponent } from '@/app/components/Header';
 
 
 
@@ -12,6 +15,8 @@ export default function AllTournaments() {
 		{image:NFT, title:"Winter Chess Games Austria", subtitle:"compete for a chance to win the ultimate in the austrian open", date: "Sat 11 Jan",stake:"10,0000 RUNE"  , Slots:'32'},
 		{image:NFT, title:"Winter Chess Games Austria", subtitle:"compete for a chance to win the ultimate in the austrian open", date: "Sat 11 Jan",stake:"10,0000 RUNE"  , Slots:'32'},
 	];
+
+  const tournaments = generateTournaments(50)
 
   //  const tournaments = [
   //   {
@@ -108,6 +113,16 @@ export default function AllTournaments() {
               <TournamentCard key={index} height='md:h-[100px]' image={tournament.image} title={tournament.title} subtitle={tournament.subtitle} stake={tournament.stake} slot={tournament.Slots} date={tournament.date} index={index} />
             ))}
           </HorizontalScrollContainer>
+        </div>
+        <div className="mt-20">
+         <HeaderComponent title='Tournaments' />
+          <div className='flex flex-wrap mt-2 item-center justify-between space-y-5' >
+          {tournaments.map((tournament, index) => (
+  <TournamentCardComponent
+                  key={`tournament-${index}`}
+                  {...tournament}
+                />               ))}
+          </div>
         </div>
     </div>
   )

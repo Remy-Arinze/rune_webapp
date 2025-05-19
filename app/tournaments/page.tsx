@@ -7,12 +7,11 @@ import { RiFireFill } from "react-icons/ri";
 import NFT from '../../public/assets/nft.png'
 import TournamentCard from "../components/tournaments.tsx/tournament_card";
 import banner from '../../public/assets/banner.png'
+import { TournamentCardComponent } from "../components/TournamentCard";
+import { generateTournaments } from "@/utils/tournaments";
 
 const TournamentsPage = () => {
-  const pastTournaments = [
-    { image: NFT, title: "Winter Chess Games Austria", subtitle: "compete for a chance to win the ultimate in the austrian open", date: "Sat 11 Jan", stake: "1,000.00 RUNE", Slots: '32' },
-    // ... other tournament entries
-  ];
+  const pastTournaments = generateTournaments(10)
 
   return (
     <div className="text-white md:mt-0 mt-5 md:pr-10 md:h-[80dvh] overflow-y-scroll no-scrollbar">
@@ -94,8 +93,10 @@ const TournamentsPage = () => {
         <div className="mb-12">
           <HorizontalScrollContainer>
             {pastTournaments.map((tournament, index) => (
-              <TournamentCard slot={""} key={index} {...tournament} index={index} />
-            ))}
+  <TournamentCardComponent
+                  key={`tournament-${index}`}
+                  {...tournament}
+                />            ))}
           </HorizontalScrollContainer>
         </div>
       </div>

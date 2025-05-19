@@ -18,7 +18,7 @@ const DashboardNavbar = () => {
 
     return (
        <div>
-         <div className="ml-20 bg-[var(--dark)] text-white w-50 h-[90dvhd] p-6 flex flex-col border-r border-gray-800">
+         <div className="ml-20 bg-[var(--dark)] text-white w-50 p-6 flex flex-col border-r border-gray-800">
             {/* User Profile Header */}
             <div className="mb-8">
                 <Link href={'/account'}>
@@ -125,7 +125,7 @@ const DashboardNavbar = () => {
 
             {/* Footer/Get Started */}
             <div>
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded text-sm font-bold transition-colors mb-3">
+                <button className="w-full bg-black hover:bg-blue-700 text-gray-400 py-2 px-4 rounded text-sm font-bold transition-colors mb-3">
                     Get Started
                 </button>
                 <div className="text-center text-gray-500 text-xs">

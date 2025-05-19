@@ -5,9 +5,12 @@ import Logo from "./../../public/assets/logo.png";
 import {  FaBell } from "react-icons/fa";
 import Link from "next/link";
 import { CiMenuBurger } from "react-icons/ci";
+import { useDispatch } from "react-redux";
+import { toggleSidebar } from "@/store/ui_slice";
 
 const Nav = () => {
 	const  [isSignedIn] = useState(false);
+	const dispatch = useDispatch();
 	return (
 		<nav className="bg-[var(--background)] text-white w-full absolute z-100 fixed top-0  p-4 flex items-center justify-between border-b border-gray-700">
 			<div className="flex items-center space-x-20">
@@ -40,7 +43,7 @@ const Nav = () => {
 			}
 			</div>
 
-			<CiMenuBurger className="md:hidden text-white" />
+			<CiMenuBurger onClick={()=> dispatch(toggleSidebar())} className="md:hidden text-white" />
 		</nav>
 	);
 };

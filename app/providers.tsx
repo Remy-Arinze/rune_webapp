@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Provider } from "react-redux";
 import { store } from "@/store";
 import Sidebar from "./components/sidebar/Sidebar";
+import Nav from "./components/Nav";
 
 export function Providers({ children }: { children: React.ReactNode }) {
 
@@ -12,9 +13,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
 	return (
 		<Provider store={store}>
-			<section className="flex mx-auto pt-5">
-				
-					<div className="hidden md:flex md:h-[calc(100vh-80px)] h-full z-10 fixed overflow-y-scroll no-scrollbar">
+			<main>
+				<Nav/>
+				<section className="flex mx-auto pt-5">
+					<div className=" md:h-[calc(100vh-80px)] fixed overflow-y-scroll no-scrollbar">
 						<Sidebar />
 					</div>
 			
@@ -22,6 +24,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 					{children}
 				</div>
 			</section>
+			</main>
 		</Provider>
 	);
 }

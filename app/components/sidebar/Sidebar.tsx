@@ -1,6 +1,5 @@
 "use client";
 import {
-	RiHome5Line,
 	RiFireFill,
 } from "react-icons/ri";
 import {
@@ -9,6 +8,8 @@ import {
 } from "react-icons/fa";
 import {  BsPlus } from "react-icons/bs";
 import DashboardNavbar from "./dashboard_sidebar";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store";
 
 // interface ItemProps {
 // 	title: string;
@@ -30,8 +31,13 @@ export default function Sidebar() {
 	// 	setIsMainSidebarExpanded(!isMainSidebarExpanded);
 	// };
 
+	 const isOpen = useSelector((state: RootState) => state.ui.isSidebarOpen);
+  const dispatch = useDispatch();
+
 	return (
-		<div className="flex ml-5">
+		<div className={`fixed z-500 transform transition-transform duration-300 ease-in-out
+        ${isOpen ? "translate-x-0" : "-translate-x-full"} 
+        md:translate-x-0 md:relative md:z-10 md:flex ml-5`}>
 			{/* Icon Sidebar (Leading) */}
 			<div className="hidden md:flex flex-col mr-4 items-center bg-[#1e2025] w-16 py-5 rounded-lg h-[80dvh] fixed">
 				<div className="mb-8 p-2 rounded-lg bg-[#2a2e35]">
