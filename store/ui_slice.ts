@@ -3,13 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 interface UIState {
   isSidebarOpen: boolean;
   isModalOpen: boolean;
-  modalContent: React.ReactNode | null;
+  modalType: string | null;
 }
 
 const initialState: UIState = {
   isSidebarOpen: false,
   isModalOpen: false,
-  modalContent: null,
+  modalType: '',
 };
 
 const uiSlice = createSlice({
@@ -25,13 +25,13 @@ const uiSlice = createSlice({
     closeSidebar: (state) => {
       state.isSidebarOpen = false;
     },
-    openModal: (state, action) => {
+    openModal: (state,action) => {
       state.isModalOpen = true;
-      state.modalContent = action.payload;
+      state.modalType = action.payload
     },
     closeModal: (state) => {
       state.isModalOpen = false;
-      state.modalContent = null;
+      state.modalType = null;
     },
   },
 });

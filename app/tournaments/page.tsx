@@ -4,8 +4,6 @@ import Image from 'next/image'
 import { HorizontalScrollContainer } from "../components/horizontal_scroll";
 import Knight from '../../public/assets/khight.jpg'
 import { RiFireFill } from "react-icons/ri";
-import NFT from '../../public/assets/nft.png'
-import TournamentCard from "../components/tournaments.tsx/tournament_card";
 import banner from '../../public/assets/banner.png'
 import { TournamentCardComponent } from "../components/TournamentCard";
 import { generateTournaments } from "@/utils/tournaments";

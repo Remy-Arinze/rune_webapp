@@ -1,19 +1,21 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Provider } from "react-redux";
 import { store } from "@/store";
 import Sidebar from "./components/sidebar/Sidebar";
 import Nav from "./components/Nav";
+import CustomModal from "./components/custom_modal";
 
 export function Providers({ children }: { children: React.ReactNode }) {
 
-	const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+	// const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 	// const [isMainSidebarExpanded,setIsMainSidebarExpanded] = useState(true);
 
 
 	return (
 		<Provider store={store}>
 			<main>
+				<CustomModal />
 				<Nav/>
 				<section className="flex mx-auto pt-5">
 					<div className=" md:h-[calc(100vh-80px)] fixed overflow-y-scroll no-scrollbar">

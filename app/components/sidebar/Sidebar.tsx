@@ -10,6 +10,7 @@ import {  BsPlus } from "react-icons/bs";
 import DashboardNavbar from "./dashboard_sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
+import { openModal } from "@/store/ui_slice";
 
 // interface ItemProps {
 // 	title: string;
@@ -51,7 +52,11 @@ export default function Sidebar() {
 				</div>
 				<div className="flex flex-col items-center space-y-6 mt-[auto]">
 				
-					<button className="p-2 rounded-lg bg-[#2a2e35] hover:cursor-pointer">
+					<button onClick={()=>{
+						dispatch(openModal(
+							'create_game'
+						))
+					}} className="p-2 rounded-lg bg-[#2a2e35] hover:cursor-pointer">
 						<BsPlus className="text-orange-400 text-3xl" />
 					</button>
 					<button className="p-2 rounded-lg hover:cursor-pointer hover:bg-[#2a2e35]">

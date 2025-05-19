@@ -1,6 +1,6 @@
 import SearchInput from '@/app/components/search'
 import React from 'react'
-import TournamentCard from "../../components/tournaments.tsx/tournament_card";
+import TournamentCard from "../../components/tournaments/tournament_card";
 import NFT from '../../../public/assets/nft.png'
 import { HorizontalScrollContainer } from '@/app/components/horizontal_scroll';
 import { generateTournaments } from '@/utils/tournaments';

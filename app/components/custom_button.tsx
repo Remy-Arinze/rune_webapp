@@ -41,7 +41,7 @@ const GameButton: React.FC<GameButtonProps> = ({
   return (
     <button
       onClick={disabled ? undefined : onClick}
-      className={`bg-orange-400 ${baseClasses} ${sizeClasses[size]}`}
+      className={`bg-[var(--primary)] text-[var(--background)] transition-transform duration-300 hover:-translate-y-1 hover: ${baseClasses} ${sizeClasses[size]}`}
       style={buttonStyles}
       disabled={disabled}
       aria-disabled={disabled}

@@ -14,6 +14,10 @@
 	--info: #00bfff;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(10deg);
+}
+
 body {
 	font-family: "Oxanium", Arial, Helvetica, sans-serif;
 	background-color: var(--background);

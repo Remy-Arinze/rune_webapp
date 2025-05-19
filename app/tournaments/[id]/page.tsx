@@ -1,9 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import GameButton from "@/app/components/custom_button";
+import { CustomTabs } from "@/app/components/tab_component";
+import TournamentOverview from "@/app/components/tournaments/tournament_overview";
 // import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import {  Coins } from "lucide-react";
+import { BsAward, BsCalendarEvent, BsPersonCircle, BsRecord2Fill } from "react-icons/bs";
+import { FaCoins } from "react-icons/fa";
 
 export default function TournamentDetailsPage() {
   const tournament = {
@@ -39,7 +42,7 @@ export default function TournamentDetailsPage() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
+    <div className="max-w-5xl mx-auto pr-10 overflow-y-scroll no-scrollbar h-[80dvh]">
       {/* Hero */}
       <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-md">
         <img
@@ -49,73 +52,80 @@ export default function TournamentDetailsPage() {
         />
         <div className="absolute inset-0 bg-black/50 flex items-end p-6">
           <div className="text-white w-full">
+            <div className="flex items-center mb-4 space-x-10">
+              <span className="rounded-lg bg-green-400 text-[10px] px-2 py-1 flex items-center" > <BsRecord2Fill color="green"/> Live</span>
+              <p className="text-[12px] text-gray-400">Round 3 of 5</p>
+            </div>
             <div className="flex justify-between items-center">
-              <h1 className="text-3xl font-bold">{tournament.title}</h1>
+              <h1 className="text-2xl font-bold">{tournament.title}</h1>
               {/* <Badge className="bg-green-500">{tournament.status}</Badge> */}
             </div>
-            <Button className="mt-4 bg-purple-600 hover:bg-purple-700">
+            <p className="mb-3">
+              Monthly premier tournament for top ranked players
+            </p>
+          <div className="flex items-center space-x-3">
+              <GameButton className="mt-2 text-[13px]">
               Join Tournament
-            </Button>
+            </GameButton>
+              <GameButton className="mt-2 text-[13px] flex items-center space-x-2">
+             <FaCoins className="inline text-black"/> <span>Place Bets</span>
+            </GameButton>
+          </div>
+            <div className="flex mt-5 items-center justify-between">
+              <div className="flex item-center space-x-3 text-[12px]"> 
+              <BsCalendarEvent /> <p>May 20,2025</p> <p>May 30, 2025</p>
+
+              </div>
+              <div className='flex items-center space-x-2 text-[12px]'>
+                <BsPersonCircle/>
+                <p>22/32 Players</p>
+              </div>
+              <div className="flex items-center space-x-2 text-[15px]">
+
+              <Coins/>
+                <p className="flex">Entry: 500 RUNE</p>
+              </div>
+              <div className='flex font-bold items-center text-[var(--primary)] space-x-1 text-[15px]'>
+                <BsAward />
+                <p>Prize: 10,000 RUNE</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Tabs */}
-      <Tabs defaultValue="overview" className="mt-10">
-        <TabsList className="flex gap-2 bg-muted p-1 rounded-lg">
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="players">Players</TabsTrigger>
-          <TabsTrigger value="pairings">Pairings</TabsTrigger>
-          <TabsTrigger value="prize">Prizes</TabsTrigger>
-        </TabsList>
+      <CustomTabs
+      hasBackgroundColor={false}
+       tabs={[
+
+        {label:"Overview",value:"overview"},
+        {label:"Players",value:"players"},
+        {label:"Pairings",value:"pairings"},
+        {label:"Prize",value:"prize"},
+      ]} >
+        
 
         {/* Overview Tab */}
-        <TabsContent value="overview" className="mt-6">
-          <h2 className="text-xl font-semibold mb-2">Description</h2>
-          <p className="text-sm text-gray-700">{tournament.description}</p>
-
-          <div className="mt-6 grid md:grid-cols-2 gap-4">
-            <div>
-              <h3 className="font-medium text-gray-800">Prize Pool</h3>
-              <p>{tournament.prizePool}</p>
-            </div>
-            <div>
-              <h3 className="font-medium text-gray-800">Start Time</h3>
-              <p>{tournament.startDate} — {tournament.time}</p>
-            </div>
-            <div>
-              <h3 className="font-medium text-gray-800">Game Mode</h3>
-              <p>{tournament.gameMode}</p>
-            </div>
-          </div>
-
-          <div className="mt-6">
-            <h3 className="text-lg font-medium mb-2">Rules</h3>
-            <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
-              {tournament.rules.map((rule, idx) => (
-                <li key={idx}>{rule}</li>
-              ))}
-            </ul>
-          </div>
-        </TabsContent>
+       <TournamentOverview/>
 
         {/* Players Tab */}
-        <TabsContent value="players" className="mt-6">
+        <div className="mt-6">
           <h2 className="text-xl font-semibold mb-4">Players Joined</h2>
-          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          <ul className="grid grid-cols-1 gap-3">
             {tournament.players.map((player, idx) => (
               <li
                 key={idx}
-                className="bg-gray-100 rounded-xl px-4 py-2 text-center text-gray-800 font-medium"
+                className="bg-[var(--dark)] rounded-xl px-4 py-2 text-gray-300 font-medium"
               >
                 {player}
               </li>
             ))}
           </ul>
-        </TabsContent>
+        </div>
 
         {/* Pairings Tab */}
-        <TabsContent value="pairings" className="mt-6">
+        <div className="mt-6">
           <h2 className="text-xl font-semibold mb-4">Round Pairings</h2>
           <ul className="space-y-4">
             {tournament.pairings.map((pair, idx) => (
@@ -127,30 +137,30 @@ export default function TournamentDetailsPage() {
               </li>
             ))}
           </ul>
-        </TabsContent>
+        </div>
 
         {/* Prize Tab */}
-        <TabsContent value="prize" className="mt-6">
+        <div className="mt-6">
           <h2 className="text-xl font-semibold mb-4">Prize Breakdown</h2>
           <ul className="space-y-3">
             {tournament.prizes.map((prize, idx) => (
               <li
                 key={idx}
-                className="flex justify-between bg-yellow-50 border border-yellow-300 rounded-md p-3"
+                className="flex justify-between bg-[var(--dark)] rounded-md p-3"
               >
-                <span className="font-medium text-gray-800">
+                <span className="font-medium text-gray-400">
                   {prize.position === 1
                     ? "🥇 1st Place"
                     : prize.position === 2
                     ? "🥈 2nd Place"
                     : "🥉 3rd Place"}
                 </span>
-                <span className="text-gray-700 font-semibold">{prize.reward}</span>
+                <span className="text-[var(--primary)] font-semibold">{prize.reward}</span>
               </li>
             ))}
           </ul>
-        </TabsContent>
-      </Tabs>
+        </div>
+      </CustomTabs>
     </div>
   );
 }
