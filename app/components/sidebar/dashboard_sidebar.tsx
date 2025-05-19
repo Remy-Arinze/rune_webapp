@@ -1,10 +1,9 @@
+import { SwordsIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import {
     FaCrown,
-    FaQuestionCircle,
-    FaCog,
     FaTrophy,
     FaNewspaper,
     FaHome,
@@ -19,11 +18,11 @@ const DashboardNavbar = () => {
 
     return (
        <div>
-         <div className="bg-[var(--dark)] text-white w-50 h-[90dvhd] p-6 flex flex-col border-r border-gray-800">
+         <div className="ml-20 bg-[var(--dark)] text-white w-50 h-[90dvhd] p-6 flex flex-col border-r border-gray-800">
             {/* User Profile Header */}
             <div className="mb-8">
                 <Link href={'/account'}>
-                <div className="h-[50] w-[50] flex items-center justify-center rounded-full bg-orange-400">
+                <div className="h-[50px] w-[50px] flex items-center justify-center rounded-full bg-orange-400">
                     <FaUser color="black" />
                 </div>
                 </Link>
@@ -54,6 +53,12 @@ const DashboardNavbar = () => {
                             isActive={pathname === "/play"}
                         />
                         <NavItem
+                            icon={<SwordsIcon size={18} />}
+                            link="/matches"
+                            label="Games"
+                            isActive={pathname === "/matches"}
+                        />
+                        <NavItem
                             icon={<FaTrophy />}
                             link="/tournaments"
                             label="Tournaments"
@@ -81,7 +86,7 @@ const DashboardNavbar = () => {
                 </div>
 
                 {/* CONFIGURER Section */}
-                <div className="mb-8">
+                {/* <div className="mb-8">
                     <h2 className="text-gray-500 uppercase text-xs font-bold mb-4 tracking-wider">
                         CONFIGURER
                     </h2>
@@ -99,7 +104,7 @@ const DashboardNavbar = () => {
                             isActive={pathname === "/settings"}
                         />
                     </ul>
-                </div>
+                </div> */}
 
                 {/* Premium Membership Banner */}
                 <div className="bg-orange-400 p-4 rounded-lg mb-6">

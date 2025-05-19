@@ -7,7 +7,6 @@ import { TokenComponent } from '../components/account/token_component';
 
 import Image from 'next/image'
 import ChessBoard from '../../public/assets/chess_board_copy.png'
-import { FaEthereum } from 'react-icons/fa';
 
 export default function Account() {
   const gameHistory = [
@@ -22,7 +21,6 @@ export default function Account() {
   ]
   return (
     <div className='md:flex space-x-5 md:pr-10 md:mt-0 mt-5'>
-     
         <div className='md:w-[35%] md:h-[80dvh] h-[60dvh] overflow-y-scroll no-scrollbar'>
           <div>
           <CustomTabs hasBackgroundColor={false} tabs={[
@@ -34,11 +32,9 @@ export default function Account() {
                 <p className='text-[12px]'>
                   WELCOME BACK RA! 
                 </p>
-
                 <p className='mt-5 text-gray-400 text-[10px]'>Account Balance</p>
                 <p className='text-2xl'>$20,454.00</p>
                 <p className='text-[10px] text-gray-400'>20,454.00 <span>RUNE</span></p>
-
                 <div className="mt-3  flex items-center justify-between">
                   <button className='flex items-center justify-center w-[50px] h-[50px] rounded-lg  bg-[var(--background)]'>
                   <GoArrowUpRight />

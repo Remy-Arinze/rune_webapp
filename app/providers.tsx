@@ -9,10 +9,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
 	const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 	// const [isMainSidebarExpanded,setIsMainSidebarExpanded] = useState(true);
 
-	const toggleSidebar = () => {
-		setIsSidebarVisible(!isSidebarVisible);
-	};
-
 
 	return (
 		<Provider store={store}>

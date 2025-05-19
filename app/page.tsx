@@ -17,22 +17,7 @@ import Link from "next/link";
 
 const LandingPage = () => {
     const tournaments = generateTournaments(6); // Generate 6 tournaments
-    const guilds = [
-        {title:'H',color:'red'},
-        {title:'i',color:'yellow'},
-        {title:'B',color:'blue'},
-        {title:'W',color:'orange'},
-        {title:'Z',color:'purple'},
-        {title:'G',color:'green'},
-        {title:'D',color:'gray'},
-        {title:'P',color:'gold'},
-        {title:'X',color:'pink'},
-        {title:'Q',color:'red'},
-        {title:'I',color:'red'},
-        {title:'T',color:'red'},
-        {title:'V',color:'red'},
-    ]
-
+    
     return (
         <div className=" md:h-[80dvh] overflow-y-scroll no-scrollbar bg-[var(--background)] md:pr-10 md:mt-0 mt-5">
             <Carousel />
