@@ -7,7 +7,7 @@ import { HeaderComponent } from "./components/Header";
 import { HorizontalScrollContainer } from "./components/horizontal_scroll";
 import { TournamentCardComponent } from "./components/TournamentCard";
 import { generateTournaments } from "@/utils/tournaments";
-import { Timer, Flame, Zap, Gift, Calendar, ShoppingCart, Star, TrendingUp, Trophy } from "lucide-react";
+import { Timer, Flame, Zap, Calendar, ShoppingCart, TrendingUp, Trophy } from "lucide-react";
 import nft from '../public/assets/nft.png';
 import Image from "next/image";
 import RecentWinners from "./components/landing_page/winners";
