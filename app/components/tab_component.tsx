@@ -74,7 +74,7 @@ export function CustomTabs({
                   ${tabTriggerClassName}
                 `}
               >
-                {tab.icon && <span className="mr-2">{tab.icon}</span>}
+                {tab.icon && <span className="">{tab.icon}</span>}
                 {tab.label}
               </TabsTrigger>
             ))}

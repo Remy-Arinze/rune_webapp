@@ -9,7 +9,7 @@ export default function GameBoard() {
     <div>
         <GamePlayer/>
         <br />
-        <Chessboard boardWidth={350}/>
+        <Chessboard boardWidth={300}/>
         <br />
         <GamePlayer/>
     </div>

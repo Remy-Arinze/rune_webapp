@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef } from "react";
+import { ReactNode } from "react";
 
 type Option = {
   value: string;
@@ -13,9 +14,11 @@ export function SelectDropdown({
     { value: "option3", label: "Option 3" },
   ],
   placeholder = "Select an option",
+  icon,
 }: {
   options?: Option[];
   placeholder?: string;
+  icon?: ReactNode;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
@@ -33,14 +36,15 @@ export function SelectDropdown({
       {/* Select Trigger */}
       <button
         onClick={toggleDropdown}
-        className={`w-full px-4 py-2 text-left bg-[var(--background)] border rounded-lg shadow-sm focus:outline-none  transition-all duration-200 ${
-          isOpen ? " outline-[var(--primary)] border-[var(--primary)]" : "border-[var(--primary)]"
+        className={`w-full px-4 py-2 text-left bg-[var(--background)] border rounded-lg shadow-sm focus:outline-none transition-all duration-200 ${
+          isOpen ? "outline-[var(--primary)] border-[var(--primary)]" : "border-[var(--primary)]"
         }`}
       >
         <div className="flex items-center justify-between">
-          <span className="truncate text-[14px]">
-            {selectedOption?.label || placeholder}
-          </span>
+          <div className="flex items-center space-x-2 truncate text-[12px]">
+            {icon && <span className="text-[16px]">{icon}</span>}
+            <span>{selectedOption?.label || placeholder}</span>
+          </div>
           <svg
             className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
               isOpen ? "transform rotate-180" : ""
@@ -61,13 +65,13 @@ export function SelectDropdown({
 
       {/* Dropdown Options */}
       {isOpen && (
-        <div className="absolute z-10 w-full mt-1 bg-[var(--dark)] border border-[var(--dark)]  rounded-lg shadow-lg overflow-hidden">
+        <div className="absolute z-10 w-full mt-1 bg-[var(--dark)] border border-[var(--dark)] rounded-lg shadow-lg overflow-hidden">
           <ul className="py-1 overflow-auto max-h-60">
             {options.map((option) => (
               <li
                 key={option.value}
                 onClick={() => handleOptionClick(option)}
-                className={`px-4 py-2 hover:text-black cursor-pointer text-[13px] hover:bg-white transition-colors ${
+                className={`px-4 py-2 hover:text-black cursor-pointer text-[12px] hover:bg-white transition-colors ${
                   selectedOption?.value === option.value
                     ? "bg-white text-black"
                     : "text-gray-400"
