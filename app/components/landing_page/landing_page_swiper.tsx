@@ -5,7 +5,7 @@ import { Pagination, Autoplay } from 'swiper/modules'; // Removed Navigation
 import 'swiper/css';
 import 'swiper/css/pagination'; // Removed navigation CSS import
 import Image from 'next/image';
-import slideone from '../../../public/assets/one.png';
+import slideone from '../../../public/assets/banner.png';
 
 export default function Carousel() {
   return (

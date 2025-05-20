@@ -22,9 +22,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
 						<Sidebar />
 					</div>
 			
-				<div className={ "md:w-[72%] md:ml-[28%] w-full md:px-0 px-3 md:mb-0 mb-10"}>
-					{children}
-				</div>
+			<div className={"md:w-[calc(100%-25rem)] w-full ml-[auto] md:px-0 px-3 md:mb-0 mb-10"}>
+				{children}
+			</div>
 			</section>
 			</main>
 		</Provider>

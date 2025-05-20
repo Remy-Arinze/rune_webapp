@@ -18,7 +18,7 @@ const DashboardNavbar = () => {
 
     return (
        <div>
-         <div className="ml-20 bg-[var(--dark)] text-white w-50 p-6 flex flex-col border-r border-gray-800">
+         <div className="ml-20 bg-[var(--dark)] text-white w-[15rem] p-6 flex flex-col border-r border-gray-800">
             {/* User Profile Header */}
             <div className="mb-8">
                 <Link href={'/account'}>
@@ -157,7 +157,7 @@ const NavItem = ({
                     : "hover:bg-[#2A2E35] text-gray-400 hover:text-gray-300"
             }`}>
                 <span>{icon}</span>
-                <span className="text-[12px]">{label}</span>
+                <span className="text-[14px]">{label}</span>
             </li>
         </Link>
     );
