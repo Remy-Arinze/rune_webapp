@@ -6,7 +6,7 @@ import {
 	FaQuestionCircle,
 	FaCog,
 } from "react-icons/fa";
-import {  BsPlus } from "react-icons/bs";
+import { Tooltip } from 'react-tooltip';
 import DashboardNavbar from "./dashboard_sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
@@ -56,14 +56,17 @@ export default function Sidebar() {
 						dispatch(openModal(
 							'create_game'
 						))
-					}} className="p-2 rounded-lg bg-[#2a2e35] hover:cursor-pointer">
-						<BsPlus className="text-orange-400 text-3xl" />
+					}} className="p-2 rounded-lg bg-[var(--background)] hover:cursor-pointer">
+						<p data-tooltip-id="create-game" data-tooltip-content="Create New Game!">⚔️</p>
+						<Tooltip id='create-game' place="top"  />
 					</button>
-					<button className="p-2 rounded-lg hover:cursor-pointer hover:bg-[#2a2e35]">
-						<FaCog className="text-gray-400 text-xl" />
+					<button className="p-2 rounded-lg bg-[var(--background)]  hover:cursor-pointer hover:bg-[#2a2e35]">
+						<FaCog data-tooltip-id="settings" data-tooltip-content="Settings!" className="text-gray-400 text-xl" />
+						<Tooltip id='settings' place="right"  />
 					</button>
-					<button className="p-2 rounded-lg hover:cursor-pointer hover:bg-[#2a2e35]">
-						<FaQuestionCircle className="text-gray-400 text-xl" />
+					<button className="p-2 rounded-lg hover:cursor-pointer bg-[var(--background)] hover:bg-[#2a2e35]">
+						<FaQuestionCircle  data-tooltip-id="support" data-tooltip-content="Support!" className="text-gray-400 text-xl" />
+						<Tooltip className="text-[12px]" id='support' place="right"  />
 					</button>
 				</div>
 			</div>

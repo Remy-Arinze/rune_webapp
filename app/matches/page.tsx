@@ -1,91 +1,54 @@
 'use client'
 import React, { useState } from 'react';
-import { HorizontalScrollContainer } from '../components/horizontal_scroll';
-import { IoTrophySharp } from 'react-icons/io5';
 import { FaCrown } from 'react-icons/fa';
-
-// Type definitions
-type BetOption = {
-  label: string;
-  odds: string;
-};
-
-type BetType = {
-  title: string;
-  options: BetOption[];
-};
-
-type Wager = {
-  id: number;
-  player_one: string;
-  player_two: string;
-  time_remaining: string;
-  game_type: string;
-  bets: Record<string, BetType>;
-};
-
-type Tournament = {
-  title: string;
-};
-
-type SelectedBets = {
-  [matchId: number]: {
-    [betType: string]: number;
-  };
-};
-
-// Reusable BetOption component
-const BetOption: React.FC<{
-  odds: string;
-  isSelected: boolean;
-  onClick: () => void;
-}> = ({ odds, isSelected, onClick }) => {
-  return (
-    <div 
-      className={`rounded-md h-[40px] w-[40px] flex items-center justify-center text-[10px] 
-        ${isSelected ? 'bg-[var(--primary)] text-white' : 'bg-[var(--background)] text-gray-400'}
-        cursor-pointer transition-colors`}
-      onClick={onClick}
-    >
-      <p>{odds}</p>
-    </div>
-  );
-};
-
-// Reusable BetTypeSection component
-const BetTypeSection: React.FC<{
-  title: string;
-  options: BetOption[];
-  selectedOption: number | undefined;
-  onSelect: (index: number) => void;
-}> = ({ title, options, selectedOption, onSelect }) => {
-  return (
-    <div className='mb-4 border border-[transparent] border-r-gray-500 pr-2 mr-2'>
-      <p className='text-gray-400 text-[10px] mb-1'>{title}</p>
-      <div className="flex space-x-3">
-        {options.map((option, index) => (
-          <BetOption
-            key={index}
-            odds={option.odds}
-            isSelected={selectedOption === index}
-            onClick={() => onSelect(index)}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
+import MatchesTournamentCard from '../components/matches/matches_tournaments_car';
+import { Tournament } from '@/utils/tournaments';
+import { HorizontalScrollContainer } from '../components/horizontal_scroll';
+import MatchRow from '../components/matches/matchrow';
+import SelectedBetsPanel from '../components/matches/selected_bets';
+import { SelectedBets, Wager } from '../components/matches/types';
+import ChessPieceIcon from '../components/matches/chesspiece_icon';
+import { RiSwordLine } from 'react-icons/ri';
 
 const Matches: React.FC = () => {
   const [selectedBets, setSelectedBets] = useState<SelectedBets>({});
-
-  const topTournaments: Tournament[] = [
-    { title: 'World Series Chess 2025' },
-    { title: 'Grandmaster Blitz Championship' },
-    { title: 'Rapid Chess Open' },
-    { title: 'Bullet Chess Tournament' },
+  // Tournament data
+  const tournaments: Tournament[] = [
+    {
+      id: '1',
+      title: 'World Series Chess 2025',
+      status: 'live',
+      prizePool: '500 RUNE',
+      participants: 24,
+      maxParticipants: 32
+    },
+    {
+      id: '2',
+      title: 'Grandmaster Blitz Championship',
+      status: 'upcoming',
+      prizePool: '300 RUNE',
+      participants: 18,
+      maxParticipants: 24
+    },
+    {
+      id: '3',
+      title: 'Rapid Chess Open',
+      status: 'upcoming',
+      prizePool: '250 RUNE',
+      participants: 12,
+      maxParticipants: 16
+    },
+    {
+      id: '4',
+      title: 'Bullet Chess Tournament',
+      status: 'completed',
+      prizePool: '200 RUNE',
+      participants: 32,
+      maxParticipants: 32
+    }
   ];
 
+  // Wager data with more dummy matches
   const wagers: Wager[] = [
     {
       id: 1,
@@ -95,36 +58,18 @@ const Matches: React.FC = () => {
       game_type: "Blitz",
       bets: {
         match_winner: {
-          title: "1x2",
+          title: "Match Winner",
           options: [
-            { label: "Player 1 Win", odds: "19/1" },
-            { label: "Draw", odds: "5/1" },
-            { label: "Player 2 Win", odds: "29/100" }
+            { label: "1Win", odds: "19/1", icon: <ChessPieceIcon piece="King" /> },
+            { label: "2Win", odds: "29/100", icon: <ChessPieceIcon piece="King" /> }
           ]
         },
         piece_loss: {
           title: "First Piece Lost",
           options: [
-            { label: "Player 1 Queen", odds: "20/1" },
-            { label: "Player 1 Knight", odds: "10/1" },
-            { label: "Player 2 Queen", odds: "15/1" },
-            { label: "Player 2 Bishop", odds: "8/1" }
-          ]
-        },
-        checkmate_type: {
-          title: "Checkmate Type",
-          options: [
-            { label: "Classic", odds: "3/1" },
-            { label: "Fool's Mate", odds: "50/1" },
-            { label: "Smothered", odds: "15/1" }
-          ]
-        },
-        move_count: {
-          title: "Total Moves",
-          options: [
-            { label: "Under 30", odds: "2/1" },
-            { label: "30-50", odds: "3/1" },
-            { label: "Over 50", odds: "5/1" }
+            { label: "Queen", odds: "20/1", icon: <ChessPieceIcon piece="Queen" /> },
+            { label: "Knight", odds: "10/1", icon: <ChessPieceIcon piece="Knight" /> },
+            { label: "Bishop", odds: "8/1", icon: <ChessPieceIcon piece="Bishop" /> }
           ]
         }
       }
@@ -137,69 +82,66 @@ const Matches: React.FC = () => {
       game_type: "Classical",
       bets: {
         match_winner: {
-          title: "1x2",
+          title: "Match Winner",
           options: [
-            { label: "Player 1 Win", odds: "5/2" },
-            { label: "Draw", odds: "3/1" },
-            { label: "Player 2 Win", odds: "4/7" }
+            { label: "Win", odds: "5/2", icon: <ChessPieceIcon piece="King" /> },
+            { label: "Draw", odds: "3/1", icon: <ChessPieceIcon piece="Pawn" /> },
+            { label: "Win", odds: "4/7", icon: <ChessPieceIcon piece="King" /> }
           ]
         },
-        piece_loss: {
-          title: "First Piece Lost",
+        checkmate_type: {
+          title: "Checkmate Type",
           options: [
-            { label: "Player 1 Rook", odds: "7/1" },
-            { label: "Player 1 Pawn", odds: "1/2" },
-            { label: "Player 2 Queen", odds: "12/1" }
+            { label: "Classic", odds: "3/1", icon: <ChessPieceIcon piece="King" /> },
+            { label: "pawn", odds: "50/1", icon: <ChessPieceIcon piece="Pawn" /> }
           ]
         }
       }
     },
     {
       id: 3,
-      player_one: "0x_Kasparov",
-      player_two: "0x_Carlsen",
-      time_remaining: "2:15:00",
-      game_type: "Classical",
+      player_one: "0x_Nakamura",
+      player_two: "0x_Firouzja",
+      time_remaining: "0:45:00",
+      game_type: "Bullet",
       bets: {
         match_winner: {
-          title: "1x2",
+          title: "Match Winner",
           options: [
-            { label: "Player 1 Win", odds: "5/2" },
-            { label: "Draw", odds: "3/1" },
-            { label: "Player 2 Win", odds: "4/7" }
+            { label: "Win", odds: "7/2", icon: <ChessPieceIcon piece="King" /> },
+            { label: "Draw", odds: "10/1", icon: <ChessPieceIcon piece="Pawn" /> },
+            { label: "Win", odds: "1/3", icon: <ChessPieceIcon piece="King" /> }
           ]
         },
-        piece_loss: {
-          title: "First Piece Lost",
+        move_count: {
+          title: "Total Moves",
           options: [
-            { label: "Player 1 Rook", odds: "7/1" },
-            { label: "Player 1 Pawn", odds: "1/2" },
-            { label: "Player 2 Queen", odds: "12/1" }
+            { label: "Under 30", odds: "2/1", icon: <ChessPieceIcon piece="Default" /> },
+            { label: "30-50", odds: "3/1", icon: <ChessPieceIcon piece="Default" /> }
           ]
         }
       }
     },
     {
       id: 4,
-      player_one: "0x_Kasparov",
-      player_two: "0x_Carlsen",
-      time_remaining: "2:15:00",
+      player_one: "0x_Caruana",
+      player_two: "0x_Ding",
+      time_remaining: "3:00:00",
       game_type: "Classical",
       bets: {
         match_winner: {
-          title: "1x2",
+          title: "Match Winner",
           options: [
-            { label: "Player 1 Win", odds: "5/2" },
-            { label: "Draw", odds: "3/1" },
-            { label: "Player 2 Win", odds: "4/7" }
+            { label: "Win", odds: "2/1", icon: <ChessPieceIcon piece="King" /> },
+            { label: "Draw", odds: "5/2", icon: <ChessPieceIcon piece="Pawn" /> },
+            { label: "Win", odds: "2/3", icon: <ChessPieceIcon piece="King" /> }
           ]
         },
         piece_loss: {
           title: "First Piece Lost",
           options: [
-            { label: "Player 1 Rook", odds: "7/1" },
-            { label: "Player 1 Pawn", odds: "1/2" },
-            { label: "Player 2 Queen", odds: "12/1" }
+            { label: "Rook", odds: "7/1", icon: <ChessPieceIcon piece="Rook" /> },
+            { label: "Pawn", odds: "1/2", icon: <ChessPieceIcon piece="Pawn" /> }
           ]
         }
       }
@@ -207,70 +149,89 @@ const Matches: React.FC = () => {
   ];
 
   const handleBetSelection = (matchId: number, betType: string, optionIndex: number) => {
+    const wager = wagers.find(w => w.id === matchId);
+    if (!wager) return;
+
     setSelectedBets(prev => ({
       ...prev,
       [matchId]: {
         ...prev[matchId],
-        [betType]: optionIndex
+        [betType]: {
+          optionIndex,
+          odds: wager.bets[betType].options[optionIndex].odds,
+          matchInfo: {
+            playerOne: wager.player_one,
+            playerTwo: wager.player_two,
+            betType: wager.bets[betType].title
+          }
+        }
       }
     }));
   };
 
-  return (
-    <div className='md:pr-10 mt-5 md:mt-0'>
-      <HorizontalScrollContainer>
-        {topTournaments.map((tournament, index) => (
-          <div 
-            key={index} 
-            className='flex-shrink-0 md:w-[40%] w-[60%] p-2 bg-[var(--dark)] rounded-md mr-10 flex flex-col items-center justify-center'
-          >
-            <div className='flex space-x-2 mb-5 items-center'>
-              <IoTrophySharp />
-              <p>{tournament.title}</p>
-            </div>
-          </div>
-        ))}
-      </HorizontalScrollContainer>
-      
-      <p className='mt-5 space-x-2 flex text-[12px] items-center'> 
-        <span className='mr-3'><FaCrown color='var(--primary)'/></span> Top Matches
-      </p>
+  const removeBet = (matchId: number, betType: string) => {
+    setSelectedBets(prev => {
+      const newBets = { ...prev };
+      if (newBets[matchId]) {
+        delete newBets[matchId][betType];
+        if (Object.keys(newBets[matchId]).length === 0) {
+          delete newBets[matchId];
+        }
+      }
+      return newBets;
+    });
+  };
 
-      <div className='bg-[var(--dark)] md:h-[55dvh] h-[60dvh] overflow-y-scroll no-scrollbar mt-2 rounded-t-md'>
-        {wagers.map((wager) => (
-          <div key={wager.id} className='flex py-2 px-2 items-center border-[transparent] border border-b-gray-700'>
-            <div className='md:w-[40%] border-[transparent] border border-r-gray-500 pr-2'>
-              <p className='text-[10px] text-gray-400 flex items-center justify-between'>
-                {wager.game_type} <span>{wager.time_remaining}</span>
-              </p>
-              <div className='flex items-center md:space-x-3 space-x-2'>
-                <div className='flex items-center space-x-2 mt-2'>
-                  <div className='h-5 w-5 md:h-10 md:w-10 rounded-lg bg-[var(--background)]'></div>
-                  <p className='mdLtext-[12px] text-[10px]'>{wager.player_one}</p>
-                </div>
-                <p className='text-gray-500 md:text-[10px] text-[9px]'>vs</p>
-                <div className='flex items-center space-x-2 mt-2'>
-                  <div className='h-5 w-5 md:h-10 md:w-10 rounded-lg bg-[var(--background)]'></div>
-                  <p className='md:text-[12px] text-[10px]'>{wager.player_two}</p>
-                </div>
-              </div>
-            </div>
-            
-            
-            <div className='w-[60%] overflow-x-scroll no-scrollbar flex h-full ml-4 pl-2'>
-              {Object.entries(wager.bets).map(([betType, betData]) => (
-                <BetTypeSection
-                  key={betType}
-                  title={betData.title}
-                  options={betData.options}
-                  selectedOption={selectedBets[wager.id]?.[betType]}
-                  onSelect={(index) => handleBetSelection(wager.id, betType, index)}
-                />
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+  const clearAllBets = () => {
+    setSelectedBets({});
+  };
+
+  return (
+    <div className="h-[80dvh] overflow-y-scroll no-scrollbar pr-10">
+      {/* Tournaments Section */}
+      <section className="mb-8">
+        <h2 className="flex items-center text-md font-semibold mb-4">
+          <FaCrown className="text-[var(--primary)] mr-2" />
+          Featured Tournaments
+        </h2>
+        <HorizontalScrollContainer className="no-scrollbar">
+          {tournaments.map(tournament => (
+            <MatchesTournamentCard key={tournament.id} 
+            id={tournament.id} 
+            title={tournament.title} 
+            status={'live'} prizePool={tournament.prizePool ?? ''} 
+            participants={tournament.participants} 
+            maxParticipants={tournament.maxParticipants ?? 0} />
+          ))}
+        </HorizontalScrollContainer>
+      </section>
+
+      {/* Matches Section */}
+      <section>
+        <h2 className="flex items-center text-md font-semibold mb-4">
+          <RiSwordLine className="text-[var(--primary)] mr-2" />
+          Live Matches
+        </h2>
+        
+        <div className="bg-[var(--dark)] rounded-xl border border-gray-800 overflow-hidden">
+          {wagers.map(wager => (
+            <MatchRow 
+              key={wager.id}
+              wager={wager}
+              selectedBets={selectedBets}
+              onSelectBet={handleBetSelection}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Selected Bets Panel */}
+      <SelectedBetsPanel
+        selectedBets={selectedBets}
+        wagers={wagers}
+        onRemoveBet={removeBet}
+        onClearAll={clearAllBets}
+      />
     </div>
   );
 };

@@ -2,16 +2,17 @@ import { TournamentCardProps } from "../app/components/TournamentCard";
 
 export interface Tournament extends TournamentCardProps {
   id: string;
-  description: string;
-  organizer: string;
-  startDate: string;
-  endDate: string;
-  prizePool: string;
-  entryRequirements: string;
-  players: Player[];
-  rounds: Round[];
-  totalWagers: string;
-  rewardTiers: RewardTier[];
+  description?: string;
+  organizer?: string;
+  startDate?: string;
+  endDate?: string;
+  prizePool?: string;
+  entryRequirements?: string;
+  players?: Player[];
+  rounds?: Round[];
+  totalWagers?: string;
+  rewardTiers?: RewardTier[];
+  maxParticipants?:number
 }
 
 interface Player {
@@ -66,6 +67,7 @@ export const generateTournaments = (count: number): Tournament[] => {
     status: statuses[i % 3],
     imageSrc: `https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
     participants: 200 + Math.floor(Math.random() * 300),
+    maxParticipants:32,
     organizer: "Rune Gaming",
     startDate: "2025-03-01T10:00:00Z",
     endDate: "2025-03-03T18:00:00Z",

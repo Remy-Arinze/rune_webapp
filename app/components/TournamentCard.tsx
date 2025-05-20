@@ -9,7 +9,7 @@ export interface TournamentCardProps {
   title: string;
   description?: string;
   status: "live" | "upcoming" | "completed";
-  imageSrc: string;
+  imageSrc?: string;
   participants: number;
   prizePool?: string;
   className?: string;
@@ -47,7 +47,7 @@ export const TournamentCardComponent: React.FC<TournamentCardProps> = ({
           {/* Background */}
           <div className="absolute inset-0">
             <Image
-              src={imageSrc}
+              src={imageSrc ?? ''}
               alt={title}
               fill
               className="object-cover"

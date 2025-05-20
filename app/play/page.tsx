@@ -7,13 +7,12 @@ import { CustomTabs } from '../components/tab_component'
 import { useRouter } from 'next/navigation'
 import { IoIosArrowDown, IoIosArrowForward } from 'react-icons/io'
 import { FaChessKing, FaChessQueen, FaChessRook, FaChessBishop, FaChessKnight, FaChessPawn, FaCrown, FaTrophy, FaUserFriends, FaRobot } from 'react-icons/fa'
-import { GiChessKing, GiSwordsEmblem } from 'react-icons/gi'
+import {  GiSwordsEmblem } from 'react-icons/gi'
 import { RiSwordFill } from 'react-icons/ri'
 
 const PlayScreen = () => {
   const router = useRouter()
   const [showFriendList, setShowFriendList] = useState(false)
-  const [activeTab, setActiveTab] = useState('new game')
 
   const timeControls = [
     { value: "bullet", label: "Bullet (1 min)" },

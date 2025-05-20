@@ -2,6 +2,7 @@ import React from 'react';
 import NFT from '../../public/assets/nft.png'
 import Image from 'next/image';
 import { CustomTabs } from '../components/tab_component';
+import { FaChessKing } from 'react-icons/fa';
 
 // Define types for our data
 type ChessPlayer = {
@@ -217,7 +218,7 @@ const Leaderboard: React.FC = () => {
   );
 
   return (
-    <div className="max-w-3xl mx-auto overflow-y-scroll no-scrollbar h-[80dvh]">
+    <div className=" mx-auto overflow-y-scroll no-scrollbar h-[80dvh] pr-10" >
       <CustomTabs hasBackgroundColor={false} tabs={[
         { value: 'world_ranking', label: 'World Ranking' },
         { value: 'chess.com', label: 'Chess.com' },
@@ -230,7 +231,11 @@ const Leaderboard: React.FC = () => {
         ))}
       </div>
 
-      <div>chess.com</div>
+       <div className="p-4 text-center">
+          <FaChessKing className="mx-auto text-4xl text-yellow-400 mb-4" />
+          <h3 className="text-xl font-bold mb-2">Chess.com Leaderboard</h3>
+          <p className="text-gray-400">Coming soon with live integration</p>
+        </div>
       </CustomTabs>
     </div>
   );

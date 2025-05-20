@@ -55,7 +55,7 @@ const DashboardNavbar = () => {
                         <NavItem
                             icon={<SwordsIcon size={18} />}
                             link="/matches"
-                            label="Games"
+                            label="Matches"
                             isActive={pathname === "/matches"}
                         />
                         <NavItem

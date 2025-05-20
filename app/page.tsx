@@ -30,6 +30,7 @@ const LandingPage = () => {
               <HeaderComponent 
                 title={"Featured Tournaments"} 
                 path="/tournaments/all" 
+                hasPath={true}
                 icon={<Flame className="text-orange-400" size={18} />}
               />
               <HorizontalScrollContainer className="mt-1 no-scrollbar">
@@ -46,6 +47,7 @@ const LandingPage = () => {
             <section>
               <HeaderComponent 
                 title={"Top Matches"} 
+                hasPath={true}
                 path="/matches" 
                 icon={<Zap className="text-yellow-400" size={18} />}
               />
