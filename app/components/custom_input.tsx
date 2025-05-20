@@ -1,5 +1,4 @@
 import React, { InputHTMLAttributes, SelectHTMLAttributes } from 'react';
-import Switch from 'react-switch';
 
 type InputType = 
   | 'text'
@@ -19,15 +18,14 @@ type Option = {
   value: string | number;
   label: string;
 };
-
 interface BaseInputProps {
   type?: InputType;
   label?: string;
   error?: string;
   className?: string;
-  disabled?:boolean;
-  checked?:boolean;
-  handleToggle?:(value:boolean)=> void;
+  disabled?: boolean;
+  checked?: boolean;
+  handleToggle?: (value: boolean) => void;
   containerClassName?: string;
   labelClassName?: string;
   errorClassName?: string;
@@ -37,7 +35,14 @@ interface BaseInputProps {
   errorBorderColor?: string;
   showSearchIcon?: boolean;
   placeholder?: string;
-  preventTextEdit?: boolean; // New prop to prevent text editing for datetime inputs
+  preventTextEdit?: boolean;
+  // New toggle-specific props
+  toggleBgColor?: string;
+  toggleCheckedBgColor?: string;
+  toggleThumbColor?: string;
+  toggleWidth?: string | number;
+  toggleHeight?: string | number;
+  toggleThumbSize?: string | number;
 }
 
 type InputProps = BaseInputProps & (
@@ -68,7 +73,7 @@ const SearchIcon = () => (
 const Input = React.forwardRef<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement, InputProps>(
   (
     {
-      type = 'text',
+type = 'text',
       label,
       error,
       className = '',
@@ -76,14 +81,15 @@ const Input = React.forwardRef<HTMLInputElement | HTMLSelectElement | HTMLTextAr
       labelClassName = '',
       errorClassName = '',
       options,
-      disabled,checked,
+      disabled,
+      checked,
       border = true,
       handleToggle,
       borderColor = 'border-gray-300',
       errorBorderColor = 'border-red-500',
       showSearchIcon = true,
       placeholder = type ? (type === 'search' ? 'Search...' : undefined) : undefined,
-      preventTextEdit = false, // Default to false
+      preventTextEdit = false,
       ...props
     },
     ref
@@ -111,27 +117,18 @@ const Input = React.forwardRef<HTMLInputElement | HTMLSelectElement | HTMLTextAr
 
     const renderInput = () => {
 if (type === 'toggle') {
-
-  return (
-    <div className="flex items-center gap-3">
-      <Switch
-        checked={!!checked}
-        disabled={disabled}
-        offColor="#ccc"
-        className={`w-[10px] ${className}`}
-        onColor="#FF8904"
-        height={25}
-        width={50}
-        onChange={(value:boolean)=>{
-         if(handleToggle ) handleToggle(value)
-        }}
-        uncheckedIcon={false}
-        checkedIcon={false}
-        
-      />
-    </div>
-  );
-}
+        return (
+          <label className="relative inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              className="sr-only peer"
+              checked={checked}
+              disabled={disabled}
+              onChange={(e) => handleToggle && handleToggle(e.target.checked)}
+            />
+        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-0 peer-focus:ring-orange-400 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-black after:content-[''] after:absolute after:top-[1.5px] after:left-[1.5px] after:bg-[var(--background)] after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[var(--primary)]"></div>          </label>
+        );
+      }
 
       if (type === 'textarea') {
         return (

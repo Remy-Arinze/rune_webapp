@@ -38,7 +38,7 @@ export default function Sidebar() {
 	return (
 		<div className={`fixed z-500 transform transition-transform duration-300 ease-in-out
         ${isOpen ? "translate-x-0" : "-translate-x-full"} 
-        md:translate-x-0 md:relative md:z-10 md:flex ml-5`}>
+        md:translate-x-0 md:relative md:z-10 md:flexS`}>
 			{/* Icon Sidebar (Leading) */}
 			<div className="hidden md:flex flex-col mr-4 items-center bg-[#1e2025] w-16 py-5 rounded-lg h-[80dvh] fixed">
 				<div className="mb-8 p-2 rounded-lg bg-[#2a2e35]">

@@ -4,7 +4,7 @@
 :root {
 	--primary: #FF8904;
 	--background: #000601;
-	--borderAccent: rgb(198, 130, 3);
+	--borderAccent: rgb(163, 106, 0);
 	--dark: #1e1f25;
 	--lightPrimary: #f0fab9;
 	--white: #f9f9f9;
@@ -14,8 +14,15 @@
 	--info: #00bfff;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(10deg);
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 body {

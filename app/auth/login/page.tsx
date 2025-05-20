@@ -19,7 +19,7 @@ const Login = () => {
             <Input
               type="text"
               placeholder="Username, Phone, or Email"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
             />
           </div>
           <div>
