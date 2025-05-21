@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "postinstall": "npm rebuild --arch=x64 --platform=linux sharp",
     "lint": "next lint"
   },
   "dependencies": {
