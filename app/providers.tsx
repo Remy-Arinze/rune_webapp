@@ -5,27 +5,37 @@ import { store } from "@/store";
 import Sidebar from "./components/sidebar/Sidebar";
 import Nav from "./components/Nav";
 import CustomModal from "./components/custom_modal";
+import { usePathname } from "next/navigation";
 
 export function Providers({ children }: { children: React.ReactNode }) {
+	const pathname = usePathname();
 
-	// const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-	// const [isMainSidebarExpanded,setIsMainSidebarExpanded] = useState(true);
-
+	// Add all paths where you want the sidebar hidden
+	const hideSidebar = pathname.startsWith("/game");
 
 	return (
 		<Provider store={store}>
 			<main>
 				<CustomModal />
-				<Nav/>
+				<Nav />
 				<section className="flex mx-auto pt-5">
-					<div className=" md:h-[calc(100vh-80px)] fixed overflow-y-scroll no-scrollbar">
-						<Sidebar />
+					{/* Conditionally render Sidebar */}
+					{!hideSidebar && (
+						<div className="md:h-[calc(100vh-80px)] fixed overflow-y-scroll no-scrollbar">
+							<Sidebar />
+						</div>
+					)}
+
+					<div
+						className={`${
+							!hideSidebar
+								? "md:w-[calc(100%-23rem)] ml-[auto]"
+								: "w-full ml-0"
+						} w-full md:px-0 px-3 md:mb-0 mb-10`}
+					>
+						{children}
 					</div>
-			
-			<div className={"md:w-[calc(100%-23rem)] w-full ml-[auto] md:px-0 px-3 md:mb-0 mb-10"}>
-				{children}
-			</div>
-			</section>
+				</section>
 			</main>
 		</Provider>
 	);

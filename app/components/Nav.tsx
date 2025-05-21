@@ -7,14 +7,16 @@ import Link from "next/link";
 import { CiMenuBurger } from "react-icons/ci";
 import { useDispatch } from "react-redux";
 import { toggleSidebar } from "@/store/ui_slice";
+import { useRouter } from "next/navigation";
 
 const Nav = () => {
 	const  [isSignedIn] = useState(false);
 	const dispatch = useDispatch();
+	const router = useRouter()
 	return (
-		<nav className="bg-[var(--background)] text-white w-full absolute z-100 fixed top-0  p-4 flex items-center justify-between border-b border-gray-700">
+		<nav className="bg-[var(--background)] md:pl-5 text-white w-full absolute z-100 fixed top-0  p-4 flex items-center justify-between border-b border-gray-700">
 			<div className="flex items-center space-x-20">
-				<div className="flex items-center space-x-3">
+				<div onClick={()=> router.push('/')} className="flex items-center space-x-3 hover:cursor-pointer">
 					<Image src={Logo} alt="logo" className="md:w-[8rem] w-[10rem]" />
 					{/* <p className="md:flex hidden text-[10px] text-gray-500">Tournaments</p> */}
 					{/* <p className="md:flex hidden text-[12px] text-gray-500">:</p> */}
