@@ -57,15 +57,15 @@ export default function Sidebar() {
 							'create_game'
 						))
 					}} className="p-2 rounded-lg bg-[var(--background)] hover:cursor-pointer">
-						<p data-tooltip-id="create-game" data-tooltip-content="Create New Game!">⚔️</p>
+						<p data-tooltip-id="create-game" data-tooltip-content="Create New Game">⚔️</p>
 						<Tooltip id='create-game' place="top"  />
 					</button>
 					<button className="p-2 rounded-lg bg-[var(--background)]  hover:cursor-pointer hover:bg-[#2a2e35]">
-						<FaCog data-tooltip-id="settings" data-tooltip-content="Settings!" className="text-gray-400 text-xl" />
+						<FaCog data-tooltip-id="settings" data-tooltip-content="Settings" className="text-gray-400 text-xl" />
 						<Tooltip id='settings' place="right"  />
 					</button>
 					<button className="p-2 rounded-lg hover:cursor-pointer bg-[var(--background)] hover:bg-[#2a2e35]">
-						<FaQuestionCircle  data-tooltip-id="support" data-tooltip-content="Support!" className="text-gray-400 text-xl" />
+						<FaQuestionCircle  data-tooltip-id="support" data-tooltip-content="Support" className="text-gray-400 text-xl" />
 						<Tooltip className="text-[12px]" id='support' place="right"  />
 					</button>
 				</div>
