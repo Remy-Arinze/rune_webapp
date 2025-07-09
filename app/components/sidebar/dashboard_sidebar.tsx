@@ -18,7 +18,7 @@ const DashboardNavbar = () => {
 
     return (
        <div>
-         <div className="ml-20 bg-[var(--dark)] text-white w-[15rem] p-6 flex flex-col border-r border-gray-800">
+         <div className=" bg-[var(--dark)] text-white w-[15rem] p-6 flex flex-col border-r border-gray-800">
             {/* User Profile Header */}
             <div className="mb-8">
                 <Link href={'/account'}>

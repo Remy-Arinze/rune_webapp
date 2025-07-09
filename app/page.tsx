@@ -24,7 +24,7 @@ const LandingPage = () => {
 
       <div className="md:mt-10">
         <div className="flex item-start justify-between">
-          <div className="w-full md:w-[35rem] lg:w-[70%] space-y-12">
+          <div className="w-full md:w-[35rem] lg:w-[73%] space-y-12">
             {/* Featured Tournaments */}
             <section>
               <HeaderComponent 
@@ -185,7 +185,7 @@ const LandingPage = () => {
           </div>
 
           {/* Winners Sidebar (unchanged) */}
-          <RecentWinners />
+            <RecentWinners />
         </div>
       </div>
     </div>

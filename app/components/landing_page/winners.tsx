@@ -20,7 +20,7 @@ const RecentWinners = () => {
   useEffect(() => {
     const generateRandomWinner = (): Winner => {
       const types: ('match' | 'tournament' | 'bet')[] = ['match', 'tournament', 'bet'];
-      const players = ['0x_Ra', 'CryptoKing', 'NFTQueen', 'DeFiDegen', 'Web3Warrior'];
+      const players = ['0x_Ra', 'CryptoKing', 'NFTQueen', 'DeFiDegen', 'Web3Warrior','majid', 'mason','jeremy','kay mama'];
       const amounts = [125, 250, 500, 750, 1000, 1500];
       
       return {
@@ -34,7 +34,7 @@ const RecentWinners = () => {
     };
 
     // Initial data
-    setWinners(Array.from({ length: 5 }, generateRandomWinner));
+    setWinners(Array.from({ length: 15 }, generateRandomWinner));
 
     // Simulate new winners every 8-15 seconds
     const interval = setInterval(() => {
@@ -64,7 +64,7 @@ const RecentWinners = () => {
   };
 
   return (
-    <div className="hidden md:flex flex-col bg-[var(--dark)] rounded-lg w-[20%] min-w-[220px] h-[45dvh] overflow-scroll no-scrollbar p-4 space-y-4">
+    <div className="hidden sticky top-1 md:flex flex-col bg-[var(--dark)] rounded-lg w-[20%] min-w-[220px] h-[85dvh] overflow-scroll no-scrollbar p-4 space-y-4">
       <div className="flex items-center space-x-2">
         <Crown className="text-yellow-400" size={18} />
         <h3 className="font-bold text-sm">Recent Winners</h3>

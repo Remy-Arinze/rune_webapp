@@ -36,11 +36,11 @@ export default function Sidebar() {
   const dispatch = useDispatch();
 
 	return (
-		<div className={`fixed z-500 transform transition-transform duration-300 ease-in-out
-        ${isOpen ? "translate-x-0" : "-translate-x-full"} 
-        md:translate-x-0 md:relative md:z-10 md:flex md:ml-5`}>
+		<div className={`fixed transform transition-transform duration-300 ease-in-out
+        ${isOpen ? "translate-x-150" : "translate-x-42"} 
+        md:translate-x-0 md:relative  md:flex md:ml-5`}>
 			{/* Icon Sidebar (Leading) */}
-			<div className="hidden md:flex flex-col mr-4 items-center bg-[#1e2025] w-16 py-5 rounded-lg h-[80dvh] fixed">
+			<div className="hidden sticky top-1 md:flex flex-col mr-4 items-center bg-[#1e2025] w-16 py-5 rounded-lg h-[80dvh]">
 				<div className="mb-8 p-2 rounded-lg bg-[#2a2e35]">
 					<RiFireFill className="text-orange-400 text-xl" />
 				</div>
