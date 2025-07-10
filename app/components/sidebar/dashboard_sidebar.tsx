@@ -22,7 +22,7 @@ const DashboardNavbar = () => {
             {/* User Profile Header */}
             <div className="mb-8">
                 <Link href={'/account'}>
-                <div className="h-[50px] w-[50px] flex items-center justify-center rounded-full bg-orange-400">
+                <div className="h-[50px] w-[50px] flex items-center justify-center rounded-full bg-[var(--primary)]">
                     <FaUser color="black" />
                 </div>
                 </Link>
@@ -107,7 +107,7 @@ const DashboardNavbar = () => {
                 </div> */}
 
                 {/* Premium Membership Banner */}
-                <div className="bg-orange-400 p-4 rounded-lg mb-6">
+                <div className="bg-[var(--primary)] p-4 rounded-lg mb-6">
                     <div className="flex items-start mb-2">
                         <FaCrown className="text-yellow-400 mt-1 mr-2" />
                         <div>
@@ -153,7 +153,7 @@ const NavItem = ({
         <Link href={link} prefetch>
             <li className={`flex items-center space-x-3 p-2 rounded cursor-pointer transition-colors ${
                 isActive 
-                    ? "bg-[#2A2E35] text-orange-400" 
+                    ? "bg-[#2A2E35] text-[var(--primary)]" 
                     : "hover:bg-[#2A2E35] text-gray-400 hover:text-gray-300"
             }`}>
                 <span>{icon}</span>

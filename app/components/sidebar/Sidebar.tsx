@@ -20,6 +20,7 @@ import { openModal } from "@/store/ui_slice";
 // 	showChevron?: boolean;
 // }
 
+
 export default function Sidebar() {
 	// const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 	// const [isMainSidebarExpanded,setIsMainSidebarExpanded] = useState(true);
@@ -42,7 +43,7 @@ export default function Sidebar() {
 			{/* Icon Sidebar (Leading) */}
 			<div className="hidden sticky top-1 md:flex flex-col mr-4 items-center bg-[#1e2025] w-16 py-5 rounded-lg h-[80dvh]">
 				<div className="mb-8 p-2 rounded-lg bg-[#2a2e35]">
-					<RiFireFill className="text-orange-400 text-xl" />
+					<RiFireFill className="text-[var(--primary)] text-xl" />
 				</div>
 				<div className=" flex flex-col space-y-3">
 					<div className="h-[30] w-[30] bg-yellow-500 rounded-md"></div>
@@ -57,7 +58,7 @@ export default function Sidebar() {
 							'create_game'
 						))
 					}} className="p-2 rounded-lg bg-[var(--background)] hover:cursor-pointer">
-						<p data-tooltip-id="create-game" data-tooltip-content="Create New Game">⚔️</p>
+						<p className="text-[20px]" data-tooltip-id="create-game" data-tooltip-content="New Game"> ⚔️ </p>
 						<Tooltip id='create-game' place="top"  />
 					</button>
 					<button className="p-2 rounded-lg bg-[var(--background)]  hover:cursor-pointer hover:bg-[#2a2e35]">

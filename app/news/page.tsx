@@ -276,9 +276,9 @@ export default function ChessNewsPage() {
               <span>{newsItem.date}</span>
               <span>{newsItem.time}</span>
             </div>
-          </div>s
+          </div>
         ))}
       </div>
     </div>
   );
-}s
+}

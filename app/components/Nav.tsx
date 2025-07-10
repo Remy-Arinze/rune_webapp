@@ -41,7 +41,7 @@ const Nav = () => {
 				<button className="p-2 rounded-full hover:bg-gray-700">
 					<FaBell size={15} className="text-md" />
 				</button> : <Link prefetch href={'/auth/login'}>
-				<p className="text-[12px] py-1 px-4 text-[var(--background)] font-semibold bg-orange-400 rounded-md">Sign In</p></Link>
+				<p className="text-[12px] py-1 px-4 text-[var(--background)] font-semibold bg-[var(--primary)] rounded-md">Sign In</p></Link>
 			}
 			</div>
 
