@@ -21,7 +21,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 				<section className="flex mx-auto pt-5">
 					{/* Conditionally render Sidebar */}
 					{!hideSidebar && (
-						<div className="md:h-[calc(100vh-80px)] fixed overflow-y-scroll no-scrollbar">
+						<div className="md:h-[calc(100vh-80px)] fixed md:z-0 z-50 overflow-y-scroll no-scrollbar">
 							<Sidebar />
 						</div>
 					)}

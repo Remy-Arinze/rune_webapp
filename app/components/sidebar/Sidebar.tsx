@@ -20,7 +20,6 @@ import { openModal } from "@/store/ui_slice";
 // 	showChevron?: boolean;
 // }
 
-
 export default function Sidebar() {
 	// const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 	// const [isMainSidebarExpanded,setIsMainSidebarExpanded] = useState(true);
@@ -38,7 +37,7 @@ export default function Sidebar() {
 
 	return (
 		<div className={`fixed transform transition-transform duration-300 ease-in-out
-        ${isOpen ? "translate-x-150" : "translate-x-42"} 
+        ${isOpen ? "translate-x-full" : "translate-x-0"} 
         md:translate-x-0 md:relative  md:flex md:ml-5`}>
 			{/* Icon Sidebar (Leading) */}
 			<div className="hidden sticky top-1 md:flex flex-col mr-4 items-center bg-[#1e2025] w-16 py-5 rounded-lg h-[80dvh]">
