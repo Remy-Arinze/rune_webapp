@@ -64,7 +64,7 @@ export function CustomTabs({
                   transform: 'translateZ(0)'
                 } : {}}
                 className={`
-                  py-1.5 mr-5 text-[12px] font-medium transition-all
+                  py-1.5 mr-5 text-[14px] font-medium transition-all
                   ${activeTab === tab.value 
                     ? hasBackgroundColor 
                       ? 'bg-orange-400 dark:bg-[var(--primary)] text-black shadow-sm rounded-lg' 

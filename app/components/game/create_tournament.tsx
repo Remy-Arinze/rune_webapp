@@ -53,7 +53,7 @@ const CreateTournament: React.FC = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Grandmaster Showdown"
-          style={{ background: 'var(--background)' }}
+          style={{ background: 'var(--dark)' }}
           required
         />
 
@@ -64,7 +64,7 @@ const CreateTournament: React.FC = () => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Describe your tournament..."
-          style={{ background: 'var(--background)' }}
+          style={{ background: 'var(--dark)' }}
           rows={3}
         />
 
@@ -75,7 +75,7 @@ const CreateTournament: React.FC = () => {
           value={entryFee}
           onChange={(e) => setEntryFee(e.target.value)}
           placeholder="0.00"
-          style={{ background: 'var(--background)' }}
+          style={{ background: 'var(--dark)' }}
           min="0"
           step="0.01"
         />
@@ -87,7 +87,7 @@ const CreateTournament: React.FC = () => {
           value={playerCount}
           onChange={(e) => setPlayerCount(e.target.value)}
           options={playerOptions}
-          style={{ background: 'var(--background)' }}
+          style={{ background: 'var(--dark)' }}
         />
 
         {/* Time Control */}
@@ -109,7 +109,7 @@ const CreateTournament: React.FC = () => {
             { value: "30|0", label: "30|0 - Classical🏛️" },
             { value: "30|20", label: "30|20 - Classical🏛️" },
           ]}
-          style={{ background: 'var(--background)' }}
+          style={{ background: 'var(--dark)' }}
         />
 
         {/* Tournament Stake */}
@@ -150,7 +150,7 @@ const CreateTournament: React.FC = () => {
         </div>
 
         {/* Create Button */}
-        <GameButton className="w-full font-medium">
+        <GameButton className="w-full font-semibold">
           Create Tournament
         </GameButton>
       </form>

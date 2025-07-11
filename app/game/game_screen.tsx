@@ -362,7 +362,7 @@ export default function ChessGameScreen() {
                       <p className="text-sm text-gray-400 mb-1 text-[12px]">You captured:</p>
                       <div className="flex gap-1">
                         {capturedPieces.black.map((piece, idx) => (
-                          <span key={idx} className="text-xl">{piece}</span>
+                          <span key={idx} className="text-3xl">{piece}</span>
                         ))}
                       </div>
                     </div>
@@ -370,7 +370,7 @@ export default function ChessGameScreen() {
                       <p className="text-sm text-gray-400 mb-1 text-[12px]">Opponent captured:</p>
                       <div className="flex gap-1">
                         {capturedPieces.white.map((piece, idx) => (
-                          <span key={idx} className="text-xl">{piece}</span>
+                          <span key={idx} className="text-3xl">{piece}</span>
                         ))}
                       </div>
                     </div>

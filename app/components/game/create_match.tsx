@@ -3,7 +3,6 @@ import Input from '../custom_input';
 import GameButton from '../custom_button';
 
 type GameType = 'instant' | 'scheduled';
-type GameVisibility = 'public' | 'private';
 type WagerType = {
   enabled: boolean;
   amount?: string;
@@ -21,10 +20,9 @@ type WagerType = {
 
 const CreateMatch: React.FC = () => {
   const [gameType, setGameType] = useState<GameType>('instant');
-  const [visibility, setVisibility] = useState<GameVisibility>('public');
-  const [wager, setWager] = useState<WagerType>({ enabled: true });
+  const [wager, setWager] = useState<WagerType>({ enabled: false });
   const [strictWager, setStrictWager] = useState<boolean>(false);
-  const [rated, setRated] = useState<boolean>(true);
+  const [privateGame, setprivateGame] = useState<boolean>(false);
 
   const handleWagerToggle = () => {
     setWager(prev => ({
@@ -84,38 +82,26 @@ const CreateMatch: React.FC = () => {
         ]}
       />
 
-      {/* Visibility Toggle */}
+      {/* Game vis Toggle */}
       <div className="flex items-center justify-between">
-        <span className="text-[12px] font-medium text-gray-300">Game Visibility</span>
-        <div className="flex items-center">
-          <span className={`mr-2 text-[10px] ${visibility === 'public' ? 'font-medium text-[var(--primary)]' : 'text-gray-500'}`}>
-            Public
-          </span>
-          <Input
-            type="toggle"
-            checked={visibility === 'private'}
-            handleToggle={() => setVisibility(prev => prev === 'public' ? 'private' : 'public')}
-          />
-          <span className={`ml-2 text-[12px] ${visibility === 'private' ? 'font-medium text-[var(--primary)]' : 'text-gray-500'}`}>
-            Private
-          </span>
-        </div>
-      </div>
-
-      {/* Rated Toggle */}
-      <div className="flex items-center justify-between">
-        <span className="text-[12px] font-medium text-gray-300">Rated Game</span>
+         <div>
+             <p className="text-[12px] font-medium text-gray-300 mb-1">Private Game</p>
+              <p className='text-[10px] text-gray-500 w-50'>Your game can be seen and wagered on by only users you invite</p>
+           </div>
         <Input
           type="toggle"
-          checked={rated}
-          handleToggle={() => setRated(prev => !prev)}
+          checked={privateGame}
+          handleToggle={() => setprivateGame(prev => !prev)}
         />
       </div>
 
       {/* Wager Section */}
       <div className="space-y-2">
         <div className="flex items-center justify-between">
-          <span className="text-[12px] font-medium text-gray-300">Wager</span>
+           <div>
+             <p className="text-[12px] font-medium text-gray-300 mb-1">Wager</p>
+              <p className='text-[10px] text-gray-500 w-50'>Set the terms of this game, put something on the line </p>
+           </div>
           <Input
             type="toggle"
             checked={wager.enabled}
@@ -123,14 +109,17 @@ const CreateMatch: React.FC = () => {
           />
         </div>
         
-        <div className="flex items-center justify-between mt-5">
-          <span className="text-[12px] font-medium text-gray-300">Strict Wager</span>
+      {wager.enabled &&    <div className="flex items-center justify-between mt-5">
+          <div>
+             <p className="text-[12px] font-medium text-gray-300 mb-1">Strict Wager</p>
+              <p className='text-[10px] text-gray-500 w-50'>If active, the invited user is not allowed to accept the wager request with a lesser asset </p>
+           </div>
           <Input
             type="toggle"
             checked={strictWager}
             handleToggle={() => setStrictWager(prev => !prev)}
           />
-        </div>
+        </div>}
 
         {/* Wager Details */}
         {wager.enabled && (
@@ -222,8 +211,8 @@ const CreateMatch: React.FC = () => {
       </div>
 
       {/* Create Button */}
-      <GameButton className="w-full font-medium">
-        Create Match
+      <GameButton className="w-full font-semibold">
+        Start Match
       </GameButton>
     </div>
   );

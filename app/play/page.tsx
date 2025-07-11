@@ -1,260 +1,131 @@
-'use client'
-import React, { useState } from 'react'
-import GameBoard from './game_board'
-import GameButton from '../components/custom_button'
-import { SelectDropdown } from '../components/dropdown'
-import { CustomTabs } from '../components/tab_component'
-import { useRouter } from 'next/navigation'
-import { IoIosArrowDown, IoIosArrowForward } from 'react-icons/io'
-import { FaChessKing, FaChessQueen, FaChessRook, FaChessBishop, FaChessKnight, FaChessPawn, FaCrown, FaTrophy, FaUserFriends, FaRobot } from 'react-icons/fa'
-import {  GiSwordsEmblem } from 'react-icons/gi'
-import { RiSwordFill } from 'react-icons/ri'
+"use client";
+import { openModal } from '@/store/ui_slice';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { FaUsers, FaGamepad, FaWifi, FaTrophy, FaRobot, FaUserFriends, FaFire } from 'react-icons/fa';
+import { GiSwordsEmblem } from 'react-icons/gi';
+import { IoMdStats } from 'react-icons/io';
 
-const PlayScreen = () => {
-  const router = useRouter()
-  const [showFriendList, setShowFriendList] = useState(false)
-
-  const timeControls = [
-    { value: "bullet", label: "Bullet (1 min)" },
-    { value: "blitz", label: "Blitz (3|2)" },
-    { value: "rapid", label: "Rapid (10|0)" },
-    { value: "classical", label: "Classical (30|20)" },
-  ]
-
-  const gameVariants = [
-    { value: "standard", label: "Standard Chess" },
-    { value: "960", label: "Chess 960" },
-    { value: "atomic", label: "Atomic" },
-    { value: "horde", label: "Horde" },
-  ]
-
-  // Dummy player data
-  const friendsList = [
-    { id: 1, name: "ChessMaster64", rating: 1850, status: "online", wins: 42, rank: "Gold", avatar: "/assets/avatars/1.png" },
-    { id: 2, name: "PawnStorm", rating: 1620, status: "online", wins: 28, rank: "Silver", avatar: "/assets/avatars/2.png" },
-    { id: 3, name: "CheckmateKing", rating: 2100, status: "offline", wins: 87, rank: "Platinum", avatar: "/assets/avatars/3.png" },
-    { id: 4, name: "BishopSlayer", rating: 1540, status: "online", wins: 15, rank: "Bronze", avatar: "/assets/avatars/4.png" },
-    { id: 5, name: "QueenGambit", rating: 1980, status: "away", wins: 63, rank: "Gold", avatar: "/assets/avatars/5.png" },
-  ]
-
-  const getRankIcon = (rank:string) => {
-    switch(rank.toLowerCase()) {
-      case 'bronze': return <FaChessPawn className="text-amber-700" />
-      case 'silver': return <FaChessRook className="text-gray-300" />
-      case 'gold': return <FaChessKnight className="text-yellow-400" />
-      case 'platinum': return <FaChessBishop className="text-blue-300" />
-      case 'diamond': return <FaChessQueen className="text-purple-300" />
-      default: return <FaChessPawn className="text-gray-400" />
-    }
-  }
-
+export default function PlayScreen() {
+  const dispatch = useDispatch();
+  
   return (
-    <div className='flex overflow-scroll no-scrollbar bg-[var(--background)]'>
-      {/* Main Game Area */}
-      <div className=' flex'>
-        {/* Chess Board */}
-        <div className=' flex mr-10 flex-col items-center h-[80dvh] overflow-y-scroll no-scrollbar'>
-          <div className='relative'>
-            <GameBoard />
+    <div className="md:h-[80dvh] overflow-y-scroll no-scrollbar bg-[var(--background)] text-white font-sans bg-[url('/images/game-grid-pattern.svg')] bg-cover">
+      <main className="p-6 flex flex-col md:ml-[5%]">
+        {/* Stats Cards with Icons */}
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-2xl">
+          <StatCard 
+            icon={<FaUsers className="text-blue-400" size={20} />} 
+            title="Players" 
+            value="85,277" 
+            description="Active competitors" 
+          />
+          <StatCard 
+            icon={<FaGamepad className="text-purple-400" size={20} />} 
+            title="Games" 
+            value="573,866" 
+            description="Matches played" 
+          />
+          <StatCard 
+            icon={<FaWifi className="text-green-400" size={20} />} 
+            title="Online" 
+            value="2,451" 
+            description="Players connected" 
+          />
+          <StatCard 
+            icon={<GiSwordsEmblem className="text-red-400" size={20} />} 
+            title="Ongoing" 
+            value="5" 
+            description="Live tournaments" 
+          />
+        </section>
+
+        {/* Hero Section */}
+        {/* <div className="my-12 text-center max-w-2xl bg-gradient-to-r from-orange-500/10 to-purple-500/10 p-8 rounded-2xl border border-white/10 backdrop-blur-sm">
+          <div className="flex justify-center mb-4">
+            <FaTrophy className="text-orange-400" size={32} />
           </div>
-          
-          <div className='mt-8 bg-[var(--dark)] w-full max-w-2xl rounded-lg p-4'>
-            <h3 className='flex items-center text-lg font-bold mb-3'>
-              <RiSwordFill className='text-orange-400 mr-2' />
-              Recent Games
-            </h3>
-            <div className='space-y-2'>
-              {[1, 2, 3].map((game) => (
-                <div key={game} className='flex items-center justify-between p-2 bg-[var(--darker)] rounded'>
-                  <div className='flex items-center'>
-                    <FaChessKing className='mr-2 text-orange-400' />
-                    <span>Game #{game}</span>
-                  </div>
-                  <span className='text-sm text-gray-400'>2 days ago</span>
-                </div>
-              ))}
-            </div>
+          <h3 className="text-2xl font-bold text-orange-400 mb-2">Create Tournament</h3>
+          <p className="text-white/80 mb-4">Compete against the best and climb the leaderboards</p>
+          <div className="flex items-center justify-center space-x-2 text-yellow-300">
+            <FaFire />
+            <span className="text-sm font-medium">Season 3 underway</span>
           </div>
-        </div>
+        </div> */}
 
-        {/* Game Setup Panel */}
-        <div className={`w-[15rem] bg-[var(--dark)] px-3 transition-all duration-300 h-[80dvh] overflow-y-scroll no-scrollbar`}>
-          <CustomTabs
-            hasBackgroundColor={false}
-            tabs={[
-              { label: 'New Game', value: 'new game', icon: <FaChessKing className="mr-1" /> },
-              { label: 'Players', value: 'players', icon: <FaUserFriends className="mr-1" /> },
-            ]}
-          >
-            {/* New Game Tab Content */}
-            <div className='mt-3 space-y-6'>
-              <div>
-                <h4 className='flex items-center text-[13px] font-semibold mb-2'>
-                  <FaChessPawn className='mr-2 text-orange-400 ' />
-                  Game Variant
-                </h4>
-                <SelectDropdown 
-                  options={gameVariants}
-                  placeholder="Select variant"
-                  icon={<FaChessKing className="text-orange-400 text-[12px]" />}
-                />
-              </div>
-
-              <div>
-                <h4 className='flex items-center text-[13px] font-semibold mb-2'>
-                  <FaTrophy className='mr-2 text-orange-400' />
-                  Time Control
-                </h4>
-                <SelectDropdown 
-                  options={timeControls}
-                  placeholder="Select time control"
-                  icon={<FaTrophy className="text-orange-400 text-[12px]" />}
-                />
-              </div>
-
-              <div className='pt-4'>
-                <GameButton 
-                  className='w-full '
-                  onClick={() => router.push('/game')}
-                >
-                  <div className='flex items-center justify-center text-md'>
-                    <GiSwordsEmblem className='mr-2 ' />
-                    <span className='font-bold'>Start Game</span>
-                  </div>
-                </GameButton>
-              </div>
-
-              <div className='flex items-center justify-center space-x-2 text-gray-400 cursor-pointer' onClick={() => setShowFriendList(!showFriendList)}>
-                <IoIosArrowDown className={`transition-transform ${showFriendList ? 'rotate-180' : ''}`} />
-                <p className='text-sm'>More Options</p>
-              </div>
-
-              <div className='space-y-3'>
-                <GameButton 
-                  className='w-full text-sm'
-                  onClick={() => setShowFriendList(!showFriendList)}
-                >
-                  <div className='flex items-center justify-center'>
-                    <FaUserFriends className='mr-2 text-[var(--background)]' />
-                    <span>Play a Friend</span>
-                  </div>
-                </GameButton>
-
-                <GameButton className='w-full text-sm'>
-                  <div className='flex items-center justify-center'>
-                    <FaRobot className='mr-2 text-blue-400' />
-                    <span>Play a Bot</span>
-                  </div>
-                </GameButton>
-              </div>
-            </div>
-
-            {/* Players Tab Content */}
-            <div className='mt-3'>
-              <h3 className='text-sm font-medium mb-2'>Online Players</h3>
-              <div className='space-y-3'>
-                {friendsList.map(player => (
-                  <div key={player.id} className='flex items-center py-3 cursor-pointer'>
-                    <div className='relative mr-3'>
-                      <div className='w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center'>
-                        <FaChessKing className='text-orange-400' />
-                      </div>
-                      <div className='absolute -bottom-1 -right-1'>
-                        {getRankIcon(player.rank)}
-                      </div>
-                    </div>
-                    <div className='flex-1'>
-                      <div className='flex justify-between items-center'>
-                        <span className='font-medium text-[14px]'>{player.name}</span>
-                        <span className='text-[10px] bg-green-900 text-green-300 px-2 py-1 rounded-full'>{player.rating}</span>
-                      </div>
-                      <div className='flex justify-between text-xs text-gray-400 mt-1'>
-                        <span className='text-[10px]'>{player.wins} wins</span>
-                        <span className='flex items-center text-[10px]'>
-                          <span className={`w-2 h-2 rounded-full mr-1 ${player.status === 'online' ? 'bg-green-500' : 'bg-gray-500'}`}></span>
-                          {player.status}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </CustomTabs>
-        </div>
-
-        {/* Friends List Panel (conditionally shown) */}
-        {showFriendList && (
-          <div className=' bg-[var(--darker)] px-5 overflow-y-auto h-[80dvh] overflow-y-scroll no-scrollbar'>
-            <div className='flex items-center justify-between mb-6'>
-              <h3 className='text-sm font-bold flex items-center'>
-                <FaUserFriends className='mr-2 text-[var(--primary)]' />
-                Friends
-              </h3>
-              <button 
-                onClick={() => setShowFriendList(false)}
-                className='text-gray-400 hover:text-white'
-              >
-                <IoIosArrowForward />
-              </button>
-            </div>
-
-            <div className='space-y-4 '>
-              {friendsList.map(friend => (
-                <div key={friend.id} className='flex items-center p-3 bg-[var(--dark)] rounded-lg hover:bg-[var(--dark-hover)] cursor-pointer'>
-                  <div className='relative mr-3'>
-                    <div className='w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center'>
-                      <FaChessQueen className='text-orange-400 text-xl' />
-                    </div>
-                    {friend.status === 'online' && (
-                      <div className='absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full border border-[var(--dark)]'></div>
-                    )}
-                  </div>
-                  <div className='flex-1'>
-                    <div className='flex justify-between space-x-4 items-center'>
-                      <span className='font-medium text-[12px]'>{friend.name}</span>
-                      <div className='flex items-center'>
-                        <FaTrophy className='text-yellow-400 mr-1' />
-                        <span className='text-[10px]'>{friend.rating}</span>
-                      </div>
-                    </div>
-                    <div className='flex justify-between items-center mt-1'>
-                      <div className='flex items-center'>
-                        {getRankIcon(friend.rank)}
-                        <span className='text-[10px] ml-1 text-gray-400'>{friend.rank}</span>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className='mt-8'>
-              <h4 className='text-sm font-semibold mb-3 flex items-center'>
-                <FaCrown className='mr-2 text-yellow-400' />
-                Top Players
-              </h4>
-              <div className='space-y-3'>
-                {[...friendsList]
-                  .sort((a, b) => b.rating - a.rating)
-                  .slice(0, 3)
-                  .map((player, index) => (
-                    <div key={player.id} className='flex items-center p-2 bg-[var(--dark)] rounded'>
-                      <div className='w-6 h-6 rounded-full bg-yellow-500 flex items-center justify-center mr-2'>
-                        <span className='text-xs font-bold text-black'>{index + 1}</span>
-                      </div>
-                      <span className='font-medium text-sm flex-1'>{player.name}</span>
-                      <span className='text-xs bg-green-900 text-green-300 px-2 rounded-full'>{player.rating}</span>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Action Buttons */}
+        <div className="grid grid-cols-2 gap-4 mt-10 w-full max-w-2xl">
+        <GameButton 
+          icon={<FaFire className="mr-2" />}
+          label="Instant Play"
+          description="Instant 1v1 battles, with random opponents"
+          color="bg-gradient-to-r from-orange-500 to-orange-600"
+          onClick={() => dispatch(openModal('create_game'))}
+        />
+        <GameButton 
+          icon={<FaRobot className="mr-2" />}
+          label="VS AI"
+          description="Train against adaptive AI opponents"
+          color="bg-gradient-to-r from-purple-500/90 to-purple-600/90"
+        />
+        <GameButton 
+          icon={<FaUserFriends className="mr-2" />}
+          label="Challenge"
+          description="Duel friends with custom rules"
+          color="bg-gradient-to-r from-blue-500/90 to-blue-600/90"
+        />
+        <GameButton 
+          icon={<FaTrophy className="mr-2" />}
+          label="Tournaments"
+          description="Compete for glory and rewards"
+          color="bg-gradient-to-r from-green-500/90 to-green-600/90"
+        />
       </div>
+
+        {/* Recent Activity */}
+        <div className="mt-12 w-full max-w-2xl">
+          <div className="flex items-center mb-4">
+            <IoMdStats className="text-white/60 mr-2" />
+            <h4 className="font-medium text-white/80">Recent Activity</h4>
+          </div>
+          <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+            <p className="text-sm text-white/60">Player &quot;ShadowNinja&quot; just reached Diamond tier!</p>
+            <p className="text-sm text-white/60 mt-2">Tournament &quot;Summer Showdown&quot; starts in 2 days</p>
+          </div>
+        </div>
+      </main>
     </div>
-  )
+  );
 }
 
-export default PlayScreen
+// Reusable Stat Card Component
+const StatCard = ({ icon, title, value, description }: { icon: React.ReactNode, title: string, value: string, description: string }) => (
+  <div className="bg-white/5 rounded-lg p-4 border border-white/10 hover:bg-white/10 transition-colors">
+    <div className="flex items-center space-x-2 mb-2">
+      {icon}
+      <span className="text-sm font-medium text-white/60">{title}</span>
+    </div>
+    <h3 className="text-2xl font-bold mb-1">{value}</h3>
+    <p className="text-xs text-white/40">{description}</p>
+  </div>
+);
+
+// Reusable Game Button Component
+const GameButton = ({ icon, label, description, color, onClick }: { 
+  icon: React.ReactNode, 
+  label: string, 
+  description: string, 
+  color: string,
+  onClick?: () => void 
+}) => (
+  <button 
+    onClick={onClick}
+    className={`${color} hover:brightness-110 text-white font-medium py-4 px-4 rounded-xl transition-all flex flex-col items-center justify-center`}
+  >
+    <div className="flex items-center">
+      {icon}
+      <span>{label}</span>
+    </div>
+    <span className="text-xs font-normal mt-1 text-white/80">{description}</span>
+  </button>
+);

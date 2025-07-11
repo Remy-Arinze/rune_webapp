@@ -37,7 +37,7 @@ const AssetSelector: React.FC<AssetSelectorProps> = ({
     <div className="space-y-1">
       <label className="block text-[12px] font-medium text-gray-300 mb-1">{title}</label>
       <select
-        className="w-full p-2 bg-[var(--background)] text-white text-[12px] border border-gray-600 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)]"
+        className="w-full p-2 bg-[var(--dark)] text-white text-[12px] border border-gray-600 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--primary)]"
         onChange={(e) => {
           const selectedOption = JSON.parse(e.target.value);
           onChange(selectedOption);

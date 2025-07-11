@@ -1,24 +1,24 @@
-import { SwordsIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import {
     FaCrown,
-    FaTrophy,
     FaNewspaper,
-    FaHome,
-    FaStore,
-    FaGamepad,
-    FaGlobe,
     FaUser,
+    FaChartLine,
+    FaShoppingCart,
+    FaTrophy,
 } from "react-icons/fa";
+import { RiSwordFill } from "react-icons/ri";
+import { GoHomeFill } from "react-icons/go";
+import { IoGameController } from "react-icons/io5";
 
 const DashboardNavbar = () => {
     const pathname = usePathname();
 
     return (
        <div>
-         <div className=" bg-[var(--dark)] text-white w-[15rem] p-6 flex flex-col border-r border-gray-800">
+         <div className="bg-[var(--dark)] text-white w-[15rem] p-6 flex flex-col border-r border-gray-800">
             {/* User Profile Header */}
             <div className="mb-8">
                 <Link href={'/account'}>
@@ -26,11 +26,11 @@ const DashboardNavbar = () => {
                     <FaUser color="black" />
                 </div>
                 </Link>
-                <p className="text-[10px] text-gray-500 mt-5">Good Morning</p>
+                <p className="text-[10px] text-gray-500 mt-5">Hello</p>
                 <h1 className="text-xl font-bold ">0X_RA</h1>
                 <hr className="text-gray-700 my-2 mb-5" />
                 <NavItem 
-                    icon={<FaHome />} 
+                    icon={<GoHomeFill size={18} />} 
                     label="Home" 
                     link="/" 
                     isActive={pathname === "/"} 
@@ -39,45 +39,45 @@ const DashboardNavbar = () => {
 
             {/* Main Navigation Sections */}
             <div className="flex-grow">
-                {/* MATERIATORY Section */}
+                {/* Navigation Section */}
                 <div className="mb-8">
                     <h2 className="text-gray-500 uppercase text-xs font-bold mb-4 tracking-wider">
                         Navigation
                     </h2>
 
-                    <ul className="space-y-3">
+                    <ul className="flex flex-col space-y-2">
                         <NavItem
-                            icon={<FaGamepad />}
+                            icon={<IoGameController size={18} />}
                             link="/play"
                             label="Play"
                             isActive={pathname === "/play"}
                         />
                         <NavItem
-                            icon={<SwordsIcon size={18} />}
+                            icon={<RiSwordFill size={18} />}
                             link="/matches"
                             label="Matches"
                             isActive={pathname === "/matches"}
                         />
                         <NavItem
-                            icon={<FaTrophy />}
+                            icon={<FaTrophy size={18} />}
                             link="/tournaments"
                             label="Tournaments"
                             isActive={pathname === "/tournaments"}
                         />
                         <NavItem 
-                            icon={<FaNewspaper />} 
+                            icon={<FaNewspaper size={18} />} 
                             label="News" 
                             link="/news" 
                             isActive={pathname === "/news"} 
                         />
                         <NavItem 
-                            icon={<FaStore />} 
+                            icon={<FaShoppingCart size={18} />} 
                             label="Store" 
                             link="/store" 
                             isActive={pathname === "/store"} 
                         />
                         <NavItem
-                            icon={<FaGlobe />}
+                            icon={<FaChartLine size={18} />}
                             link="/leaderboard"
                             label="Leaderboard"
                             isActive={pathname === "/leaderboard"}
@@ -85,35 +85,14 @@ const DashboardNavbar = () => {
                     </ul>
                 </div>
 
-                {/* CONFIGURER Section */}
-                {/* <div className="mb-8">
-                    <h2 className="text-gray-500 uppercase text-xs font-bold mb-4 tracking-wider">
-                        CONFIGURER
-                    </h2>
-                    <ul className="space-y-3">
-                        <NavItem
-                            icon={<FaQuestionCircle />}
-                            label="Support"
-                            link="/support"
-                            isActive={pathname === "/support"}
-                        />
-                        <NavItem
-                            icon={<FaCog />}
-                            label="Settings"
-                            link="/settings"
-                            isActive={pathname === "/settings"}
-                        />
-                    </ul>
-                </div> */}
-
                 {/* Premium Membership Banner */}
                 <div className="bg-[var(--primary)] p-4 rounded-lg mb-6">
                     <div className="flex items-start mb-2">
-                        <FaCrown className="text-yellow-400 mt-1 mr-2" />
+                        <FaCrown className="text-yellow-400 mt-1 mr-2" size={16} />
                         <div>
                             <h3 className="font-bold text-sm text-[var(--background)]">Unlock more with Premium</h3>
                             <p className="text-gray-700 text-[10px]">
-                                More comes the benefit of a premium membership.
+                                Get exclusive benefits with premium membership.
                             </p>
                         </div>
                     </div>
@@ -123,13 +102,10 @@ const DashboardNavbar = () => {
                 </div>
             </div>
 
-            {/* Footer/Get Started */}
+            {/* Footer */}
             <div>
-                <button className="w-full bg-black hover:bg-blue-700 text-gray-400 py-2 px-4 rounded text-sm font-bold transition-colors mb-3">
-                    Get Started
-                </button>
-                <div className="text-center text-gray-500 text-xs">
-                    © 2024 Erik Padamans
+                <div className="text-gray-500 text-xs">
+                    © 2024 Rune
                 </div>
             </div>
         </div>
@@ -137,7 +113,6 @@ const DashboardNavbar = () => {
     );
 };
 
-// Updated NavItem component with active state styling
 const NavItem = ({
     icon,
     label,
@@ -151,12 +126,16 @@ const NavItem = ({
 }) => {
     return (
         <Link href={link} prefetch>
-            <li className={`flex items-center space-x-3 p-2 rounded cursor-pointer transition-colors ${
-                isActive 
-                    ? "bg-[#2A2E35] text-[var(--primary)]" 
-                    : "hover:bg-[#2A2E35] text-gray-400 hover:text-gray-300"
-            }`}>
-                <span>{icon}</span>
+            <li
+                style={{
+                    boxShadow: isActive ? "0 1px 2px var(--borderAccent)" : "none",
+                }}
+                className={`flex items-center space-x-3 p-2 rounded cursor-pointer transition-colors ${
+                    isActive 
+                        ? "bg-[#2A2E35] text-[var(--primary)]" 
+                        : "hover:bg-[#2A2E35] text-gray-400 hover:text-gray-300"
+                }`}>
+                <span className="flex items-center justify-center w-5">{icon}</span>
                 <span className="text-[14px]">{label}</span>
             </li>
         </Link>
